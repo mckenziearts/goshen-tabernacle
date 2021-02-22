@@ -39,6 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             Route::middleware('web')
+                ->domain(config('goshen.sub_domain'))
                 ->namespace($this->namespace)
                 ->group(base_path('routes/app.php'));
 
