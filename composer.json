@@ -12,8 +12,10 @@
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
+    "laravel-boilerplate/setting": "*",
     "laravel/framework": "^8.12",
     "laravel/tinker": "^2.5",
+    "livewire/livewire": "^2.3",
     "mhmiton/laravel-modules-livewire": "^1.1",
     "nwidart/laravel-modules": "^8.2"
   },
@@ -68,5 +70,11 @@
       "@php artisan ide-helper:generate",
       "@php artisan ide-helper:meta"
     ]
+  },
+  "repositories": {
+    "laravel-boilerplate/setting": {
+      "type": "path",
+      "url": "./Modules/Setting"
+    }
   }
 }
