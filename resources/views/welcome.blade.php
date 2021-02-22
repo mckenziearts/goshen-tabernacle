@@ -52,7 +52,7 @@
                     </div>
                     <div class="mt-10">
                         <div>
-                            <a href="{{ route('youtube') }}" class="inline-flex space-x-4">
+                            <a href="{{ url('/youtube') }}" class="inline-flex space-x-4">
                                 <span class="rounded bg-purple-50 px-2.5 py-1 text-xs font-semibold text-purple-600 tracking-wide uppercase">
                                     {{ __('Abonnez-vous') }}
                                 </span>

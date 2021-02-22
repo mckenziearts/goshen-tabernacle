@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 /**
  * Redirect url to protect admin panel
  */
-Route::redirect('.env', 'https://www.youtube.com/watch?v=M8ogFbLP9XQ');
-Route::redirect('wp-login.php', 'https://www.youtube.com/watch?v=M8ogFbLP9XQ');
-Route::redirect('wp-admin', 'https://www.youtube.com/watch?v=M8ogFbLP9XQ');
-Route::redirect('/youtube', 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg')->name('youtube');
+Route::redirectMap([
+    '.env' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
+    'wp-login' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
+    'wp-admin' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
+    'youtube' => 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg'
+]);
 
 Route::view('/', 'welcome')->name('soon');
 Route::view('/podcasts', 'podcasts')->name('podcasts');
