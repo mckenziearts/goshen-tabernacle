@@ -23,9 +23,3 @@ Route::redirect('/youtube', 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-e
 
 Route::view('/', 'welcome')->name('soon');
 Route::view('/podcasts', 'podcasts')->name('podcasts');
-
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
-
-// require __DIR__.'/auth.php';
