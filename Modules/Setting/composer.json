@@ -1,0 +1,29 @@
+{
+  "name": "laravel-boilerplate/setting",
+  "description": "Laravel Boilerplate Setting Module for enable some basic actions to your project.",
+  "authors": [
+    {
+      "name": "Arthur Monney",
+      "email": "monneylobe@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.4|^8.0",
+    "laravel/framework": "^8.0",
+    "livewire/livewire": "^2.0",
+    "mhmiton/laravel-modules-livewire": "^1.1",
+    "nwidart/laravel-modules": "^8.2"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [],
+      "aliases": {}
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Setting\\": ""
+    }
+  }
+}
