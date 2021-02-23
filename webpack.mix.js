@@ -16,3 +16,13 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('tailwindcss'),
     require('autoprefixer'),
 ]);
+
+/*
+ |--------------------------------------------------------------------------
+ | Laravel Mix Asset For other source.
+ |--------------------------------------------------------------------------
+ |
+ |
+*/
+
+require(`${__dirname}/themes/sidebar-default/webpack.mix.js`);

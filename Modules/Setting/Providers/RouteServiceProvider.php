@@ -47,7 +47,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(['admin', 'theme:'. config('theme.active')])
+            ->prefix(config('goshen.prefix'))
+            ->domain(config('goshen.sub_domain'))
+            ->as('admin.')
             ->namespace($this->moduleNamespace)
             ->group(module_path('Setting', '/Routes/web.php'));
     }

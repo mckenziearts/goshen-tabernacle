@@ -3,7 +3,7 @@
 namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
+use Qirolab\Theme\Middleware\ThemeMiddleware;
 
 class DashboardServiceProvider extends ServiceProvider
 {
@@ -28,6 +28,8 @@ class DashboardServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        $this->app['router']->aliasMiddleware('theme', ThemeMiddleware::class);
     }
 
     /**
@@ -48,7 +50,7 @@ class DashboardServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this->moduleName, 'Config/config.php') => config_path("modules/$this->moduleNameLower.php"),
         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower

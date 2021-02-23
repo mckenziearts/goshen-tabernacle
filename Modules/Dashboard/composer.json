@@ -13,6 +13,7 @@
     "php": "^7.4|^8.0",
     "composer/installers": "~1.0",
     "laravel/framework": "^8.0",
+    "laravel-boilerplate/setting": "*",
     "mhmiton/laravel-modules-livewire": "^1.1",
     "nwidart/laravel-modules": "^8.2",
     "qirolab/laravel-themer": "^1.4"

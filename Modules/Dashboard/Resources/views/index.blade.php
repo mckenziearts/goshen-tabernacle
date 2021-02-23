@@ -1,4 +1,4 @@
-@extends('dashboard::layouts.master')
+@extends('layouts.cp')
 
 @section('content')
     <h1>Hello World</h1>

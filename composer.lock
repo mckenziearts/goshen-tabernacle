@@ -1099,10 +1099,11 @@
             "dist": {
                 "type": "path",
                 "url": "./Modules/Dashboard",
-                "reference": "b4deb8fda5a9b61229cd47f7f42992a0bd57abfa"
+                "reference": "d1e1f7bd81ec50dc8c0ed8870f80b2ff0cfe592c"
             },
             "require": {
                 "composer/installers": "~1.0",
+                "laravel-boilerplate/setting": "*",
                 "laravel/framework": "^8.0",
                 "mhmiton/laravel-modules-livewire": "^1.1",
                 "nwidart/laravel-modules": "^8.2",

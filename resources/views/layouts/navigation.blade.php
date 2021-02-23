@@ -20,7 +20,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right" width="56" contentClasses="bg-white divide-y divide-gray-100">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->full_name }}</div>
@@ -35,15 +35,32 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        <div class="px-4 py-3">
+                            <p class="text-sm">{{ __('Connecté avec') }}</p>
+                            <p class="text-sm font-medium text-gray-900 truncate">
+                                {{ Auth::user()->email }}
+                            </p>
+                        </div>
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Logout') }}
-                            </x-dropdown-link>
-                        </form>
+                        @if(Auth::user()->isAdmin())
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <x-dropdown-link :href="route('admin.dashboard')">
+                                    {{ __('CPanel') }}
+                                </x-dropdown-link>
+                            </div>
+                        @endif
+
+                        <div class="py-1">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Logout') }}
+                                </x-dropdown-link>
+                            </form>
+                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -85,6 +102,12 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
+                @if(Auth::user()->isAdmin())
+                    <x-responsive-nav-link :href="route('admin.dashboard')">
+                        {{ __('CPanel') }}
+                    </x-responsive-nav-link>
+                @endif
+
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

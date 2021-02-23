@@ -1,5 +1,17 @@
 <?php
 
+if (! function_exists('app_name')) {
+    /**
+     * Helper to grab the application name.
+     *
+     * @return string
+     */
+    function app_name(): string
+    {
+        return config('app.name');
+    }
+}
+
 if (! function_exists('gravatar')) {
     /**
      * Access the gravatar helper.

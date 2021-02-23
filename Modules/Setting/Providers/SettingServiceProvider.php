@@ -81,7 +81,7 @@ class SettingServiceProvider extends ServiceProvider
         $router->middlewareGroup('admin', array_merge([
             'web',
             'auth',
-            'role:'. config('setting.users.admin_role') .'|manager'
+            'role:'. config('modules.setting.users.admin_role') .'|manager'
         ], config('setting.middleware', [])));
 
         foreach ($this->middlewares as $name => $middleware) {
@@ -97,7 +97,7 @@ class SettingServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this->moduleName, 'Config/config.php') => config_path("modules/$this->moduleNameLower.php"),
         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
