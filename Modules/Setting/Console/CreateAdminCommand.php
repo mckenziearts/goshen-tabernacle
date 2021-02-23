@@ -43,8 +43,8 @@ class CreateAdminCommand extends Command
      */
     protected function createUser(): void
     {
-        $email           = $this->ask('Email Address', 'admin@admin.com');
-        $first_name      = $this->ask('First Name', 'Goshen');
+        $email           = $this->ask('Email Address', 'admin@laravel-boilerplate.com');
+        $first_name      = $this->ask('First Name', 'Boilerplate');
         $last_name       = $this->ask('Last Name', 'Admin');
         $password        = $this->secret('Password');
         $confirmPassword = $this->secret('Confirm Password');
