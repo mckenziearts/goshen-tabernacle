@@ -1,0 +1,34 @@
+{
+  "name": "laravel-boilerplate/dashboard",
+  "description": "Admin Dashboard for Laravel Boilerplate. Handles the display of the dashboard.",
+  "authors": [
+    {
+      "name": "Arthur Monney",
+      "email": "monneylobe@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.4|^8.0",
+    "composer/installers": "~1.0",
+    "laravel/framework": "^8.0",
+    "mhmiton/laravel-modules-livewire": "^1.1",
+    "nwidart/laravel-modules": "^8.2",
+    "qirolab/laravel-themer": "^1.4"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
+      ],
+      "aliases": {}
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\Dashboard\\": ".",
+      "Modules\\": "Modules/"
+    }
+  }
+}
