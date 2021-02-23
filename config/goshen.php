@@ -14,4 +14,17 @@ return [
     */
 
     'sub_domain' => 'app.'. env('APP_DOMAIN'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route Prefix
+    |--------------------------------------------------------------------------
+    |
+    | This prefix method can be used for the prefix of each
+    | route in the administration panel. For example, you can change to 'admin'.
+    |
+    */
+
+    'prefix' => env('GOSHEN_DASHBOARD_PREFIX', 'cp'),
+
 ];
