@@ -2,8 +2,13 @@
 
 namespace Modules\Setting\Providers;
 
+use Carbon\Carbon;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
+use Modules\Setting\Console\CreateAdminCommand;
+use Modules\Setting\Services\Gravatar;
+use Spatie\Permission\Middlewares\PermissionMiddleware;
+use Spatie\Permission\Middlewares\RoleMiddleware;
 
 class SettingServiceProvider extends ServiceProvider
 {
@@ -18,16 +23,33 @@ class SettingServiceProvider extends ServiceProvider
     protected $moduleNameLower = 'setting';
 
     /**
+     * The middleware base class name.
+     *
+     * @var array
+     */
+    protected $middlewares = [
+        'role'            => RoleMiddleware::class,
+        'permission'      => PermissionMiddleware::class,
+    ];
+
+    /**
      * Boot the application events.
      *
      * @return void
      */
     public function boot()
     {
+        $this->registerMiddleware($this->app['router']);
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        // setLocale for php. Enables ->formatLocalized() with localized values for dates.
+        setlocale(LC_TIME, config('setting.locale'));
+
+        // setLocale to use Carbon source locales. Enables diffForHumans() localized.
+        Carbon::setLocale(config('app.locale'));
     }
 
     /**
@@ -38,6 +60,33 @@ class SettingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->singleton('gravatar', function () {
+            return new Gravatar;
+        });
+
+        $this->commands([
+            CreateAdminCommand::class,
+        ]);
+    }
+
+    /**
+     * Register the middleware.
+     *
+     * @param  Router  $router
+     * @return void
+     */
+    public function registerMiddleware(Router $router)
+    {
+        $router->middlewareGroup('admin', array_merge([
+            'web',
+            'auth',
+            'role:'. config('setting.users.admin_role') .'|manager'
+        ], config('setting.middleware', [])));
+
+        foreach ($this->middlewares as $name => $middleware) {
+            $router->aliasMiddleware($name, $middleware);
+        }
     }
 
     /**
@@ -99,6 +148,11 @@ class SettingServiceProvider extends ServiceProvider
         return [];
     }
 
+    /**
+     * Get the publishing views.
+     *
+     * @return array
+     */
     private function getPublishableViewPaths(): array
     {
         $paths = [];
