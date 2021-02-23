@@ -1,8 +1,12 @@
 {
   "name": "Setting",
   "alias": "setting",
-  "description": "",
-  "keywords": [],
+  "description": "A simple setup for laravel boilerplate",
+  "keywords": [
+    "laravel-boilerplate",
+    "setting"
+  ],
+  "version": "1.0.0",
   "priority": 0,
   "providers": [
     "Modules\\Setting\\Providers\\SettingServiceProvider"

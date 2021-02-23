@@ -4,7 +4,8 @@
   "authors": [
     {
       "name": "Arthur Monney",
-      "email": "monneylobe@gmail.com"
+      "email": "monneylobe@gmail.com",
+      "role": "Developer"
     }
   ],
   "license": "MIT",
@@ -27,7 +28,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Modules\\Setting\\": ""
+      "Modules\\Setting\\": ".",
+      "Modules\\": "Modules/"
     }
   }
 }
