@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4aea728f1b5f9b08be27aaf9f30ed7b9",
+    "content-hash": "7964f9c86ee678ceacc9213b7950406a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +117,154 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
+                "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-01-14T11:07:16+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -458,6 +606,59 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "facade/ignition-contracts",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facade/ignition-contracts.git",
+                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
+                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^v2.15.8",
+                "phpunit/phpunit": "^9.3.11",
+                "vimeo/psalm": "^3.17.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Facade\\IgnitionContracts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://flareapp.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Solution contracts for Ignition",
+            "homepage": "https://github.com/facade/ignition-contracts",
+            "keywords": [
+                "contracts",
+                "flare",
+                "ignition"
+            ],
+            "support": {
+                "issues": "https://github.com/facade/ignition-contracts/issues",
+                "source": "https://github.com/facade/ignition-contracts/tree/1.0.2"
+            },
+            "time": "2020-10-16T08:27:54+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -893,14 +1094,61 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "laravel-boilerplate/dashboard",
+            "version": "dev-admin-dashboard",
+            "dist": {
+                "type": "path",
+                "url": "./Modules/Dashboard",
+                "reference": "b4deb8fda5a9b61229cd47f7f42992a0bd57abfa"
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "laravel/framework": "^8.0",
+                "mhmiton/laravel-modules-livewire": "^1.1",
+                "nwidart/laravel-modules": "^8.2",
+                "php": "^7.4|^8.0",
+                "qirolab/laravel-themer": "^1.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Dashboard\\": ".",
+                    "Modules\\": "Modules/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur Monney",
+                    "email": "monneylobe@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Admin Dashboard for Laravel Boilerplate. Handles the display of the dashboard.",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "laravel-boilerplate/setting",
             "version": "dev-admin-dashboard",
             "dist": {
                 "type": "path",
                 "url": "./Modules/Setting",
-                "reference": "35ecdd281eb44a6faf93a26ad0224b21ab989a9a"
+                "reference": "284d9f795b07e69eb96463996191abd724cfa3f8"
             },
             "require": {
+                "composer/installers": "~1.0",
                 "laravel/framework": "^8.0",
                 "livewire/livewire": "^2.0",
                 "mhmiton/laravel-modules-livewire": "^1.1",
@@ -911,13 +1159,16 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [],
+                    "providers": [
+                        "Modules\\Setting\\Providers\\SettingServiceProvider"
+                    ],
                     "aliases": []
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Modules\\Setting\\": ""
+                    "Modules\\Setting\\": ".",
+                    "Modules\\": "Modules/"
                 }
             },
             "license": [
@@ -926,7 +1177,8 @@
             "authors": [
                 {
                     "name": "Arthur Monney",
-                    "email": "monneylobe@gmail.com"
+                    "email": "monneylobe@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "Laravel Boilerplate Setting Module for enable some basic actions to your project.",
@@ -2397,6 +2649,77 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.10.6"
             },
             "time": "2021-01-18T15:53:43+00:00"
+        },
+        {
+            "name": "qirolab/laravel-themer",
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qirolab/laravel-themer.git",
+                "reference": "926f1fbcf17465575c976b5775ff186e69a6e85b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qirolab/laravel-themer/zipball/926f1fbcf17465575c976b5775ff186e69a6e85b",
+                "reference": "926f1fbcf17465575c976b5775ff186e69a6e85b",
+                "shasum": ""
+            },
+            "require": {
+                "facade/ignition-contracts": "^1.0",
+                "illuminate/support": "~5.8|^6.0|^7.0|^8.0",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.3|^9.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Qirolab\\Theme\\ThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Qirolab\\Theme\\": "src",
+                    "Qirolab\\Theme\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harish Kumar",
+                    "email": "harish@qirolab.com",
+                    "homepage": "https://qirolab.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel theme manager, that will help you organize and maintain your themes inside Laravel projects.",
+            "homepage": "https://qirolab.com",
+            "keywords": [
+                "laravel",
+                "laravel-theme",
+                "qirolab",
+                "theme"
+            ],
+            "support": {
+                "issues": "https://github.com/qirolab/laravel-themer/issues",
+                "source": "https://github.com/qirolab/laravel-themer/tree/1.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/qirolab",
+                    "type": "other"
+                }
+            ],
+            "time": "2021-02-19T19:06:46+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -6319,59 +6642,6 @@
                 "source": "https://github.com/facade/ignition"
             },
             "time": "2021-02-16T12:46:19+00:00"
-        },
-        {
-            "name": "facade/ignition-contracts",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facade/ignition-contracts.git",
-                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
-                "reference": "3c921a1cdba35b68a7f0ccffc6dffc1995b18267",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^v2.15.8",
-                "phpunit/phpunit": "^9.3.11",
-                "vimeo/psalm": "^3.17.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Facade\\IgnitionContracts\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://flareapp.io",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Solution contracts for Ignition",
-            "homepage": "https://github.com/facade/ignition-contracts",
-            "keywords": [
-                "contracts",
-                "flare",
-                "ignition"
-            ],
-            "support": {
-                "issues": "https://github.com/facade/ignition-contracts/issues",
-                "source": "https://github.com/facade/ignition-contracts/tree/1.0.2"
-            },
-            "time": "2020-10-16T08:27:54+00:00"
         },
         {
             "name": "fakerphp/faker",
