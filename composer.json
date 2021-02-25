@@ -20,7 +20,8 @@
     "laravel/tinker": "^2.5",
     "livewire/livewire": "^2.3",
     "mhmiton/laravel-modules-livewire": "^1.1",
-    "nwidart/laravel-modules": "^8.2"
+    "nwidart/laravel-modules": "^8.2",
+    "spatie/laravel-medialibrary-pro": "^1.0.0"
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.9",
@@ -74,18 +75,22 @@
       "@php artisan ide-helper:meta"
     ]
   },
-  "repositories": {
-    "laravel-boilerplate/setting": {
+  "repositories": [
+    {
       "type": "path",
       "url": "./Modules/Setting"
     },
-    "laravel-boilerplate/dashboard": {
+    {
       "type": "path",
       "url": "./Modules/Dashboard"
     },
-    "laravel-boilerplate/event": {
+    {
       "type": "path",
       "url": "./Modules/Event"
+    },
+    {
+      "type": "composer",
+      "url": "https://satis.spatie.be"
     }
-  }
+  ]
 }

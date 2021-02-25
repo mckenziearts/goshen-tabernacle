@@ -25,3 +25,5 @@ Route::redirectMap([
 
 Route::view('/', 'welcome')->name('soon');
 Route::view('/podcasts', 'podcasts')->name('podcasts');
+
+Route::mediaLibrary();

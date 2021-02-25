@@ -12,8 +12,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
+    <link href="{{ asset('css/media-library-pro.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css', 'themes/sidebar-default') }}" rel="stylesheet">
     @stack('styles')
+    @bukStyles(true)
     @livewireStyles
 </head>
 <body class="antialiased font-sans bg-gray-200">
@@ -64,6 +66,7 @@
 
     @livewireScripts
     <script src="{{ mix('js/app.js', 'themes/sidebar-default') }}" defer></script>
+    @bukScripts(true)
     @stack('scripts')
 </body>
 </html>

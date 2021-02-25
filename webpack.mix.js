@@ -17,6 +17,13 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('autoprefixer'),
 ]);
 
+mix.override((webpackConfig) => {
+  webpackConfig.resolve.modules = [
+    "node_modules",
+    __dirname + "/vendor/spatie/laravel-medialibrary-pro/resources/js",
+  ];
+});
+
 /*
  |--------------------------------------------------------------------------
  | Laravel Mix Asset For other source.
