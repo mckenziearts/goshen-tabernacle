@@ -13,7 +13,7 @@ composer.phar
 
 # Laravel
 #
-/public/hot
+/public/media
 /public/storage
 /storage/*.key
 .env
