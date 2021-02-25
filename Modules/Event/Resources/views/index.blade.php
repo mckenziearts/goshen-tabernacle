@@ -16,4 +16,6 @@
         </div>
     </x-page-header>
 
+    <livewire:event::browse />
+
 @endsection

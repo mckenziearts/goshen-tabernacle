@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98e16ebde94181c326a073088dc9d08f",
+    "content-hash": "8737ac4bfb15aa332696577383dc3abc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1251,7 +1251,7 @@
             "dist": {
                 "type": "path",
                 "url": "./Modules/Dashboard",
-                "reference": "d1e1f7bd81ec50dc8c0ed8870f80b2ff0cfe592c"
+                "reference": "2fd50743fc00c4c861b3adb45e650db0baafcccb"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -1289,6 +1289,7 @@
             ],
             "description": "Admin Dashboard for Laravel Boilerplate. Handles the display of the dashboard.",
             "transport-options": {
+                "symlink": false,
                 "relative": true
             }
         },
@@ -1298,7 +1299,7 @@
             "dist": {
                 "type": "path",
                 "url": "./Modules/Event",
-                "reference": "afa93e1558f4c883f813a7ac40d11a0f2a78f86e"
+                "reference": "69c982ef6fdb15ce814639ce77772d1252b848aa"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -1335,6 +1336,7 @@
             ],
             "description": "Goshen Tabernacle event manager.",
             "transport-options": {
+                "symlink": false,
                 "relative": true
             }
         },
@@ -1344,7 +1346,7 @@
             "dist": {
                 "type": "path",
                 "url": "./Modules/Setting",
-                "reference": "284d9f795b07e69eb96463996191abd724cfa3f8"
+                "reference": "b5c0d1a636ebfc42207944d15278d72be5c561e6"
             },
             "require": {
                 "composer/installers": "~1.0",
@@ -1382,6 +1384,7 @@
             ],
             "description": "Laravel Boilerplate Setting Module for enable some basic actions to your project.",
             "transport-options": {
+                "symlink": false,
                 "relative": true
             }
         },

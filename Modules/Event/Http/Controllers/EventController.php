@@ -37,4 +37,15 @@ class EventController extends Controller
     {
         return view('event::edit', compact('event'));
     }
+
+    /**
+     * Show the detail resource.
+     *
+     * @param  Event  $event
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function show(Event $event)
+    {
+        return view('event::show', compact('event'));
+    }
 }

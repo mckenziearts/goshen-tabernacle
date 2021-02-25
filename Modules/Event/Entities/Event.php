@@ -52,6 +52,26 @@ class Event extends Model implements HasMedia
     }
 
     /**
+     * Determine if an event is public.
+     *
+     * @return bool
+     */
+    public function isPublic(): bool
+    {
+        return $this->privacy === 'public';
+    }
+
+    /**
+     * Determine if an event is an invitation.
+     *
+     * @return bool
+     */
+    public function isInvitation(): bool
+    {
+        return $this->privacy === 'invitation';
+    }
+
+    /**
      * Set the proper slug attribute.
      *
      * @param  string  $value
@@ -79,7 +99,7 @@ class Event extends Model implements HasMedia
             case 'private':
                 return 'bg-yellow-100 text-yellow-800';
             case 'invitation':
-                return 'bg-light-blue-100 text-light-blue-800';
+                return 'bg-blue-100 text-blue-800';
         }
     }
 

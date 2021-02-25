@@ -78,15 +78,24 @@
   "repositories": [
     {
       "type": "path",
-      "url": "./Modules/Setting"
+      "url": "./Modules/Setting",
+      "options": {
+        "symlink": false
+      }
     },
     {
       "type": "path",
-      "url": "./Modules/Dashboard"
+      "url": "./Modules/Dashboard",
+      "options": {
+        "symlink": false
+      }
     },
     {
       "type": "path",
-      "url": "./Modules/Event"
+      "url": "./Modules/Event",
+      "options": {
+        "symlink": false
+      }
     },
     {
       "type": "composer",
