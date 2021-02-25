@@ -8,7 +8,7 @@
                 {{ __('Dashboard') }}
             </x-sidebar-link>
 
-            <x-sidebar-link href="#" :active="request()->routeIs('admin.events')">
+            <x-sidebar-link :href="route('admin.events')" :active="request()->routeIs('admin.events*')">
                 <svg class="{{ request()->routeIs('admin.events') ? 'text-gray-500': 'text-gray-400 group-hover:text-gray-500' }} mr-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>

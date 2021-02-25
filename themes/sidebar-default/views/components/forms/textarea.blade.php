@@ -1,0 +1,1 @@
+<textarea {{ $attributes->merge(['class' => 'block w-full rounded-md shadow-sm border-gray-300 focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50 sm:text-sm']) }} rows="3"></textarea>
