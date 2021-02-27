@@ -1,5 +1,7 @@
 <?php
 
+use Modules\Setting\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,8 @@
 |
 */
 
-Route::prefix('setting')->group(function() {
-    Route::get('/', 'SettingController@index')->name('settings');
+Route::prefix('setting')->as('settings.')->group(function() {
+    Route::get('/', 'SettingController@index')->name('index');
+    Route::get('/users', [AdminController::class, 'index'])->name('users');
+    Route::get('/users/create', [AdminController::class, 'create'])->name('users.new');
 });
