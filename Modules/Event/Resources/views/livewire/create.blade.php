@@ -182,9 +182,9 @@
 
     <div class="py-6 sm:py-10">
         <div class="flex justify-end">
-            <a href="{{ route('admin.events') }}" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
+            <x-cancel-button type="link" href="{{ route('admin.events') }}">
                 {{ __('Cancel') }}
-            </a>
+            </x-cancel-button>
             <x-button wire:click="store" type="button" class="ml-3">
                 <x-loader wire:target="store" />
                 {{ __('Create Event') }}

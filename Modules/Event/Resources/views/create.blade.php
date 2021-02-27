@@ -3,13 +3,6 @@
 
 @section('content')
 
-    <x-page-header>
-        <div class="flex-1 min-w-0">
-            <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-                {{ __('Create new event') }}
-            </h1>
-        </div>
-    </x-page-header>
     <!-- Breadcrumb -->
     <x-breadcrumb>
         <li class="flex">
@@ -29,6 +22,14 @@
             </div>
         </li>
     </x-breadcrumb>
+
+    <x-page-header class="bg-gray-50">
+        <div class="flex-1 min-w-0">
+            <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
+                {{ __('Create new event') }}
+            </h1>
+        </div>
+    </x-page-header>
 
     <livewire:event::create />
 
