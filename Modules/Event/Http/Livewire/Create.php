@@ -4,67 +4,12 @@ namespace Modules\Event\Http\Livewire;
 
 use Livewire\Component;
 use Modules\Event\Entities\Event;
+use Modules\Event\Traits\WithAttributes;
 use Spatie\MediaLibraryPro\Http\Livewire\Concerns\WithMedia;
 
 class Create extends Component
 {
-    use WithMedia;
-
-    /**
-     * Event description.
-     *
-     * @var string
-     */
-    public $title;
-
-    /**
-     * Event description.
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * Event Start date.
-     *
-     * @var string
-     */
-    public $start_date;
-
-    /**
-     * Event end date.
-     *
-     * @var string
-     */
-    public $end_date;
-
-    /**
-     * Privacy of the event.
-     *
-     * @var string
-     */
-    public $privacy = 'public';
-
-    /**
-     * Is visible status for event.
-     *
-     * @var bool
-     */
-    public $is_visible = false;
-
-    /**
-     * Media library component.
-     *
-     * @var string[]
-     */
-    public $mediaComponentNames = ['cover'];
-
-    /**
-     * Event cover image.
-     *
-     * @var mixed
-     */
-    public $cover;
+    use WithMedia, WithAttributes;
 
     /**
      * Save new event to the storage.

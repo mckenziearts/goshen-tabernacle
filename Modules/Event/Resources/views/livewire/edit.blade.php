@@ -18,7 +18,7 @@
                 <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserverAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                 </svg>
-                <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500">{{ __('New event') }}</span>
+                <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500">{{ __('Update event') }}</span>
             </div>
         </li>
     </x-breadcrumb>
@@ -26,7 +26,7 @@
     <x-page-header class="bg-gray-50">
         <div class="flex-1 min-w-0">
             <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-                {{ __('Create new event') }}
+                {{ $title }}
             </h1>
         </div>
     </x-page-header>
@@ -56,7 +56,9 @@
                             <x-forms.input type="text" wire:model="title" id="title" />
                         </x-forms.group>
                         <x-forms.group wire:ignore class="sm:col-span-2" label="Event Description" for="description" :error="$errors->first('description')">
-                            <x-trix name="description" wire:model="description" styling="block w-full rounded-md shadow-sm border-gray-300 focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50 sm:text-sm" />
+                            <x-trix name="description" wire:model="description" styling="block w-full rounded-md shadow-sm border-gray-300 focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50 sm:text-sm">
+                                {{ $description }}
+                            </x-trix>
                         </x-forms.group>
                     </div>
                 </div>
@@ -186,28 +188,6 @@
                 </div>
             </div>
         </div>
-        <div class="p-4 sm:px-6 sm:py-10">
-            <div class="flex">
-                <div class="flex-shrink-0">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <div class="ml-6">
-                    <div>
-                        <dt class="text-xl leading-7 font-semibold text-gray-900">
-                            {{ __('Cover Image') }}
-                        </dt>
-                        <dd class="max-w-lg mt-2 text-sm leading-5 text-gray-500">
-                            {{ __('Add a cover image to your event.') }}
-                        </dd>
-                    </div>
-                    <div class="mt-6 w-full">
-                        <x-media-library-attachment name="cover" rules="mimes:jpeg,png" />
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="py-6 sm:py-10">
             <div class="flex justify-end">
@@ -216,7 +196,7 @@
                 </x-cancel-button>
                 <x-button wire:click="store" type="button" class="ml-3">
                     <x-loader wire:target="store" />
-                    {{ __('Create Event') }}
+                    {{ __('Update Event') }}
                 </x-button>
             </div>
         </div>
@@ -228,7 +208,7 @@
     <script>
         function radioGroup() {
             return {
-                active: 0,
+                active: {{ $index }},
                 onArrowUp(index) {
                     this.select(this.active - 1 < 0 ? this.$refs.radiogroup.children.length - 1 : this.active - 1);
                 },
