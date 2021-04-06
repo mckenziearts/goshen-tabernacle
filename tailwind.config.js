@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+  mode: 'jit',
   purge: {
     content: ['./storage/framework/views/*.php', './resources/views/**/*.blade.php'],
     options: {
@@ -22,5 +23,10 @@ module.exports = {
     },
   },
 
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+  ],
 };
