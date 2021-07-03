@@ -9,11 +9,12 @@
   "license": "MIT",
   "require": {
     "php": "^7.4|^8.0",
-    "blade-ui-kit/blade-icons": "^1.1",
+    "blade-ui-kit/blade-heroicons": "^1.2",
     "blade-ui-kit/blade-ui-kit": "^0.2.0",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
+    "hexadog/laravel-themes-manager": "^1.8",
     "laravel-boilerplate/dashboard": "*",
     "laravel-boilerplate/event": "*",
     "laravel-boilerplate/setting": "*",
