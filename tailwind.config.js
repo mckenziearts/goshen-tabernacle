@@ -3,7 +3,13 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   mode: 'jit',
   purge: {
-    content: ['./storage/framework/views/*.php', './resources/views/**/*.blade.php'],
+    content: [
+      './Modules/Dashboard/Resources/views/**/*.blade.php',
+      './Modules/Event/Resources/views/**/*.blade.php',
+      './Modules/Setting/Resources/views/**/*.blade.php',
+      './resources/views/**/*.blade.php',
+      './storage/framework/views/*.php'
+    ],
     options: {
       safelist: [/^media-library/],
     },

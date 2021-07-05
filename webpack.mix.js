@@ -11,25 +11,21 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+mix.setPublicPath('./public')
+mix.js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
-]);
+  ])
+  .options({processCssUrls: false})
+  .webpackConfig({
+    output: {chunkFilename: 'js[name].js?id=[chunkhash]'}
+  });
 
 mix.override((webpackConfig) => {
   webpackConfig.resolve.modules = [
-    "node_modules",
+    'node_modules',
     __dirname + "/vendor/spatie/laravel-medialibrary-pro/resources/js",
   ];
 });
-
-/*
- |--------------------------------------------------------------------------
- | Laravel Mix Asset For other source.
- |--------------------------------------------------------------------------
- |
- |
-*/
-
-require(`${__dirname}/themes/sidebar-default/webpack.mix.js`);
