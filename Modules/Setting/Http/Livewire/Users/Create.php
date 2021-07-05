@@ -21,54 +21,19 @@ class Create extends Component
      */
     public bool $send_mail = false;
 
-    /**
-     * Admin email address.
-     *
-     * @var string
-     */
-    public $email;
+    public string $email = '';
 
-    /**
-     * Admin password.
-     *
-     * @var string
-     */
-    public $password;
+    public ?string $password = null;
 
-    /**
-     * Admin first name.
-     *
-     * @var string
-     */
-    public $first_name;
+    public string $first_name = '';
 
-    /**
-     * Admin last name.
-     *
-     * @var string
-     */
-    public $last_name;
+    public string $last_name = '';
 
-    /**
-     * Admin default gender.
-     *
-     * @var string
-     */
-    public $gender = 'male';
+    public string $gender = 'male';
 
-    /**
-     * Phone number attribute.
-     *
-     * @var string
-     */
-    public $phone_number;
+    public ?string $phone_number = null;
 
-    /**
-     * Admin define role id.
-     *
-     * @var integer
-     */
-    public $role_id;
+    public ?int $role_id = null;
 
     /**
      * Define if the choose role is an admin role.
@@ -89,36 +54,18 @@ class Create extends Component
         $this->resetErrorBag(['password']);
     }
 
-    /**
-     * Real-time component validation.
-     *
-     * @param  string  $field
-     * @throws \Illuminate\Validation\ValidationException
-     * @return void
-     */
-    public function updated($field)
+    public function updated(string $field)
     {
         $this->validateOnly($field, $this->rules(), $this->messages());
     }
 
-    /**
-     * Update roleId to determine if the choose role is an admin role.
-     *
-     * @param  string  $id
-     * @return void
-     */
-    public function updatedRoleId($id)
+    public function updatedRoleId(int $id)
     {
         $chooseRole = Role::findById($id);
 
         $this->is_admin = $chooseRole->name === config('modules.setting.users.admin_role');
     }
 
-    /**
-     * Store/Update a entry to the storage.
-     *
-     * @return void
-     */
     public function store()
     {
         $this->validate($this->rules(), $this->messages());
@@ -140,17 +87,12 @@ class Create extends Component
             $user->notify(new AdminSendCredentials($this->password));
         }
 
-        session()->flash('success', __('Admin :user added successfully.', ['user' => $user->full_name]));
+        session()->flash('success', __('Admin :user cree avec succes.', ['user' => $user->full_name]));
 
         $this->redirectRoute('admin.settings.users');
     }
 
-    /**
-     * Component validation rules.
-     *
-     * @return string[]
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
             'email' => [
@@ -170,30 +112,20 @@ class Create extends Component
         ];
     }
 
-    /**
-     * Custom error messages.
-     *
-     * @return string[]
-     */
-    public function messages()
+    public function messages(): array
     {
         return [
-            'email.required' => __("Email is required"),
-            'email.email' => __("This Email is not a valid email address"),
-            'email.unique' => __("This email address is already used"),
-            'first_name.required' => __("Admin first name is required"),
-            'last_name.required' => __("Admin last name is required"),
-            'password.required' => __("Password is required"),
-            'role_id.required' => __("The admin role is required"),
-            'phone_number.*' => __("This phone number is not a valid number"),
+            'email.required' => __('Email est requis'),
+            'email.email' => __('Cette Adresse Email n\'est pas une adresse mail valide'),
+            'email.unique' => __('Cette adresse email est deja utilise'),
+            'first_name.required' => __('Le nom est requis'),
+            'last_name.required' => __('Le prenom de l\' utilisateur est requis'),
+            'password.required' => __('Le mot de passe est requis'),
+            'role_id.required' => __('Le role de cet utilisateur est obligatoire'),
+            'phone_number.*' => __('Ce numero est incorrect'),
         ];
     }
 
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('setting::livewire.users.create', [

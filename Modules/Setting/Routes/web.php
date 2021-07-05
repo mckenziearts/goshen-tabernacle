@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Setting\Http\Controllers\AdminController;
+use Modules\Setting\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,6 @@ use Modules\Setting\Http\Controllers\AdminController;
 
 Route::prefix('setting')->as('settings.')->group(function() {
     Route::get('/', 'SettingController@index')->name('index');
-    Route::get('/users', [AdminController::class, 'index'])->name('users');
-    Route::get('/users/create', [AdminController::class, 'create'])->name('users.new');
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.new');
 });

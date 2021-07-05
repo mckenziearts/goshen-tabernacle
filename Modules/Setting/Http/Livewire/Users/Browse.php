@@ -12,33 +12,18 @@ class Browse extends Component
 {
     use WithPagination;
 
-    /**
-     * Role name.
-     *
-     * @var string
-     */
-    public $name;
+    public string $name = '';
 
-    /**
-     * Role display name.
-     *
-     * @var string
-     */
-    public $role_display_name;
+    public ?string $display_name = null;
 
-    /**
-     * Role description.
-     *
-     * @var string
-     */
-    public $role_description;
+    public ?string $description = null;
 
     /**
      * Toggle Modal to create a new role.
      *
      * @var bool
      */
-    public $displayModal = false;
+    public bool $displayModal = false;
 
     /**
      * Add new role.
@@ -92,6 +77,8 @@ class Browse extends Component
     public function cancel()
     {
         $this->displayModal = false;
+
+        $this->resetErrorBag();
     }
 
     /**
@@ -105,17 +92,13 @@ class Browse extends Component
         User::query()->find($id)->delete();
 
         $this->dispatchBrowserEvent('user-removed');
+
         $this->dispatchBrowserEvent('notify', [
             'title' => __('Deleted'),
             'message' => __("Admin deleted successfully!"),
         ]);
     }
 
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('setting::livewire.users.browse', [

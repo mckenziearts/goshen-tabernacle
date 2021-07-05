@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Hexadog\ThemesManager\Facades\ThemesManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 class ConfirmablePasswordController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        ThemesManager::set('goshen/admin');
+    }
+
     /**
      * Show the confirm password view.
      *

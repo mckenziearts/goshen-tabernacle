@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Hexadog\ThemesManager\Facades\ThemesManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
 class PasswordResetLinkController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        ThemesManager::set('goshen/admin');
+    }
+
     /**
      * Display the password reset link request view.
      *

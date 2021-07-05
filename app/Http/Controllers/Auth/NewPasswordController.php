@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Hexadog\ThemesManager\Facades\ThemesManager;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,13 @@ use Illuminate\Support\Str;
 
 class NewPasswordController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        ThemesManager::set('goshen/admin');
+    }
+
     /**
      * Display the password reset view.
      *

@@ -34,28 +34,12 @@ class Create extends Component
 
         $this->clearMedia('cover');
 
-        session()->flash('success', __('Event added successfully!'));
+        session()->flash('success', __('Evenement ajoute avec succes!'));
 
         $this->redirectRoute('admin.events');
     }
 
-    /**
-     * Real-Time validation.
-     *
-     * @param  string  $field
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function updated($field)
-    {
-        $this->validateOnly($field, $this->rules());
-    }
-
-    /**
-     * Validations rules.
-     *
-     * @return string[]
-     */
-    protected function rules()
+    protected function rules(): array
     {
         return [
             'title' => 'required|min:6|unique:events,title',
@@ -66,11 +50,19 @@ class Create extends Component
         ];
     }
 
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
+    protected function messages(): array
+    {
+        return [
+            'title.required' => 'Le titre de l\'evenement est requis',
+            'title.min' => 'Le titre de l\'evenement dois etre de plus de 6 caracteres',
+            'title.unique' => 'Ce titre a deja ete attribue a un event',
+            'description.required' => 'La description est requise',
+            'start_date.required' => 'La date de debut est requise',
+            'end_date.required' => 'La date de fin est requise',
+            'cover.required' => 'Une image de couverture est requise',
+        ];
+    }
+
     public function render()
     {
         return view('event::livewire.create');

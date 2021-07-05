@@ -80,7 +80,7 @@
                         <svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                         </svg>
-                        {{ __("Add administrator") }}
+                        {{ __('Add administrator') }}
                     </a>
                 </div>
             </div>
@@ -94,13 +94,13 @@
                                     <span class="lg:pl-2">{{ __("Name") }}</span>
                                 </th>
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    {{ __("Email Address") }}
+                                    {{ __('Email Address') }}
                                 </th>
                                 <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    {{ __("Role") }}
+                                    {{ __('Role') }}
                                 </th>
                                 <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    {{ __("Access") }}
+                                    {{ __('Access') }}
                                 </th>
                                 <th class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider rounded-t-md"></th>
                             </tr>
@@ -151,7 +151,7 @@
                                                     <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                     </svg>
-                                                    {{ __("Me") }}
+                                                    {{ __('Moi') }}
                                                 </span>
                                             @endif
                                             @if(auth()->user()->isAdmin() && ! $user->isAdmin())
@@ -220,17 +220,17 @@
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-1">
                         <x-forms.group label="Name" for="name" isRequired :error="$errors->first('name')">
-                            <x-forms.input type="text" wire:model="name" id="name" placeholder="manager" />
+                            <x-forms.input type="text" wire:model.defer="name" id="name" placeholder="manager" />
                         </x-forms.group>
                     </div>
                     <div class="sm:col-span-1">
                         <x-forms.group label="Display name" for="display_name">
-                            <x-forms.input type="text" wire:model="role_display_name" id="display_name" placeholder="Manager" />
+                            <x-forms.input type="text" wire:model.defer="display_name" id="display_name" placeholder="Manager" />
                         </x-forms.group>
                     </div>
                     <div class="sm:col-span-2">
                         <x-forms.group label="Description" for="description">
-                            <x-forms.textarea wire:model="role_description" id="description" />
+                            <x-forms.textarea wire:model.defer="description" id="description" />
                         </x-forms.group>
                     </div>
                 </div>

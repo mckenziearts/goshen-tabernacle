@@ -15,8 +15,7 @@
     "laravel/framework": "^8.0",
     "laravel-boilerplate/setting": "*",
     "mhmiton/laravel-modules-livewire": "^1.1",
-    "nwidart/laravel-modules": "^8.2",
-    "qirolab/laravel-themer": "^1.4"
+    "nwidart/laravel-modules": "^8.2"
   },
   "extra": {
     "laravel": {

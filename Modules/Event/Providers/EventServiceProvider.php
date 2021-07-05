@@ -10,12 +10,12 @@ class EventServiceProvider extends ServiceProvider
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Event';
+    protected string $moduleName = 'Event';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'event';
+    protected string $moduleNameLower = 'event';
 
     /**
      * Boot the application events.

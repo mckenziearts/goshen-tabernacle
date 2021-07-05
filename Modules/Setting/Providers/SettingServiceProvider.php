@@ -65,9 +65,7 @@ class SettingServiceProvider extends ServiceProvider
             return new Gravatar;
         });
 
-        $this->commands([
-            CreateAdminCommand::class,
-        ]);
+        $this->commands([CreateAdminCommand::class]);
     }
 
     /**
@@ -143,7 +141,7 @@ class SettingServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [];
     }

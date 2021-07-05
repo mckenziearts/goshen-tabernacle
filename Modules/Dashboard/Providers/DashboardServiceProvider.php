@@ -3,19 +3,18 @@
 namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Qirolab\Theme\Middleware\ThemeMiddleware;
 
 class DashboardServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Dashboard';
+    protected string $moduleName = 'Dashboard';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'dashboard';
+    protected string $moduleNameLower = 'dashboard';
 
     /**
      * Boot the application events.
@@ -28,8 +27,6 @@ class DashboardServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-
-        $this->app['router']->aliasMiddleware('theme', ThemeMiddleware::class);
     }
 
     /**
@@ -96,7 +93,7 @@ class DashboardServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [];
     }

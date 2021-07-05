@@ -4,10 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Hexadog\ThemesManager\Facades\ThemesManager;
 use Illuminate\Http\Request;
 
 class EmailVerificationPromptController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        ThemesManager::set('goshen/admin');
+    }
+
     /**
      * Display the email verification prompt.
      *

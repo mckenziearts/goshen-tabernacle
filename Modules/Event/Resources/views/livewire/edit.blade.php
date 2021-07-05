@@ -18,7 +18,7 @@
                 <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserverAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                 </svg>
-                <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500">{{ __('Update event') }}</span>
+                <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500">{{ __('Modifier l\'event') }}</span>
             </div>
         </li>
     </x-breadcrumb>

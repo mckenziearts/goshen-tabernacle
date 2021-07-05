@@ -53,7 +53,7 @@
                     </div>
                     <div class="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-5">
                         <x-forms.group class="sm:col-span-2" label="Event Title" for="title" :error="$errors->first('title')">
-                            <x-forms.input type="text" wire:model="title" id="title" />
+                            <x-forms.input type="text" wire:model.defer="title" id="title" />
                         </x-forms.group>
                         <x-forms.group wire:ignore class="sm:col-span-2" label="Event Description" for="description" :error="$errors->first('description')">
                             <x-trix name="description" wire:model="description" styling="block w-full rounded-md shadow-sm border-gray-300 focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50 sm:text-sm" />
@@ -92,7 +92,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <x-forms.input type="text" wire:model="start_date" id="start_date" class="pl-10 date" readOnly />
+                            <x-forms.input type="text" wire:model.defer="start_date" id="start_date" class="pl-10 date" readOnly />
                         </x-forms.group>
 
                         <x-forms.group class="sm:col-span-1" label="Event End" for="end_date" :error="$errors->first('end_date')">
@@ -101,7 +101,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <x-forms.input type="text" wire:model="end_date" x-ref="datepicker" id="end_date" class="pl-10" readOnly />
+                            <x-forms.input type="text" wire:model.defer="end_date" x-ref="datepicker" id="end_date" class="pl-10" readOnly />
                         </x-forms.group>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
 
                                 <div :class="{ 'border-gray-200': !(active === 0), 'bg-purple-50 border-purple-200 z-10': active === 0 }" class="relative border rounded-tl-md rounded-tr-md p-4 flex bg-purple-50 border-purple-200 z-10">
                                     <div class="flex items-center h-5">
-                                        <input wire:model="privacy" id="settings-option-0" name="privacy_setting" type="radio" @click="select(0)" @keydown.space="select(0)" @keydown.arrow-up="onArrowUp(0)" @keydown.arrow-down="onArrowDown(0)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="public">
+                                        <input wire:model.defer="privacy" id="settings-option-0" name="privacy_setting" type="radio" @click="select(0)" @keydown.space="select(0)" @keydown.arrow-up="onArrowUp(0)" @keydown.arrow-down="onArrowDown(0)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="public">
                                     </div>
                                     <label for="settings-option-0" class="ml-3 flex flex-col cursor-pointer">
                                         <span :class="{ 'text-purple-900': active === 0, 'text-gray-900': !(active === 0) }" class="block text-sm font-medium text-purple-900">
@@ -154,7 +154,7 @@
 
                                 <div :class="{ 'border-gray-200': !(active === 1), 'bg-purple-50 border-purple-200 z-10': active === 1 }" class="relative border p-4 flex border-gray-200">
                                     <div class="flex items-center h-5">
-                                        <input wire:model="privacy" id="settings-option-1" name="privacy_setting" type="radio" @click="select(1)" @keydown.space="select(1)" @keydown.arrow-up="onArrowUp(1)" @keydown.arrow-down="onArrowDown(1)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="private">
+                                        <input wire:model.defer="privacy" id="settings-option-1" name="privacy_setting" type="radio" @click="select(1)" @keydown.space="select(1)" @keydown.arrow-up="onArrowUp(1)" @keydown.arrow-down="onArrowDown(1)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="private">
                                     </div>
                                     <label for="settings-option-1" class="ml-3 flex flex-col cursor-pointer">
                                         <span :class="{ 'text-purple-900': active === 1, 'text-gray-900': !(active === 1) }" class="block text-sm font-medium text-gray-900">
@@ -168,7 +168,7 @@
 
                                 <div :class="{ 'border-gray-200': !(active === 2), 'bg-purple-50 border-purple-200 z-10': active === 2 }" class="relative border rounded-bl-md rounded-br-md p-4 flex border-gray-200">
                                     <div class="flex items-center h-5">
-                                        <input wire:model="privacy" id="settings-option-2" name="privacy_setting" type="radio" @click="select(2)" @keydown.space="select(2)" @keydown.arrow-up="onArrowUp(2)" @keydown.arrow-down="onArrowDown(2)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="invitation">
+                                        <input wire:model.defer="privacy" id="settings-option-2" name="privacy_setting" type="radio" @click="select(2)" @keydown.space="select(2)" @keydown.arrow-up="onArrowUp(2)" @keydown.arrow-down="onArrowDown(2)" class="h-4 w-4 text-purple-600 cursor-pointer focus:ring-purple-500 border-gray-300" value="invitation">
                                     </div>
                                     <label for="settings-option-2" class="ml-3 flex flex-col cursor-pointer">
                                         <span :class="{ 'text-purple-900': active === 2, 'text-gray-900': !(active === 2) }" class="block text-sm font-medium text-gray-900">
