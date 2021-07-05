@@ -83,21 +83,21 @@
       "type": "path",
       "url": "./Modules/Setting",
       "options": {
-        "symlink": false
+        "symlink": true
       }
     },
     {
       "type": "path",
       "url": "./Modules/Dashboard",
       "options": {
-        "symlink": false
+        "symlink": true
       }
     },
     {
       "type": "path",
       "url": "./Modules/Event",
       "options": {
-        "symlink": false
+        "symlink": true
       }
     },
     {
