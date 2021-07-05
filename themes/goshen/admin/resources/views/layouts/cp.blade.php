@@ -6,21 +6,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - CPanel</title>
-    <meta name="apple-mobile-web-app-title" content="{{ app_name() }}">
-    <meta name="application-name" content="{{ app_name()  }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
+
+    @include('includes.favicons')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
     <link href="{{ asset('css/media-library-pro.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/app.css', 'themes/sidebar-default') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('styles')
     @bukStyles(true)
     @livewireStyles
@@ -28,10 +22,10 @@
 <body class="antialiased font-sans bg-gray-200">
 
     <div class="h-screen flex overflow-hidden bg-white" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
-        <x-sidebar-mobile />
+        @include('includes.sidebar-mobile')
 
         <!-- Static sidebar for desktop -->
-        <x-sidebar-desktop />
+        @include('includes.sidebar-desktop')
 
         <!-- Main column -->
         <div class="flex flex-col w-0 flex-1 overflow-hidden">
@@ -72,7 +66,7 @@
     <x-notify />
 
     @livewireScripts
-    <script src="{{ mix('js/app.js', 'themes/sidebar-default') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @bukScripts(true)
     @stack('scripts')
 </body>
