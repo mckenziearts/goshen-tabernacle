@@ -77,30 +77,13 @@ class Event extends Model implements HasMedia
      * @param  string  $value
      * @return void
      */
-    public function setSlugAttribute($value)
+    public function setSlugAttribute(string $value)
     {
         if (static::query()->where('slug', $slug = Str::slug($value))->exists()) {
             $slug = "{$slug}-{$this->id}";
         }
 
         $this->attributes['slug'] = $slug;
-    }
-
-    /**
-     * Return custom color attribute.
-     *
-     * @return string
-     */
-    public function getPrivacyColorAttribute(): string
-    {
-        switch ($this->privacy) {
-            case 'public':
-                return 'bg-green-100 text-green-800';
-            case 'private':
-                return 'bg-yellow-100 text-yellow-800';
-            case 'invitation':
-                return 'bg-blue-100 text-blue-800';
-        }
     }
 
     /**

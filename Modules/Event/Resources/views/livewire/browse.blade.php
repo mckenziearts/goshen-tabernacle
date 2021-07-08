@@ -93,9 +93,7 @@
                                 {{ $event->start_date->formatLocalized('%d %B %Y') }}
                             </td>
                             <td class="px-6 py-3 text-sm text-gray-500 font-medium whitespace-nowrap">
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $event->privacy_color }}">
-                                    {{ $event->privacy_formatted }}
-                                </span>
+                                <x-privacy-state :value="$event->privacy_formatted" :key="$event->privacy" />
                             </td>
                             <td class="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-right capitalize">
                                 {{ $event->updated_at->formatLocalized('%d %B %Y') }}

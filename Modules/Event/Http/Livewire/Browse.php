@@ -10,12 +10,7 @@ class Browse extends Component
 {
     use WithPagination;
 
-    /**
-     * Pagination view.
-     *
-     * @var int
-     */
-    public $perPage = 10;
+    public int $perPage = 10;
 
     /**
      * Removed event fromm storage.
@@ -34,11 +29,6 @@ class Browse extends Component
         ]);
     }
 
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('event::livewire.browse', [
