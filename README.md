@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://goshen-tabernacle.cm"><img src="social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
+    <a href="https://goshen-tabernacle.cm"><img src="/art/social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
 </p>
 
 <p align="center">
