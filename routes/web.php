@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
+/*
  * Redirect url to protect admin panel
  */
 Route::redirectMap([
     '.env' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
     'wp-login' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
     'wp-admin' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
-    'youtube' => 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg'
+    'youtube' => 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg',
 ]);
 
 Route::view('/', 'welcome')->name('soon');

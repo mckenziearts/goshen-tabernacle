@@ -1,62 +1,56 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <a href="https://goshen-tabernacle.cm"><img src="social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
 </p>
 
-## About Laravel
+<p align="center">
+    <a href="https://github.com/mckenziearts/goshen-tabernacle/actions">
+        <img src="https://github.com/mckenziearts/goshen-tabernacle/workflows/Tests/badge.svg" alt="Build Status" />
+    </a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Goshen Tabernacle
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ce dépôt contient le code source du site de [goshen-tabernacle.com](https://goshen-tabernacle.com). Goshen Tabernacle est l'assemblee locale Camerounaise des croyants qui ont cru au 
+messager (prophete) du temps de la fin William Marrion Branham.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Site web : https://goshen-tabernacle.com <br />
+Facebook: https://www.facebook.com/goshentabernacle <br />
+Instagram: https://instagram.com/goshentabernacleofficiel <br />
 
-## Learning Laravel
+## Caractéristiques du Serveur
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Les elements suivant sont requis pour demarrer l'installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP >=8.0
+- [Composer](https://getcomposer.org/download/)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [Valet](https://laravel.com/docs/valet#installation)
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+> Notez que vous êtes libre d'ajuster l'emplacement `~/Sites/goshen-tabernacle` à n'importe quel répertoire de votre choix sur votre machine. Ce faisant, assurez-vous d'exécuter la commande `valet link` dans le répertoire souhaité.
 
-### Premium Partners
+1. Clonez ce repo avec la commande `git clone git@github.com:mckenziearts/goshen-tabernacle.git ~/Sites/goshen-tabernacle`
+2. Exécuter `composer install` pour installer les dépendances PHP
+3. Configurez une base de données locale appelée `laravelcm`
+4. Exécutez `composer setup` pour configurer l'application
+5. Configurer un pilote de messagerie fonctionnel comme [Mailtrap](https://mailtrap.io/)
+6. Configurez les fonctionnalités (facultatives) ci-dessous
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Vous pouvez maintenant visiter l'application dans votre navigateur en visitant [http://goshen-tabernacle.test](http://goshen-tabernacle.test). Si vous avez amorcé la base de données, vous pouvez vous connecter à un compte de test avec ** `johndoe` ** & **` password` **.
 
-## Contributing
+## Commands
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Command | Description
+--- | ---
+**`php artisan test --parallel`** | Exécuter les tests
+`php artisan migrate:fresh --seed` | Reset la base de données
+`npx mix --watch` | Surveillez les changements dans les fichiers CSS et JS
 
-## Code of Conduct
+## Maintainers
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Le site Laravel.cm est actuellement maintenu par [Arthur Monney](https://github.com/mckenziearts). Si vous avez des questions, n'hésitez pas à créer une issue sur ce dépôt.
 
-## Security Vulnerabilities
+## Vulnérabilités de sécurité
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Si vous découvrez une faille de sécurité dans Laravel.cm, veuillez envoyer un e-mail immédiatement à [contact@arthurmonney.me](mailto:contact@arthurmonney.me). **Ne créez pas de problème pour la vulnérabilité.**

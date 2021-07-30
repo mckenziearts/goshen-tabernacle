@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -82,13 +81,13 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        static::deleting(function($model) {
+        static::deleting(function ($model) {
             $model->roles()->detach();
         });
     }
 
     /**
-     * Define if user is an admin
+     * Define if user is an admin.
      *
      * @return bool
      */
