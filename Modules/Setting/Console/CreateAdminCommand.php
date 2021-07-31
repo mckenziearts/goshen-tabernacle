@@ -24,11 +24,6 @@ class CreateAdminCommand extends Command
      */
     protected $description = 'Create user with admin role and all permissions.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $this->info('Create Admin User for your admin panel.');
