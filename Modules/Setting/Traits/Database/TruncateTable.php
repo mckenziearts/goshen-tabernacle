@@ -6,13 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 trait TruncateTable
 {
-    /**
-     * Truncate Table
-     *
-     * @param string $table
-     * @return mixed
-     */
-    protected function truncate($table)
+    protected function truncate(string $table)
     {
         switch (DB::getDriverName()) {
             case 'mysql':
