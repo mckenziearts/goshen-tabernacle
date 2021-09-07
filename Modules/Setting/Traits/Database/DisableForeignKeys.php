@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 trait DisableForeignKeys
 {
     /**
-     * Command to disable foreign key for each database management
+     * Command to disable foreign key for each database management.
      *
      * @var array
      */

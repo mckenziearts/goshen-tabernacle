@@ -36,7 +36,7 @@ class Browse extends Component
             'upcomingEvents' => Event::query()
                 ->whereDate('start_date', '>', now()->format('Y-m-d'))
                 ->limit(4)
-                ->get()
+                ->get(),
         ]);
     }
 }

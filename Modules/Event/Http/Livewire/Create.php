@@ -46,7 +46,7 @@ class Create extends Component
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'cover' => 'required'
+            'cover' => 'required',
         ];
     }
 

@@ -13,7 +13,7 @@ use Modules\Event\Http\Controllers\EventController;
 |
 */
 
-Route::prefix('events')->group(function() {
+Route::prefix('events')->group(function () {
     Route::get('/', [EventController::class, 'index'])->name('events');
     Route::get('/new', [EventController::class, 'create'])->name('events.new');
     Route::get('/show/{event}', [EventController::class, 'show'])->name('events.show');
