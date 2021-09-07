@@ -13,12 +13,12 @@ use Spatie\Permission\Middlewares\RoleMiddleware;
 class SettingServiceProvider extends ServiceProvider
 {
     /**
-     * @var string $moduleName
+     * @var string
      */
     protected $moduleName = 'Setting';
 
     /**
-     * @var string $moduleNameLower
+     * @var string
      */
     protected $moduleNameLower = 'setting';
 
@@ -79,7 +79,7 @@ class SettingServiceProvider extends ServiceProvider
         $router->middlewareGroup('admin', array_merge([
             'web',
             'auth',
-            'role:'. config('modules.setting.users.admin_role') .'|manager'
+            'role:' . config('modules.setting.users.admin_role') . '|manager',
         ], config('setting.middleware', [])));
 
         foreach ($this->middlewares as $name => $middleware) {
@@ -98,7 +98,8 @@ class SettingServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/config.php') => config_path("modules/$this->moduleNameLower.php"),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
         );
     }
 
@@ -114,7 +115,7 @@ class SettingServiceProvider extends ServiceProvider
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
         $this->publishes([
-            $sourcePath => $viewPath
+            $sourcePath => $viewPath,
         ], ['views', $this->moduleNameLower . '-module-views']);
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
@@ -159,6 +160,7 @@ class SettingServiceProvider extends ServiceProvider
                 $paths[] = $path . '/modules/' . $this->moduleNameLower;
             }
         }
+
         return $paths;
     }
 }

@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://goshen-tabernacle.cm"><img src="social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
+    <a href="https://goshen-tabernacle.cm"><img src="/art/social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
 </p>
 
 <p align="center">
@@ -10,8 +10,8 @@
 
 ## Goshen Tabernacle
 
-Ce dépôt contient le code source du site de [goshen-tabernacle.com](https://goshen-tabernacle.com). Goshen Tabernacle est l'assemblee locale Camerounaise des croyants qui ont cru au 
-messager (prophete) du temps de la fin William Marrion Branham.
+Ce dépôt contient le code source du site de [goshen-tabernacle.com](https://goshen-tabernacle.com). Goshen Tabernacle est l'assemblée locale Camerounaise des croyants qui ont cru au 
+messager (prophète) du temps de la fin William Marrion Branham.
 
 Site web : https://goshen-tabernacle.com <br />
 Facebook: https://www.facebook.com/goshentabernacle <br />
@@ -32,12 +32,11 @@ Les elements suivant sont requis pour demarrer l'installation
 
 1. Clonez ce repo avec la commande `git clone git@github.com:mckenziearts/goshen-tabernacle.git ~/Sites/goshen-tabernacle`
 2. Exécuter `composer install` pour installer les dépendances PHP
-3. Configurez une base de données locale appelée `laravelcm`
-4. Exécutez `composer setup` pour configurer l'application
-5. Configurer un pilote de messagerie fonctionnel comme [Mailtrap](https://mailtrap.io/)
-6. Configurez les fonctionnalités (facultatives) ci-dessous
+3. Configurez une base de données locale appelée `goshen`
+4. Exécuter les migrations `php artisan migrate`
+5. Créer un super administrateur `php please make:user`
 
-Vous pouvez maintenant visiter l'application dans votre navigateur en visitant [http://goshen-tabernacle.test](http://goshen-tabernacle.test). Si vous avez amorcé la base de données, vous pouvez vous connecter à un compte de test avec ** `johndoe` ** & **` password` **.
+Vous pouvez maintenant visiter l'application dans votre navigateur en visitant [http://goshen-tabernacle.test](http://goshen-tabernacle.test).
 
 ## Commands
 
@@ -49,7 +48,7 @@ Command | Description
 
 ## Maintainers
 
-Le site Laravel.cm est actuellement maintenu par [Arthur Monney](https://github.com/mckenziearts). Si vous avez des questions, n'hésitez pas à créer une issue sur ce dépôt.
+Le site goshen-tabernacle.cm est actuellement maintenu par [Arthur Monney](https://github.com/mckenziearts). Si vous avez des questions, n'hésitez pas à créer une issue sur ce dépôt.
 
 ## Vulnérabilités de sécurité
 

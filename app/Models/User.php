@@ -18,8 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'username',
         'email',
         'password',
@@ -29,6 +28,9 @@ class User extends Authenticatable
         'profession',
         'latitude',
         'longitude',
+        'avatar',
+        'super',
+        'preferences',
         'avatar_type',
         'avatar_location',
         'last_login_at',
@@ -113,17 +115,10 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute(): string
     {
-        return $this->last_name
-            ? $this->first_name . ' ' . $this->last_name
-            : $this->first_name;
+        return $this->name;
     }
 
-    /**
-     * Return Formatted Birth Date Attribute.
-     *
-     * @return \Illuminate\Contracts\Translation\Translator|string
-     */
-    public function getBirthDateFormattedAttribute()
+    public function getBirthDateFormattedAttribute(): string
     {
         if ($this->birth_date) {
             return $this->birth_date->formatLocalized('%d, %B %Y');
@@ -150,11 +145,6 @@ class User extends Authenticatable
         return 'N/A';
     }
 
-    /**
-     * Get user profile picture.
-     *
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|mixed|string
-     */
     public function getPictureAttribute()
     {
         switch ($this->avatar_type) {

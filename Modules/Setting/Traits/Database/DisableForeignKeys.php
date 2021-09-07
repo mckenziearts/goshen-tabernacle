@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 trait DisableForeignKeys
 {
     /**
-     * Command to disable foreign key for each database management
+     * Command to disable foreign key for each database management.
      *
      * @var array
      */
@@ -46,31 +46,16 @@ trait DisableForeignKeys
         DB::statement($this->getEnableStatement());
     }
 
-    /**
-     * Return current driver enable command.
-     *
-     * @return mixed
-     */
     private function getEnableStatement()
     {
         return $this->getDriverCommands()['enable'];
     }
 
-    /**
-     * Return current driver disable command.
-     *
-     * @return mixed
-     */
     private function getDisableStatement()
     {
         return $this->getDriverCommands()['disable'];
     }
 
-    /**
-     * Returns command array for current db driver.
-     *
-     * @return mixed
-     */
     private function getDriverCommands()
     {
         return $this->commands[DB::getDriverName()];

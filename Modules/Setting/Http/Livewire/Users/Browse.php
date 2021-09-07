@@ -36,7 +36,7 @@ class Browse extends Component
             'name' => 'required|unique:roles',
         ], [
             'name.required' => __('The role name is required.'),
-            'name.unique' => __('This name is already used.')
+            'name.unique' => __('This name is already used.'),
         ]);
 
         Role::create([
@@ -49,7 +49,7 @@ class Browse extends Component
 
         $this->dispatchBrowserEvent('notify', [
             'title' => __('Saved!'),
-            'message' => __("Role saved successfully!"),
+            'message' => __('Role saved successfully!'),
         ]);
 
         $this->displayModal = false;
@@ -95,7 +95,7 @@ class Browse extends Component
 
         $this->dispatchBrowserEvent('notify', [
             'title' => __('Deleted'),
-            'message' => __("Admin deleted successfully!"),
+            'message' => __('Admin deleted successfully!'),
         ]);
     }
 

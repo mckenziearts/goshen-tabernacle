@@ -30,9 +30,9 @@ class Phone implements Rule
 
     /**
      * Checks through all validation methods to verify it is in a
-     * phone number format of some type
+     * phone number format of some type.
      * @param  string  $value The phone number to check
-     * @return boolean is it correct format?
+     * @return bool is it correct format?
      */
     protected function isPhone(string $value): bool
     {
@@ -40,10 +40,10 @@ class Phone implements Rule
     }
 
     /**
-     * Format example 5555555555, 15555555555
+     * Format example 5555555555, 15555555555.
      *
      * @param  string  $value
-     * @return boolean
+     * @return bool
      */
     protected function isDigits(string $value): bool
     {
@@ -56,7 +56,7 @@ class Phone implements Rule
     }
 
     /**
-     * Format example +22 555 555 1234, (607) 555 1234, (022607) 555 1234
+     * Format example +22 555 555 1234, (607) 555 1234, (022607) 555 1234.
      *
      * @param  string  $value
      * @return bool
@@ -67,15 +67,15 @@ class Phone implements Rule
     }
 
     /**
-     * Format example +15555555555
+     * Format example +15555555555.
      *
      * @param  string  $value
-     * @return boolean
+     * @return bool
      */
     protected function isE164(string $value): bool
     {
         $conditions = [];
-        $conditions[] = strpos($value, "+") === 0;
+        $conditions[] = str_starts_with($value, '+');
         $conditions[] = strlen($value) >= 9;
         $conditions[] = strlen($value) <= 16;
         $conditions[] = preg_match("/[^\d+]/i", $value) === 0;
@@ -85,10 +85,10 @@ class Phone implements Rule
 
     /**
      * Format examples: (555) 555-5555, 1 (555) 555-5555, 1-555-555-5555, 555-555-5555, 1 555 555-5555
-     * https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#United_States.2C_Canada.2C_and_other_NANP_countries
+     * https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#United_States.2C_Canada.2C_and_other_NANP_countries.
      *
      * @param  string  $value
-     * @return boolean
+     * @return bool
      */
     protected function isNANP(string $value): bool
     {

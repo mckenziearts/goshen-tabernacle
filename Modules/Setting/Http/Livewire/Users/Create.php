@@ -99,7 +99,7 @@ class Create extends Component
                 'required',
                 'email',
                 Rule::unique('users', 'email'),
-                new RealEmailValidator()
+                new RealEmailValidator(),
             ],
             'first_name' => 'required',
             'last_name' => 'required',
@@ -107,8 +107,8 @@ class Create extends Component
             'role_id' => 'required',
             'phone_number' => [
                 'nullable',
-                new Phone()
-            ]
+                new Phone(),
+            ],
         ];
     }
 
@@ -132,7 +132,7 @@ class Create extends Component
             'roles' => Role::query()
                 ->select(['id', 'display_name', 'name'])
                 ->where('name', '<>', config('modules.setting.users.default_role'))
-                ->get()
+                ->get(),
         ]);
     }
 }

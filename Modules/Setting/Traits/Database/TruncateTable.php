@@ -6,30 +6,24 @@ use Illuminate\Support\Facades\DB;
 
 trait TruncateTable
 {
-    /**
-     * Truncate Table
-     *
-     * @param string $table
-     * @return mixed
-     */
-    protected function truncate($table)
+    protected function truncate(string $table)
     {
         switch (DB::getDriverName()) {
             case 'mysql':
                 return DB::table($table)->truncate();
 
             case 'pgsql':
-                return  DB::statement('TRUNCATE TABLE '.$table.' RESTART IDENTITY CASCADE');
+                return  DB::statement('TRUNCATE TABLE ' . $table . ' RESTART IDENTITY CASCADE');
 
             case 'sqlite': case 'sqlsrv':
-            return DB::statement('DELETE FROM '.$table);
+            return DB::statement('DELETE FROM ' . $table);
         }
 
         return false;
     }
 
     /**
-     * Truncate multiple tables
+     * Truncate multiple tables.
      *
      * @param array $tables
      */

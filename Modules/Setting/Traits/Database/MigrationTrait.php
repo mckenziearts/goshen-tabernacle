@@ -10,7 +10,7 @@ trait MigrationTrait
      * Create fields common to all tables.
      *
      * @param  Blueprint  $table
-     * @param  boolean  $hasSoftDelete
+     * @param  bool  $hasSoftDelete
      */
     public function addCommonFields(Blueprint $table, bool $hasSoftDelete = false): void
     {
@@ -40,9 +40,9 @@ trait MigrationTrait
      * @param  Blueprint  $table     Laravel Blueprint
      * @param  string  $columnName   MySQL table column name
      * @param  string  $tableName    MySQL table name
-     * @param  boolean  $nullable    Foreign key nullable status
+     * @param  bool  $nullable    Foreign key nullable status
      */
-    public function addForeignKey(Blueprint $table, string $columnName, string $tableName, $nullable = true): void
+    public function addForeignKey(Blueprint $table, string $columnName, string $tableName, bool $nullable = true): void
     {
         if ($nullable) {
             $table->unsignedBigInteger($columnName)->index()->nullable();

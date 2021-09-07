@@ -13,7 +13,7 @@ use Modules\Setting\Http\Controllers\UserController;
 |
 */
 
-Route::prefix('setting')->as('settings.')->group(function() {
+Route::prefix('setting')->as('settings.')->group(function () {
     Route::get('/', 'SettingController@index')->name('index');
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.new');

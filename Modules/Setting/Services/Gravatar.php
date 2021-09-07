@@ -7,21 +7,21 @@ use Illuminate\Support\Arr;
 class Gravatar
 {
     /**
-     * Gravatar base url
+     * Gravatar base url.
      *
      * @var string
      */
     private $publicBaseUrl = 'https://www.gravatar.com/avatar/';
 
     /**
-     * Gravatar secure base url
+     * Gravatar secure base url.
      *
      * @var string
      */
     private $secureBaseUrl = 'https://secure.gravatar.com/avatar/';
 
     /**
-     * Email address to check
+     * Email address to check.
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class Gravatar
     /**
      * Override the default image fallback set in the config.
      * Can either be a public URL to an image or a valid themed image.
-     * For more info, visit http://en.gravatar.com/site/implement/images/#default-image
+     * For more info, visit http://en.gravatar.com/site/implement/images/#default-image.
      *
      * @param string|bool $fallback
      * @return $this
@@ -49,7 +49,7 @@ class Gravatar
     {
         if (
             filter_var($fallback, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)
-            || in_array($fallback, array('mm', 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'))
+            || in_array($fallback, ['mm', 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'])
         ) {
             $this->fallback = $fallback;
         } else {
@@ -60,7 +60,7 @@ class Gravatar
     }
 
     /**
-     * Check if Gravatar has an avatar for the given email address
+     * Check if Gravatar has an avatar for the given email address.
      *
      * @param $email
      * @return bool
@@ -77,7 +77,7 @@ class Gravatar
     }
 
     /**
-     * Get the gravatar url
+     * Get the gravatar url.
      *
      * @param $email
      * @return string
@@ -96,7 +96,7 @@ class Gravatar
      * Helper function for setting the config based on either:
      * 1. The name of a config group
      * 2. A custom array
-     * 3. The default group in the config
+     * 3. The default group in the config.
      *
      * @param string|array|null $group
      * @return $this
@@ -134,7 +134,7 @@ class Gravatar
     }
 
     /**
-     * Helper function to md5 hash the email address
+     * Helper function to md5 hash the email address.
      *
      * @return string
      */
@@ -158,7 +158,7 @@ class Gravatar
      */
     private function buildUrl()
     {
-        $url  = $this->c('secure') === true ? $this->secureBaseUrl : $this->publicBaseUrl;
+        $url = $this->c('secure') === true ? $this->secureBaseUrl : $this->publicBaseUrl;
         $url .= $this->hashEmail();
         $url .= $this->getExtension();
         $url .= $this->getUrlParameters();
@@ -176,7 +176,7 @@ class Gravatar
             if (substr($method, -strlen('Parameter')) !== 'Parameter') {
                 continue;
             }
-            if ($called = call_user_func(array($this, $method))) {
+            if ($called = call_user_func([$this, $method])) {
                 $build = array_replace($build, $called);
             }
         }
@@ -185,14 +185,15 @@ class Gravatar
     }
 
     /**
-     * Check if the provided email address is valid
+     * Check if the provided email address is valid.
      *
      * @param $email
      * @throws \Exception
      */
     private function checkEmail($email)
     {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new \Exception(__('Please specify a valid email address'));
+        }
     }
 }
