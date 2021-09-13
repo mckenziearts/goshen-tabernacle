@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'use_authenticated' => true,
+    'use_authenticated' => false,
 
     'user' => [
         'name' => env('STATAMIC_GIT_USER_NAME', 'Spock'),
@@ -98,6 +98,7 @@ return [
         resource_path('forms'),
         resource_path('users'),
         storage_path('forms'),
+        public_path('assets'),
     ],
 
     /*
