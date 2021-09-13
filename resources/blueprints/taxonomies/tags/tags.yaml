@@ -1,0 +1,36 @@
+title: Tags
+sections:
+  main:
+    display: Principal
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: emoji
+        field:
+          input_type: text
+          antlers: false
+          display: Emoji
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: content
+        field:
+          type: markdown
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          validate:
+            - required
