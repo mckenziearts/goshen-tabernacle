@@ -1,0 +1,51 @@
+title: Multimedia
+sections:
+  main:
+    display: Principal
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: responsable
+        field:
+          max_items: 1
+          mode: select
+          display: Responsable
+          type: users
+          icon: users
+          listable: hidden
+      -
+        handle: couleur
+        field:
+          theme: classic
+          lock_opacity: false
+          default_color_mode: HEXA
+          color_modes:
+            - HEXA
+          display: Couleur
+          type: color
+          icon: color
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
