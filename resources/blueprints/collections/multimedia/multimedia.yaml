@@ -31,6 +31,21 @@ sections:
           type: color
           icon: color
           listable: hidden
+      -
+        handle: acces
+        field:
+          multiple: true
+          max_items: 3
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          default: '3'
+          display: Acces
+          type: select
+          icon: select
+          listable: true
   sidebar:
     display: Sidebar
     fields:
