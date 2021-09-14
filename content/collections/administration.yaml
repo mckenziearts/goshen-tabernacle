@@ -1,0 +1,6 @@
+title: Administration
+template: administration/show
+revisions: false
+date_behavior:
+  past: public
+  future: private
