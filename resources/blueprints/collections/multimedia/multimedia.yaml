@@ -11,11 +11,6 @@ sections:
           validate:
             - required
       -
-        handle: content
-        field:
-          type: markdown
-          localizable: true
-      -
         handle: responsable
         field:
           max_items: 1
