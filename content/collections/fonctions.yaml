@@ -1,5 +1,5 @@
 title: Fonctions
-template: default
+template: fonctions/show
 layout: layout
 revisions: false
 route: '/fonctions/{slug}'

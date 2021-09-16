@@ -1,4 +1,5 @@
 title: Pages
+template: pages/show
 revisions: false
 date_behavior:
   past: public
