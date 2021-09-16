@@ -1,4 +1,4 @@
-title: Fonctions
+title: Groupes
 sections:
   main:
     display: Principal
@@ -55,6 +55,5 @@ sections:
         handle: date
         field:
           type: date
-          required: true
           validate:
             - required
