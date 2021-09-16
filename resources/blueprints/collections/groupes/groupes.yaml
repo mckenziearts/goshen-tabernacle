@@ -11,7 +11,7 @@ sections:
           validate:
             - required
       -
-        handle: membres
+        handle: contenu
         field:
           always_show_set_button: false
           buttons:
@@ -36,7 +36,7 @@ sections:
           allow_source: true
           enable_input_rules: true
           enable_paste_rules: true
-          display: Membres
+          display: Contenu
           type: bard
           icon: bard
           listable: hidden

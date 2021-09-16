@@ -26,5 +26,27 @@ membres:
                 text: 'Les predicateurs'
 responsable: 1
 updated_by: 1
-updated_at: 1631802858
+updated_at: 1631803309
+contenu:
+  -
+    type: bullet_list
+    content:
+      -
+        type: list_item
+        content:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: Pasteur
+      -
+        type: list_item
+        content:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'Les predicateurs'
 ---
