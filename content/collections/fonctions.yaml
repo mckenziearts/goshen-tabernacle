@@ -1,9 +1,8 @@
-title: Multimedia
+title: Fonctions
 template: default
 layout: layout
 revisions: false
-route: '/multimedia/{slug}'
-date: true
+route: '/fonctions/{slug}'
 sort_dir: asc
 date_behavior:
   past: public
