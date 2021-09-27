@@ -1,0 +1,9 @@
+title: 'Sous groupes'
+template: sous_groupes/show
+layout: layout
+revisions: false
+route: '/sous groupe/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
