@@ -86,31 +86,16 @@ class User extends Authenticatable
         });
     }
 
-    /**
-     * Define if user is an admin.
-     *
-     * @return bool
-     */
     public function isAdmin(): bool
     {
         return $this->hasRole(config('modules.setting.users.admin_role'));
     }
 
-    /**
-     * Define if an user account is verified.
-     *
-     * @return bool
-     */
     public function isVerified(): bool
     {
         return $this->email_verified_at !== null;
     }
 
-    /**
-     * Return User Full Name.
-     *
-     * @return string
-     */
     public function getFullNameAttribute(): string
     {
         return $this->last_name
@@ -118,12 +103,7 @@ class User extends Authenticatable
             : $this->first_name;
     }
 
-    /**
-     * Return Formatted Birth Date Attribute.
-     *
-     * @return \Illuminate\Contracts\Translation\Translator|string
-     */
-    public function getBirthDateFormattedAttribute()
+    public function getBirthDateFormattedAttribute(): string
     {
         if ($this->birth_date) {
             return $this->birth_date->formatLocalized('%d, %B %Y');
@@ -132,11 +112,6 @@ class User extends Authenticatable
         return __('Not defined');
     }
 
-    /**
-     * Get User roles name.
-     *
-     * @return string
-     */
     public function getRolesLabelAttribute(): string
     {
         $roles = $this->roles()->pluck('display_name')->toArray();
@@ -150,12 +125,7 @@ class User extends Authenticatable
         return 'N/A';
     }
 
-    /**
-     * Get user profile picture.
-     *
-     * @return \Illuminate\Contracts\Routing\UrlGenerator|mixed|string
-     */
-    public function getPictureAttribute()
+    public function getPictureAttribute(): string
     {
         switch ($this->avatar_type) {
             case 'gravatar':
