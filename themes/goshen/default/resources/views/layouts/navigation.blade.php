@@ -44,7 +44,7 @@
 
                         @if(Auth::user()->isAdmin())
                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <x-dropdown-link href="#">
+                                <x-dropdown-link :href="route('cp.dashboard')">
                                     {{ __('CPanel') }}
                                 </x-dropdown-link>
                             </div>
@@ -103,7 +103,7 @@
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 @if(Auth::user()->isAdmin())
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('cp.dashboard')">
                         {{ __('CPanel') }}
                     </x-responsive-nav-link>
                 @endif

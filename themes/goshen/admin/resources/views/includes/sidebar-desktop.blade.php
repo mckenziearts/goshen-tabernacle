@@ -3,7 +3,6 @@
         <div class="flex items-center flex-shrink-0 px-6">
             <x-application-logo-large class="h-12 w-auto text-purple-600" />
         </div>
-        <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
             <!-- User account dropdown -->
             <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false" class="px-3 mt-6 relative inline-block text-left">
@@ -11,7 +10,7 @@
                     <button @click="open = !open" type="button" class="group w-full bg-gray-800 rounded-md px-3.5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500" id="options-menu" aria-haspopup="true" x-bind:aria-expanded="open">
                         <span class="flex w-full justify-between items-center">
                             <span class="flex min-w-0 items-center justify-between space-x-3">
-                                <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{ auth()->user()->picture }}" alt="User profile" />
+                                <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="{{ auth()->user()->profile_photo_url }}" alt="User profile" />
                                 <span class="flex-1 min-w-0 flex flex-col text-left truncate">
                                     <span class="inline-flex text-white text-sm font-medium truncate">{{ auth()->user()->full_name }}</span>
                                     <span class="inline-flex text-gray-500 text-xs leading-4 truncate">{{ auth()->user()->email }}</span>
@@ -23,16 +22,23 @@
                         </span>
                     </button>
                 </div>
-                <div x-show="open" x-description="Dropdown panel, show/hide based on dropdown state." x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 divide-y divide-gray-800" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" style="display: none;">
+                <div x-show="open"
+                     x-transition:enter="transition ease-out duration-100"
+                     x-transition:enter-start="transform opacity-0 scale-95"
+                     x-transition:enter-end="transform opacity-100 scale-100"
+                     x-transition:leave="transition ease-in duration-75"
+                     x-transition:leave-start="transform opacity-100 scale-100"
+                     x-transition:leave-end="transform opacity-0 scale-95"
+                     class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 divide-y divide-gray-800" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" style="display: none;">
                     <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">{{ __('Mon compte') }}</a>
-                        <a href="{{ route('admin.settings.index') }}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">{{ __('Parametres') }}</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">{{ __('Account') }}</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">{{ __('Settings') }}</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">{{ __('Notifications') }}</a>
                     </div>
                     <div class="py-1">
                         <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Se deconnecter') }}
+                            {{ __('Log out') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             @csrf
@@ -41,7 +47,9 @@
                 </div>
             </div>
             <!-- Navigation -->
-            <x-navigation class="px-3 mt-6 space-y-8" />
+            <div class="px-3 mt-6 space-y-8">
+                @include('includes.navigation')
+            </div>
         </div>
     </div>
 </div>
