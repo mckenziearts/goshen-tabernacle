@@ -71,6 +71,7 @@ abstract class RoutingServiceProvider extends ServiceProvider
         if ($backend && file_exists($backend)) {
             Route::middleware('admin')
                 ->prefix(config('starterkit.core.routes.prefix'))
+                ->domain(config('starterkit.core.routes.sub_domain'))
                 ->namespace($this->namespace)
                 ->as('cp.')
                 ->group($backend);

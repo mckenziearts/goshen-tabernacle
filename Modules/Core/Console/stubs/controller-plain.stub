@@ -2,8 +2,8 @@
 
 namespace $CLASS_NAMESPACE$;
 
-use Illuminate\Routing\Controller;
+use Modules\Core\Http\Controllers\CPanel\AdminController;
 
-class $CLASS$ extends Controller
+class $CLASS$ extends AdminController
 {
 }
