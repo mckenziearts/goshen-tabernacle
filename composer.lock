@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5940a60b173667e532a3cb0150472fc",
+    "content-hash": "8cd87355ef4bcc4e3fdc4d887c5c24c7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4743,6 +4743,44 @@
                 "core",
                 "laravel",
                 "laravel-boilerplate"
+            ],
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
+        },
+        {
+            "name": "starterkit/dashboard",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./Modules/Dashboard",
+                "reference": "49f987d5be5737e2190f2ed92dcd2aa6c3b2d92d"
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "mhmiton/laravel-modules-livewire": "^1.1",
+                "nwidart/laravel-modules": "^8.2",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Dashboard\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Arthur Monney",
+                    "email": "monneylobe@gmail.com",
+                    "role": "Developer"
+                }
             ],
             "transport-options": {
                 "symlink": false,

@@ -1,7 +1,9 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   purge: {
     content: [
       './Modules/Dashboard/Resources/views/**/*.blade.php',
@@ -19,6 +21,14 @@ module.exports = {
 
   theme: {
     extend: {
+      colors: {
+        primary: colors.gray,
+        secondary: colors.blueGray,
+        positive: colors.emerald,
+        warning: colors.amber,
+        negative: colors.red,
+        info: colors.sky,
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
