@@ -22,7 +22,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.gray,
+        primary: colors.purple,
         secondary: colors.blueGray,
         positive: colors.emerald,
         warning: colors.amber,

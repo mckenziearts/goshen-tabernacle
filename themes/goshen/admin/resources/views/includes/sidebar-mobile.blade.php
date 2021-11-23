@@ -8,7 +8,7 @@
              x-transition:leave="transition-opacity ease-linear duration-300"
              x-transition:leave-start="opacity-100"
              x-transition:leave-end="opacity-0" class="fixed inset-0" aria-hidden="true" style="display: none;">
-            <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
+            <div class="absolute inset-0 bg-secondary-600 opacity-75"></div>
         </div>
         <div x-show="sidebarOpen" x-description="Off-canvas menu, show/hide based on off-canvas menu state." x-transition:enter="transition ease-in-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white" style="display: none;">
             <div class="absolute top-0 right-0 -mr-12 pt-2">
@@ -18,7 +18,7 @@
                 </button>
             </div>
             <div class="flex-shrink-0 flex items-center px-4">
-                <x-application-logo-large class="h-8 w-auto text-purple-600" />
+                <x-application-logo-large class="h-8 w-auto text-primary-600" />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
                 <div class="px-2 space-y-8">

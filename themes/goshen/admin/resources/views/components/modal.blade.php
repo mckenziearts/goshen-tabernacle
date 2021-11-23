@@ -49,7 +49,7 @@
             x-transition:leave-end="opacity-0"
             class="fixed inset-0 transition-opacity"
         >
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            <div class="absolute inset-0 bg-secondary-500 opacity-75"></div>
         </div>
 
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>

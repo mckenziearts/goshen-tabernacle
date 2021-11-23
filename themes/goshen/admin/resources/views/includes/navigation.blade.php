@@ -1,40 +1,36 @@
-<nav>
+<nav class="flex-1 space-y-8" aria-label="Sidebar">
+    <div class="space-y-1">
+        <x-sidebar-link :href="route('cp.dashboard')" :active="request()->routeIs('cp.dashboard')">
+            <x-heroicon-o-chart-square-bar class="{{ request()->routeIs('cp.dashboard') ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+            {{ __('Dashboard') }}
+        </x-sidebar-link>
+        <x-sidebar-link href="#" :active="request()->routeIs('cp.events')">
+            <x-heroicon-o-calendar class="{{ request()->routeIs('cp.events') ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+            {{ __('Events') }}
+        </x-sidebar-link>
+        <x-sidebar-link href="#" :active="request()->routeIs('cp.users')">
+            <x-heroicon-o-user-group class="{{ request()->routeIs('cp.users') ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+            {{ __('Users') }}
+        </x-sidebar-link>
+    </div>
+
     <div>
-        <div class="mt-3 space-y-1">
-            <x-sidebar-link :href="route('cp.dashboard')" :active="request()->routeIs('cp.dashboard')">
-                <svg class="{{ request()->routeIs('admin.dashboard') ? 'text-gray-300': 'text-gray-400 group-hover:text-gray-300' }} mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                {{ __('Dashboard') }}
+        <h4 class="px-3 text-xs font-semibold text-primary-500 uppercase tracking-wider">{{ __('Analytics') }}</h4>
+        <div class="mt-1 space-y-1">
+            <x-sidebar-link href="#" :active="request()->routeIs('cp.analytics')">
+                <x-heroicon-o-chart-bar class="{{ request()->routeIs('cp.analytics') ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+                {{ __('Analytics') }}
             </x-sidebar-link>
         </div>
     </div>
 
     <div>
-        <!-- Secondary navigation -->
-        <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider" id="teams-headline">
-            {{ __('Configuration') }}
-        </h3>
-        <div class="mt-3 space-y-1" role="group" aria-labelledby="teams-headline">
-
-            <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">
-                <span class="truncate">
-                    {{ __('Audits') }}
-                </span>
-            </a>
-
-            <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">
-                <span class="truncate">
-                    {{ __('Bugs Rapports') }}
-                </span>
-            </a>
-
-            <a href="#" class="group flex items-center px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">
-                <span class="truncate">
-                    {{ __('Database') }}
-                </span>
-            </a>
-
+        <h4 class="px-3 text-xs font-semibold text-primary-500 uppercase tracking-wider">{{ __('Administration') }}</h4>
+        <div class="mt-1 space-y-1">
+            <x-sidebar-link href="#" :active="request()->routeIs('cp.settings')">
+                <x-heroicon-o-cog class="{{ request()->routeIs('cp.settings') ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+                {{ __('Settings') }}
+            </x-sidebar-link>
         </div>
     </div>
 </nav>
