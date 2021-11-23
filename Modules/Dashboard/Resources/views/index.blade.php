@@ -1,4 +1,5 @@
 @extends('layouts.cp')
+@section('title', __('Dashboard'))
 
 @section('content')
 
