@@ -88,7 +88,17 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        return $this->hasRole(config('modules.setting.users.admin_role'));
+        return $this->hasRole(config('starterkit.core.config.users.admin_role'));
+    }
+
+    public function isManager(): bool
+    {
+        return $this->hasRole('manager');
+    }
+
+    public function isUser(): bool
+    {
+        return $this->hasRole(config('starterkit.core.config.users.default_role'));
     }
 
     public function isVerified(): bool

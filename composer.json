@@ -15,15 +15,13 @@
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "hexadog/laravel-themes-manager": "^1.8",
-    "laravel-boilerplate/dashboard": "*",
-    "laravel-boilerplate/event": "*",
-    "laravel-boilerplate/setting": "*",
-    "laravel/framework": "^8.12",
+    "laravel/framework": "^8.73",
     "laravel/tinker": "^2.5",
-    "livewire/livewire": "^2.3",
+    "livewire/livewire": "^2.7",
     "mhmiton/laravel-modules-livewire": "^1.1",
     "nwidart/laravel-modules": "^8.2",
-    "spatie/laravel-medialibrary-pro": "^1.0.0"
+    "spatie/laravel-medialibrary-pro": "^1.0.0",
+    "starterkit/core": "*"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.5",
@@ -85,31 +83,17 @@
       "./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
     ]
   },
-  "repositories": [
-    {
+  "repositories": {
+    "starterkit/core" : {
       "type": "path",
-      "url": "./Modules/Setting",
+      "url": "./Modules/Core",
       "options": {
         "symlink": false
       }
     },
-    {
-      "type": "path",
-      "url": "./Modules/Dashboard",
-      "options": {
-        "symlink": false
-      }
-    },
-    {
-      "type": "path",
-      "url": "./Modules/Event",
-      "options": {
-        "symlink": false
-      }
-    },
-    {
+    "spatie/laravel-medialibrary-pro": {
       "type": "composer",
       "url": "https://satis.spatie.be"
     }
-  ]
+  }
 }

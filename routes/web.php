@@ -23,7 +23,7 @@ Route::redirectMap([
     'youtube' => 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg',
 ]);
 
-Route::view('/', 'welcome')->name('soon');
-Route::view('/podcasts', 'podcasts')->name('podcasts');
+Route::view('/', 'welcome')->name('soon')->middleware('theme:default');
+Route::view('/podcasts', 'podcasts')->name('podcasts')->middleware('theme:default');
 
 Route::mediaLibrary();

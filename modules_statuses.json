@@ -1,5 +1,3 @@
 {
-    "Setting": true,
-    "Dashboard": true,
-    "Event": true
+  "Core": true
 }

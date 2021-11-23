@@ -17,6 +17,6 @@ Route::redirect('/', '/login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard')->middleware('theme:default');
 
 require __DIR__ . '/auth.php';
