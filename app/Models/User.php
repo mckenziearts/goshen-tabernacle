@@ -2,15 +2,22 @@
 
 namespace App\Models;
 
+use App\Traits\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory,
+        HasProfilePhoto,
+        HasRoles,
+        InteractsWithMedia,
+        Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -67,7 +74,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'full_name',
-        'picture',
+        'profile_photo_url',
         'roles_label',
         'birth_date_formatted',
     ];
@@ -135,14 +142,10 @@ class User extends Authenticatable
         return 'N/A';
     }
 
-    public function getPictureAttribute(): string
+    public function registerMediaCollections(): void
     {
-        switch ($this->avatar_type) {
-            case 'gravatar':
-                return gravatar()->get($this->email);
-
-            case 'storage':
-                return Storage::disk('avatars')->url($this->avatar_location);
-        }
+        $this->addMediaCollection('avatar')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpg', 'image/jpeg', 'image/png']);
     }
 }

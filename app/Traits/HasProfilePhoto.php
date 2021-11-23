@@ -15,12 +15,6 @@ trait HasProfilePhoto
             return $this->getFirstMediaUrl('avatar');
         }
 
-        $social_avatar = $this->providers()->where('provider', $this->avatar_type)->first();
-
-        if ($social_avatar && strlen($social_avatar->avatar)) {
-            return $social_avatar->avatar;
-        }
-
         return $this->defaultProfilePhotoUrl();
     }
 
@@ -31,6 +25,6 @@ trait HasProfilePhoto
      */
     protected function defaultProfilePhotoUrl(): string
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=065F46&background=D1FAE5';
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->full_name) . '&color=065F46&background=D1FAE5';
     }
 }
