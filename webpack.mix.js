@@ -11,6 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.disableSuccessNotifications();
+
 mix.setPublicPath('./public')
 mix.js('resources/js/app.js', 'public/js')
   .postCss('resources/css/app.css', 'public/css', [
