@@ -27,7 +27,6 @@ return [
 
     'sub_domain' => 'app.' . env('APP_DOMAIN'),
 
-
     /*
     |--------------------------------------------------------------------------
     | Admin Routes Middleware
@@ -42,4 +41,3 @@ return [
     'middleware' => [],
 
 ];
-
