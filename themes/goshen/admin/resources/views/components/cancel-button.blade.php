@@ -1,11 +1,11 @@
-@props(['type' => 'button'])
+@props(['link' => null])
 
-@if($type === 'button')
-    <button {{ $attributes->merge(['type' => 'button', 'class' => 'inline-flex items-center justify-center px-4 py-2 bg-white border border-secondary-300 rounded-md font-semibold text-xs text-secondary-700 uppercase tracking-widest focus:outline-none focus:border-primary-900 focus:ring ring-primary-300 hover:bg-secondary-50 active:bg-secondary-100 transition ease-in-out duration-150']) }}>
-        {{ $slot }}
-    </button>
-@else
-    <a {{ $attributes->merge(['class' => 'inline-flex items-center justify-center px-4 py-2 bg-white border border-secondary-300 rounded-md font-semibold text-xs text-secondary-700 uppercase tracking-widest focus:outline-none focus:border-primary-900 focus:ring ring-primary-300 hover:bg-secondary-50 active:bg-secondary-100 transition ease-in-out duration-150']) }}>
+@if($link)
+    <a href="{{ $link }}" {{ $attributes->merge(['class' => 'inline-flex items-center px-4 py-2 border border-secondary-300 shadow-sm text-sm font-medium rounded-md text-secondary-700 bg-white hover:bg-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition ease-in-out duration-150']) }}>
         {{ $slot }}
     </a>
+@else
+    <button {{ $attributes->merge(['class' => 'inline-flex items-center px-4 py-2 border border-secondary-300 shadow-sm text-sm font-medium rounded-md text-secondary-700 bg-white hover:bg-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition ease-in-out duration-150']) }}>
+        {{ $slot }}
+    </button>
 @endif

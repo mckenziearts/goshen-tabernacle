@@ -9,7 +9,11 @@
 
     @include('includes.favicons')
 
-    <title>@yield('title') - CPanel</title>
+    <title>
+        {{ isset($title) ? $title . ' | ' : '' }}
+        {{ config('app.name') }}
+        {{ is_active('cp.dashboard') ? '- Laravel Starter Kit' : '' }}
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none py-6" tabindex="0" x-data="" x-init="$el.focus()">
+            <main class="flex-1 relative z-0 overflow-y-auto max-w-7xl px-4 sm:px-6 md:px-8 py-6">
                 @yield('content')
             </main>
         </div>
