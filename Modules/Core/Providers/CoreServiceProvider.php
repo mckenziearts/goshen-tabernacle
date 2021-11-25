@@ -5,10 +5,10 @@ namespace Modules\Core\Providers;
 use Carbon\Carbon;
 use Hexadog\ThemesManager\Http\Middleware\ThemeLoader;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Console\AdminCommand;
 use Modules\Core\Console\InstallCommand;
-use Modules\Core\Http\Middleware\LocaleMiddleware;
 use Spatie\Permission\Middlewares\PermissionMiddleware;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 
@@ -62,13 +62,10 @@ class CoreServiceProvider extends ServiceProvider
         Carbon::setLocale(config('app.locale'));
     }
 
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
     public function register()
     {
+        $this->registerBladeDirective();
+
         $this->commands([
             AdminCommand::class,
             InstallCommand::class
@@ -88,11 +85,6 @@ class CoreServiceProvider extends ServiceProvider
         ], config('starterkit.core.routes.middleware', [])));
     }
 
-    /**
-     * Register config.
-     *
-     * @return void
-     */
     protected function registerConfig()
     {
         collect($this->configFiles)->each(function ($config) {
@@ -101,15 +93,21 @@ class CoreServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
+    public function registerBladeDirective()
+    {
+        Blade::directive('title', function ($expression) {
+            return "<?php \$title = $expression ?>";
+        });
+
+        Blade::directive('canonical', function ($expression) {
+            return "<?php \$canonical = $expression ?>";
+        });
+    }
+
     public function provides(): array
     {
         return [
-            RoutingServiceProvider::class,
+            // RoutingServiceProvider::class,
         ];
     }
 }
