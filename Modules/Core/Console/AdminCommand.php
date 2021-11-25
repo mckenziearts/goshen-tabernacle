@@ -58,7 +58,7 @@ class AdminCommand extends Command
         try {
             $user = tap((new $model)->forceFill($userData))->save();
 
-            $user->assignRole(config('core.users.admin_role'));
+            $user->assignRole(config('starterkit.core.config.users.admin_role'));
         } catch (\Exception | QueryException $e) {
             $this->error($e->getMessage());
         }

@@ -11,6 +11,6 @@ class Role extends SpatieRole
 
     public function isAdmin(): bool
     {
-        return $this->name === config('core.users.admin_role');
+        return $this->name === config('starterkit.core.config.users.admin_role');
     }
 }

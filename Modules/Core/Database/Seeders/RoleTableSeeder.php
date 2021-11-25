@@ -20,7 +20,7 @@ class RoleTableSeeder extends Seeder
         $this->disableForeignKeys();
 
         Role::create([
-            'name' => config('core.users.admin_role'),
+            'name' => config('starterkit.core.config.users.admin_role'),
             'display_name' => __('Administrator'),
             'description' => __('Site administrator with access to shop admin panel and developer tools.'),
             'can_be_removed' => false,
@@ -34,7 +34,7 @@ class RoleTableSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => config('core.users.default_role'),
+            'name' => config('starterkit.core.config.users.default_role'),
             'display_name' => __('User'),
             'description' => __('Site customer role with access on front site.'),
             'can_be_removed' => false,

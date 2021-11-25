@@ -20,7 +20,7 @@ class PermissionRoleTableSeeder extends Seeder
     {
         $this->disableForeignKeys();
 
-        $administrator = Role::query()->where('name', config('core.users.admin_role'))->firstOrFail();
+        $administrator = Role::query()->where('name', config('starterkit.core.config.users.admin_role'))->firstOrFail();
         $permissions = Permission::all();
         $administrator->permissions()->sync($permissions->pluck('id')->all());
 
