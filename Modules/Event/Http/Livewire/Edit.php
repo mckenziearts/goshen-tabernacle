@@ -13,14 +13,8 @@ class Edit extends Component
 
     public Event $event;
 
-    public int $index;
+    public int $index = 0;
 
-    /**
-     * Component mount instance.
-     *
-     * @param  Event  $event
-     * @return void
-     */
     public function mount(Event $event)
     {
         $this->event = $event;
@@ -31,29 +25,18 @@ class Edit extends Component
         $this->start_date = $event->start_date->format('Y-m-d');
         $this->end_date = $event->end_date->format('Y-m-d');
 
-        switch ($event->privacy) {
-            case 'public':
-                $this->index = 0;
-                break;
-            case 'private':
-                $this->index = 1;
-                break;
-            case 'invitation':
-                $this->index = 2;
-                break;
-        }
+        $this->index = match ($event->privacy) {
+            'public' => 0,
+            'private' => 1,
+            'invitation' => 2,
+        };
     }
 
-    /**
-     * Update entry to the storage.
-     *
-     * @return void
-     */
     public function store()
     {
         $this->validate($this->rules());
 
-        Event::query()->find($this->event->id)->update([
+        $this->event->update([
             'title' => $this->title,
             'description' => $this->description,
             'privacy' => $this->privacy,
@@ -64,26 +47,10 @@ class Edit extends Component
 
         session()->flash('success', __('Event updated successfully!'));
 
-        $this->redirectRoute('admin.events');
+        $this->redirectRoute('cp.events');
     }
 
-    /**
-     * Real-Time validation.
-     *
-     * @param  string  $field
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function updated($field)
-    {
-        $this->validateOnly($field, $this->rules());
-    }
-
-    /**
-     * Validations rules.
-     *
-     * @return string[]
-     */
-    protected function rules()
+    public function rules(): array
     {
         return [
             'title' => [
@@ -97,11 +64,6 @@ class Edit extends Component
         ];
     }
 
-    /**
-     * Render component.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
         return view('event::livewire.edit');

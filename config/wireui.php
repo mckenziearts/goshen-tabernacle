@@ -86,7 +86,7 @@ return [
         ],
         'button' => [
             'class' => Components\Button::class,
-            'alias' => 'button',
+            'alias' => 'wi-button',
         ],
         'dropdown' => [
             'class' => Components\Dropdown::class,

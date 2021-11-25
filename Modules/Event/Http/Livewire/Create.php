@@ -11,17 +11,30 @@ class Create extends Component
 {
     use WithMedia, WithAttributes;
 
-    /**
-     * Save new event to the storage.
-     *
-     * @return void
-     */
+    protected $rules = [
+        'title' => 'required|min:6|unique:events,title',
+        'description' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
+        'cover' => 'required'
+    ];
+
+    protected $listeners = [
+        'trix:valueUpdated' => 'onTrixValueUpdate',
+    ];
+
+    public function onTrixValueUpdate($value)
+    {
+        $this->description = $value;
+    }
+
     public function store()
     {
-        $this->validate($this->rules());
+        $this->validate();
 
         $event = Event::query()->create([
             'title' => $this->title,
+            'slug' => $this->title,
             'description' => $this->description,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
@@ -34,33 +47,9 @@ class Create extends Component
 
         $this->clearMedia('cover');
 
-        session()->flash('success', __('Evenement ajoute avec succes!'));
+        session()->flash('success', __('Event successfully added!'));
 
-        $this->redirectRoute('admin.events');
-    }
-
-    protected function rules(): array
-    {
-        return [
-            'title' => 'required|min:6|unique:events,title',
-            'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'cover' => 'required'
-        ];
-    }
-
-    protected function messages(): array
-    {
-        return [
-            'title.required' => 'Le titre de l\'evenement est requis',
-            'title.min' => 'Le titre de l\'evenement dois etre de plus de 6 caracteres',
-            'title.unique' => 'Ce titre a deja ete attribue a un event',
-            'description.required' => 'La description est requise',
-            'start_date.required' => 'La date de debut est requise',
-            'end_date.required' => 'La date de fin est requise',
-            'cover.required' => 'Une image de couverture est requise',
-        ];
+        $this->redirectRoute('cp.events');
     }
 
     public function render()
