@@ -4,6 +4,9 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   mode: 'jit',
   darkMode: 'class',
+  presets: [
+    require('./vendor/ph7jack/wireui/tailwind.config.js')
+  ],
   purge: {
     content: [
       './Modules/Dashboard/Resources/views/**/*.blade.php',
@@ -12,7 +15,10 @@ module.exports = {
       './themes/goshen/admin/resources/views/**/*.blade.php',
       './themes/goshen/default/resources/views/**/*.blade.php',
       './resources/views/**/*.blade.php',
-      './storage/framework/views/*.php'
+      './storage/framework/views/*.php',
+      './vendor/ph7jack/wireui/resources/**/*.blade.php',
+      './vendor/ph7jack/wireui/ts/**/*.ts',
+      './vendor/ph7jack/wireui/src/View/**/*.php',
     ],
     options: {
       safelist: [/^media-library/],

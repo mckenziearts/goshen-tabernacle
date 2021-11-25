@@ -20,6 +20,7 @@
     "livewire/livewire": "^2.7",
     "mhmiton/laravel-modules-livewire": "^1.1",
     "nwidart/laravel-modules": "^8.2",
+    "ph7jack/wireui": "^0.14.1",
     "spatie/laravel-medialibrary-pro": "^1.0.0",
     "starterkit/core": "*",
     "starterkit/dashboard": "*"
@@ -89,14 +90,14 @@
       "type": "path",
       "url": "./Modules/Core",
       "options": {
-        "symlink": false
+        "symlink": true
       }
     },
     "starterkit/dashboard" : {
       "type": "path",
       "url": "./Modules/Dashboard",
       "options": {
-        "symlink": false
+        "symlink": true
       }
     },
     "spatie/laravel-medialibrary-pro": {
