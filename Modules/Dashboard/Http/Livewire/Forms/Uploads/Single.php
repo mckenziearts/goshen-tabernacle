@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Forms\Uploads;
+namespace Modules\Dashboard\Http\Livewire\Forms\Uploads;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -50,6 +50,6 @@ class Single extends Component
 
     public function render()
     {
-        return view('livewire.forms.uploads.single');
+        return view('dashboard::livewire.forms.uploads.single');
     }
 }

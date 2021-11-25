@@ -23,6 +23,6 @@ class Trix extends Component
 
     public function render()
     {
-        return view('livewire.forms.trix');
+        return view('dashboard::livewire.forms.trix');
     }
 }
