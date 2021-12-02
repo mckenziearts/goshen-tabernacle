@@ -48,6 +48,11 @@ class Event extends Model implements HasMedia
         return $this->privacy === 'invitation';
     }
 
+    public function isPrivate(): bool
+    {
+        return $this->privacy === 'private';
+    }
+
     public function getPrivacyFormattedAttribute(): string
     {
         return match ($this->privacy) {
@@ -55,5 +60,12 @@ class Event extends Model implements HasMedia
             'private' => __('Church members'),
             'invitation' => __('By invitation'),
         };
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('cover')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpg', 'image/jpeg', 'image/png']);
     }
 }

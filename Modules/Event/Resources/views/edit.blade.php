@@ -1,5 +1,5 @@
 @extends('layouts.cp')
-@title(__('Update event ~ :name', ['name' => $event->name]))
+@title(__('Update event ~ :name', ['name' => $event->title]))
 
 @section('content')
 

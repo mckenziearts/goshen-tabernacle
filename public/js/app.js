@@ -3304,8 +3304,10 @@ var module_default = src_default;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./resources/js/helpers.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_helpers__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _helpers_string__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/string */ "./resources/js/helpers/string.js");
+/* harmony import */ var _helpers_trix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/trix */ "./resources/js/helpers/trix.js");
+/* harmony import */ var _helpers_trix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_helpers_trix__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__.default;
@@ -3313,10 +3315,72 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.start();
 
 /***/ }),
 
-/***/ "./resources/js/helpers.js":
-/*!*********************************!*\
-  !*** ./resources/js/helpers.js ***!
-  \*********************************/
+/***/ "./resources/js/helpers/string.js":
+/*!****************************************!*\
+  !*** ./resources/js/helpers/string.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "nl2br": () => (/* binding */ nl2br),
+/* harmony export */   "formatMoney": () => (/* binding */ formatMoney)
+/* harmony export */ });
+/**
+ * Transforme la première d'une chaîne de caractère en majuscule
+ *
+ * @param string
+ */
+window.capitalize = function (string) {
+  return string.replace(/^\w/, function (c) {
+    return c.toUpperCase();
+  });
+};
+/**
+ * Créer une chaîne de cas de serpent
+ *
+ * @param string
+ * @returns {*}
+ */
+
+
+window.snakeCase = function (string) {
+  return string && string.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g).map(function (s) {
+    return s.toLowerCase();
+  }).join('_');
+};
+/**
+ * Ajoute des sauts de ligne automatiquement sur une chaine
+ *
+ * @param {string} str
+ * @return {string}
+ */
+
+
+function nl2br(str) {
+  return str.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2');
+}
+/**
+ * Formate un nombre
+ *
+ * @param {number} amount
+ * @return {string}
+ */
+
+function formatMoney(amount) {
+  return new Intl.NumberFormat('fr-FR', {
+    style: 'currency',
+    currency: 'XAF'
+  }).format(amount);
+}
+
+/***/ }),
+
+/***/ "./resources/js/helpers/trix.js":
+/*!**************************************!*\
+  !*** ./resources/js/helpers/trix.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 // Load Trix editor scripts when find editor className

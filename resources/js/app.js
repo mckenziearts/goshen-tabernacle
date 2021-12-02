@@ -1,6 +1,7 @@
 import Alpine from 'alpinejs'
 
-import './helpers'
+import './helpers/string'
+import './helpers/trix'
 
 window.Alpine = Alpine
 

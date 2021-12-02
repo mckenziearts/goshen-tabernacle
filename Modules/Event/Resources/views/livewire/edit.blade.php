@@ -173,9 +173,9 @@
 
         <div class="py-6 sm:py-10">
             <div class="flex justify-end">
-                <x-cancel-button type="link" href="{{ route('cp.events') }}">
+                <x-default-button :link="route('cp.events')">
                     {{ __('Cancel') }}
-                </x-cancel-button>
+                </x-default-button>
                 <x-button wire:click="store" type="button" class="ml-3">
                     <x-loader wire:target="store" />
                     {{ __('Update Event') }}
