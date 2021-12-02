@@ -32,12 +32,7 @@
             <div class="p-4 sm:px-6 sm:py-10">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <svg class="h-8 w-8 text-secondary-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2v3h1V3h5v10H6v1h5v-1H9V3h5v2h1V2H2z" />
-                            <g fill-rule="evenodd" clip-rule="evenodd">
-                                <path d="M15 9h7v1h-7zM15 13h7v1h-7zM6 17h16v1H6zM6 21h16v1H6z" />
-                            </g>
-                        </svg>
+                        <x-icons.text class="h-8 w-8 text-secondary-400" />
                     </div>
                     <div class="ml-6">
                         <div>
@@ -53,7 +48,7 @@
                                 <x-forms.input type="text" wire:model.defer="title" id="title" />
                             </x-forms.group>
                             <x-forms.group wire:ignore class="sm:col-span-2" label="Event Description" for="description" :error="$errors->first('description')">
-                                <livewire:dashboard::forms.trix name="description" wire:model="description" styling="block w-full rounded-md shadow-sm border-secondary-300 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 sm:text-sm" />
+                                <livewire:dashboard::forms.trix />
                             </x-forms.group>
                         </div>
                     </div>
@@ -62,9 +57,7 @@
             <div class="p-4 sm:px-6 sm:py-10">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <svg class="h-8 w-8 text-secondary-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 19a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm5 0a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm0-4a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm-5 0a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm7-12h-1V2a1 1 0 0 0-2 0v1H8V2a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zm1 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V6a1 1 0 0 1 1-1h1v1a1 1 0 0 0 2 0V5h8v1a1 1 0 0 0 2 0V5h1a1 1 0 0 1 1 1zM7 15a1 1 0 1 0-1-1 1 1 0 0 0 1 1zm0 4a1 1 0 1 0-1-1 1 1 0 0 0 1 1z"/>
-                        </svg>
+                        <x-icons.calendar class="h-8 w-8 text-secondary-400"/>
                     </div>
                     <div class="ml-6 flex-1">
                         <div>

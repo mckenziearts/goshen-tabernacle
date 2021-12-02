@@ -15,6 +15,10 @@ class Edit extends Component
 
     public int $index = 0;
 
+    protected $listeners = [
+        'trix:valueUpdated' => 'onTrixValueUpdate',
+    ];
+
     public function mount(Event $event)
     {
         $this->event = $event;
@@ -22,8 +26,8 @@ class Edit extends Component
         $this->description = $event->description;
         $this->privacy = $event->privacy;
         $this->is_visible = $event->is_visible;
-        $this->start_date = $event->start_date->format('Y-m-d');
-        $this->end_date = $event->end_date->format('Y-m-d');
+        $this->start_date = $event->start_date->toRfc7231String();
+        $this->end_date = $event->end_date->toRfc7231String();
 
         $this->index = match ($event->privacy) {
             'public' => 0,
@@ -32,12 +36,18 @@ class Edit extends Component
         };
     }
 
+    public function onTrixValueUpdate($value)
+    {
+        $this->description = $value;
+    }
+
     public function store()
     {
         $this->validate($this->rules());
 
         $this->event->update([
             'title' => $this->title,
+            'slug' => $this->title,
             'description' => $this->description,
             'privacy' => $this->privacy,
             'start_date' => $this->start_date,
