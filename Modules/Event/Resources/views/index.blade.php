@@ -3,9 +3,9 @@
 
 @section('content')
 
-    <x-page-header class="border-b border-secondary-200">
+    <x-page-header class="pb-5 border-b border-secondary-200">
         <div class="flex-1 min-w-0">
-            <h1 class="text-lg font-medium leading-6 text-secondary-900 sm:truncate">
+            <h1 class="text-2xl font-semibold leading-6 text-secondary-900 sm:truncate sm:text-3xl">
                 {{ __('Events') }}
             </h1>
         </div>

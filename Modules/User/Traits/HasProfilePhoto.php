@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Modules\User\Traits;
 
 trait HasProfilePhoto
 {

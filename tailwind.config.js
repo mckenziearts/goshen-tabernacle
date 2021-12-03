@@ -12,6 +12,7 @@ module.exports = {
       './Modules/Dashboard/Resources/views/**/*.blade.php',
       './Modules/Event/Resources/views/**/*.blade.php',
       './Modules/Setting/Resources/views/**/*.blade.php',
+      './Modules/User/Resources/views/**/*.blade.php',
       './themes/goshen/admin/resources/views/**/*.blade.php',
       './themes/goshen/default/resources/views/**/*.blade.php',
       './resources/views/**/*.blade.php',

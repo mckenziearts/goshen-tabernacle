@@ -4,7 +4,7 @@ use Modules\Event\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Cpanel Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These

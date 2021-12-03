@@ -1,5 +1,6 @@
 {
     "Core": true,
     "Dashboard": true,
-    "Event": true
+    "Event": true,
+    "User": true
 }

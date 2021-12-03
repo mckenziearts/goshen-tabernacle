@@ -90,7 +90,7 @@ return [
         ],
         'dropdown' => [
             'class' => Components\Dropdown::class,
-            'alias' => 'dropdown',
+            'alias' => 'wi-dropdown',
         ],
         'dropdown.item' => [
             'class' => Components\Dropdown\DropdownItem::class,

@@ -58,6 +58,9 @@ class CoreServiceProvider extends ServiceProvider
         // setLocale for php. Enables ->formatLocalized() with localized values for dates.
         setlocale(LC_TIME, config('starterkit.core.locale.app_locale'));
 
+        // Set the default timezone
+        date_default_timezone_set(config('app.timezone'));
+
         // setLocale to use Carbon source locales. Enables diffForHumans() localized.
         Carbon::setLocale(config('app.locale'));
     }

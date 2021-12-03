@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace Modules\User\Entities;
 
-use App\Traits\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Modules\User\Traits\HasProfilePhoto;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
@@ -41,6 +41,8 @@ class User extends Authenticatable implements HasMedia
         'last_login_ip',
         'email_verified_at',
         'birth_date',
+        'is_member',
+        'joined_at',
     ];
 
     /**
@@ -64,6 +66,7 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
         'birth_date' => 'datetime',
+        'joined_at' => 'datetime',
     ];
 
     /**
@@ -132,7 +135,7 @@ class User extends Authenticatable implements HasMedia
     {
         $roles = $this->roles()->pluck('display_name')->toArray();
 
-        if (\count($roles)) {
+        if (count($roles)) {
             return implode(', ', array_map(function ($item) {
                 return ucwords($item);
             }, $roles));

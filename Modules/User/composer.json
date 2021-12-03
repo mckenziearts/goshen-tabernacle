@@ -1,0 +1,29 @@
+{
+  "name": "starterkit/user",
+  "description": "",
+  "authors": [
+    {
+      "name": "Arthur Monney",
+      "email": "monneylobe@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "composer/installers": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Modules\\User\\": ""
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [],
+      "aliases": {
+
+      }
+    }
+  }
+}
+

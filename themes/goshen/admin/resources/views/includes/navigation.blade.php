@@ -8,8 +8,8 @@
             <x-heroicon-o-calendar class="{{ active(['cp.events', 'cp.events*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
             {{ __('Events') }}
         </x-sidebar-link>
-        <x-sidebar-link href="#" :active="active(['cp.users', 'cp.users*'])">
-            <x-heroicon-o-user-group class="{{ active(['cp.users', 'cp.users*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+        <x-sidebar-link :href="route('cp.users')" :active="active(['cp.users', 'cp.users*'])">
+            <x-heroicon-o-users class="{{ active(['cp.users', 'cp.users*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
             {{ __('Users') }}
         </x-sidebar-link>
     </div>
