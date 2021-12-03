@@ -17,6 +17,6 @@
         </div>
     </x-page-header>
 
-
+    <livewire:user::browse-users />
 
 @endsection

@@ -1,5 +1,6 @@
 @import 'intl-tel-input/build/css/intlTelInput.css';
 @import "trix/dist/trix.css";
+@import "../../vendor/filament/forms/dist/module.esm.css";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
