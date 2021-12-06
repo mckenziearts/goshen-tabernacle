@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <x-page-header>
+    <x-page-header class="mb-10">
         <div class="flex-1 min-w-0">
             <h1 class="text-2xl font-semibold leading-6 text-secondary-900 sm:truncate sm:text-3xl">
                 {{ __('Users') }}
@@ -17,6 +17,6 @@
         </div>
     </x-page-header>
 
-    <livewire:user::browse-users />
+    <livewire:user::users-table />
 
 @endsection

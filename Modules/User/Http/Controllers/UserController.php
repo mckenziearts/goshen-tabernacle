@@ -20,6 +20,7 @@ class UserController extends AdminController
 
     public function store(StoreUserRequest $request)
     {
+        /** @var User $user */
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -35,10 +36,14 @@ class UserController extends AdminController
             'joined_at' => $request->joined_at,
         ]);
 
+        $user->assignRole(config('starterkit.core.config.users.default_role'));
+
         if ($request->avatar) {
             $user
                 ->addFromMediaLibraryRequest($request->avatar)
                 ->toMediaCollection('avatar');
+
+            $user->update(['avatar_type' => 'storage']);
         }
 
         session()->flash('status', __('The user has been successfully added'));

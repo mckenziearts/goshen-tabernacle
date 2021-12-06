@@ -23,8 +23,7 @@ module.exports = {
       './vendor/ph7jack/wireui/resources/**/*.blade.php',
       './vendor/ph7jack/wireui/ts/**/*.ts',
       './vendor/ph7jack/wireui/src/View/**/*.php',
-      './vendor/filament/forms/resources/views/**/*.blade.php',
-      './vendor/filament/tables/resources/views/**/*.blade.php',
+      './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
     ],
     options: {
       safelist: [/^media-library/],
@@ -37,6 +36,7 @@ module.exports = {
         primary: colors.purple,
         secondary: colors.blueGray,
         positive: colors.emerald,
+        success: colors.emerald,
         warning: colors.amber,
         negative: colors.red,
         danger: colors.red,

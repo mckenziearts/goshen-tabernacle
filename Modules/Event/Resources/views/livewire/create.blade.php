@@ -47,7 +47,7 @@
                             <x-forms.group class="sm:col-span-2" label="Event Title" for="title" :error="$errors->first('title')">
                                 <x-forms.input type="text" wire:model.defer="title" id="title" />
                             </x-forms.group>
-                            <x-forms.group wire:ignore class="sm:col-span-2" label="Event Description" for="description" :error="$errors->first('description')">
+                            <x-forms.group class="sm:col-span-2" label="Event Description" for="description" :error="$errors->first('description')">
                                 <livewire:dashboard::forms.trix />
                             </x-forms.group>
                         </div>
@@ -194,9 +194,9 @@
 
             <div class="py-6 sm:py-10">
                 <div class="flex justify-end">
-                    <x-cancel-button :link="route('cp.events')">
+                    <x-default-button :link="route('cp.events')">
                         {{ __('Cancel') }}
-                    </x-cancel-button>
+                    </x-default-button>
                     <x-button primary type="submit" class="ml-3" wire:loading.attr="disabled">
                         <x-loader class="text-white" wire:target="store" />
                         {{ __('Create Event') }}
