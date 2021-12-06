@@ -51,13 +51,8 @@ class UserController extends AdminController
         return redirect()->route('cp.users');
     }
 
-    public function edit()
+    public function show(User $user)
     {
-        return view('user::edit');
-    }
-
-    public function show()
-    {
-        return view('user::show');
+        return view('user::show', compact('user'));
     }
 }
