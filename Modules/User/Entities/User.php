@@ -2,6 +2,7 @@
 
 namespace Modules\User\Entities;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -65,7 +66,7 @@ class User extends Authenticatable implements HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
-        'birth_date' => 'datetime',
+        'birth_date' => 'date',
         'joined_at' => 'datetime',
     ];
 
@@ -79,6 +80,7 @@ class User extends Authenticatable implements HasMedia
         'profile_photo_url',
         'roles_label',
         'birth_date_formatted',
+        'formatted_gender',
     ];
 
     /**
@@ -115,6 +117,16 @@ class User extends Authenticatable implements HasMedia
         return $this->email_verified_at !== null;
     }
 
+    public function joinedAt(): ?Carbon
+    {
+        return $this->joined_at;
+    }
+
+    public function birthDate(): ?Carbon
+    {
+        return $this->birth_date;
+    }
+
     public function getFullNameAttribute(): string
     {
         return $this->last_name
@@ -129,6 +141,23 @@ class User extends Authenticatable implements HasMedia
         }
 
         return __('Not defined');
+    }
+
+    public function getFormattedGenderAttribute(): string
+    {
+        return match ($this->gender) {
+            'male' => __('Male'),
+            'female' => __('Female'),
+        };
+    }
+
+    public function getAge(): ?string
+    {
+        if ($this->birth_date) {
+            return Carbon::parse($this->birth_date)->age;
+        }
+
+        return null;
     }
 
     public function getRolesLabelAttribute(): string
