@@ -112,7 +112,7 @@
                             {{ __('Email address') }}
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <x-forms.input type="email" name="email" id="email" autocomplete="email" class="max-w-lg" required />
+                            <x-forms.input type="email" name="email" id="email" autocomplete="email" class="max-w-lg" />
                         </div>
                     </div>
 

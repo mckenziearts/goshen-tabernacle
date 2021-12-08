@@ -66,7 +66,7 @@ class User extends Authenticatable implements HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
-        'birth_date' => 'datetime',
+        'birth_date' => 'date',
         'joined_at' => 'datetime',
     ];
 
@@ -122,6 +122,11 @@ class User extends Authenticatable implements HasMedia
         return $this->joined_at;
     }
 
+    public function birthDate(): ?Carbon
+    {
+        return $this->birth_date;
+    }
+
     public function getFullNameAttribute(): string
     {
         return $this->last_name
@@ -144,6 +149,15 @@ class User extends Authenticatable implements HasMedia
             'male' => __('Male'),
             'female' => __('Female'),
         };
+    }
+
+    public function getAge(): ?string
+    {
+        if ($this->birth_date) {
+            return Carbon::parse($this->birth_date)->age;
+        }
+
+        return null;
     }
 
     public function getRolesLabelAttribute(): string
