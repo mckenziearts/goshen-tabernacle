@@ -21,11 +21,13 @@
     "livewire/livewire": "^2.7",
     "mhmiton/laravel-modules-livewire": "^1.1",
     "nwidart/laravel-modules": "^8.2",
-    "ph7jack/wireui": "^0.14.1",
     "rappasoft/laravel-livewire-tables": "^1.21",
     "spatie/laravel-medialibrary-pro": "^1.0.0",
     "starterkit/core": "*",
-    "starterkit/dashboard": "*"
+    "starterkit/dashboard": "*",
+    "starterkit/setting": "*",
+    "wire-elements/modal": "^1.0",
+    "wireui/wireui": "^0.14.1"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.5",
@@ -98,6 +100,13 @@
     "starterkit/dashboard" : {
       "type": "path",
       "url": "./Modules/Dashboard",
+      "options": {
+        "symlink": true
+      }
+    },
+    "starterkit/setting" : {
+      "type": "path",
+      "url": "./Modules/Setting",
       "options": {
         "symlink": true
       }
