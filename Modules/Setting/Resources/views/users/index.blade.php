@@ -1,5 +1,5 @@
 @extends('layouts.cp')
-@title(__('All users'))
+@title(__('Admins Roles & Permissions'))
 
 @section('content')
 
