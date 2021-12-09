@@ -43,7 +43,7 @@
         @include('includes.sidebar-desktop')
 
         <!-- Main column -->
-        <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div class="flex flex-col w-0 flex-1 overflow-hidden overflow-y-scroll">
             <!-- Search header -->
             <div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-secondary-200 lg:hidden">
                 <button @click.stop="sidebarOpen = true" class="px-4 border-r border-secondary-200 text-secondary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1 relative z-0 overflow-y-auto max-w-7xl px-4 sm:px-6 md:px-8 py-6">
+            <main class="flex-1 relative z-0 max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
                 @yield('content')
             </main>
         </div>

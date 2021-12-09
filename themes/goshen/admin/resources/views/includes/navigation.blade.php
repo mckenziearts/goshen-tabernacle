@@ -27,7 +27,7 @@
     <div>
         <h4 class="px-3 text-xs font-semibold text-primary-500 uppercase tracking-wider">{{ __('Administration') }}</h4>
         <div class="mt-1 space-y-1">
-            <x-sidebar-link href="#" :active="active(['cp.settings', 'cp.settings*'])">
+            <x-sidebar-link :href="route('cp.settings')" :active="active(['cp.settings', 'cp.settings*'])">
                 <x-heroicon-o-cog class="{{ active(['cp.settings', 'cp.settings*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
                 {{ __('Settings') }}
             </x-sidebar-link>
