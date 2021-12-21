@@ -55,7 +55,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::macro('redirectMap', function ($map, $status = 302) {
             foreach ($map as $old => $new) {
-                Route::redirect($old, $new, $status);
+                Route::redirect($old, $new, $status)->name($old);
             }
         });
     }

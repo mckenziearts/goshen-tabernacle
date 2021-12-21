@@ -32,6 +32,15 @@ module.exports = {
 
   theme: {
     extend: {
+      animation: {
+        fade: 'fadeOut 2s linear infinite',
+      },
+      keyframes: {
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
       colors: {
         primary: colors.purple,
         secondary: colors.blueGray,
@@ -41,23 +50,32 @@ module.exports = {
         negative: colors.red,
         danger: colors.red,
         info: colors.sky,
+        violet: colors.violet,
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-    },
+      maxWidth: {
+        '4.5xl': '60rem',
+        '8xl': '90rem',
+      },
+    }
   },
-
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-    },
-  },
-
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
+    /*function ({ addVariant }) {
+      addVariant(
+        'supports-backdrop-blur',
+        '@supports (backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0))'
+      )
+      addVariant('supports-scrollbars', '@supports selector(::-webkit-scrollbar)')
+      addVariant('children', '& > *')
+      addVariant('scrollbar', '&::-webkit-scrollbar')
+      addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
+      addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
+    },*/
   ],
 };
