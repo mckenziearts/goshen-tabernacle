@@ -2,6 +2,6 @@
 
 @section('body')
 
-    
+
 
 @stop
