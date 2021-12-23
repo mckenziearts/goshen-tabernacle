@@ -59,6 +59,19 @@ module.exports = {
         '4.5xl': '60rem',
         '8xl': '90rem',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('textColor.gray.500'),
+            a: {
+              textDecoration: 'none',
+            },
+            img: {
+              borderRadius: theme('borderRadius.lg')
+            },
+          }
+        }
+      })
     }
   },
   plugins: [
@@ -66,16 +79,5 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
-    /*function ({ addVariant }) {
-      addVariant(
-        'supports-backdrop-blur',
-        '@supports (backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0))'
-      )
-      addVariant('supports-scrollbars', '@supports selector(::-webkit-scrollbar)')
-      addVariant('children', '& > *')
-      addVariant('scrollbar', '&::-webkit-scrollbar')
-      addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
-      addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
-    },*/
   ],
 };

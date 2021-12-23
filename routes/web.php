@@ -3,7 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home')->middleware('theme:default');
-Route::view('/podcasts', 'podcasts')->name('podcasts')->middleware('theme:default');
+
+// Pages
+Route::middleware('theme:default')->group(function () {
+    Route::view('/podcasts', 'podcasts')->name('podcasts');
+    Route::view('/william-marrion-brahnam', 'pages.wmb.about')->name('wmb.about');
+});
 
 // Redirect url to protect admin panel
 Route::redirectMap([
