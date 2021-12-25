@@ -230,7 +230,7 @@
                     </div>
                 </div>
                 <a href="#" class="font-medium text-gray-600 hover:text-gray-900">{{ __('Actualités') }}</a>
-                <a href="#" class="hidden bg-red-600 px-3 py-1.5 text-sm leading-5 rounded-full inline-flex items-center font-medium text-white hover:bg-red-500 xl:block">
+                <a href="{{ route('live') }}" class="hidden bg-red-600 px-3 py-1.5 text-sm leading-5 rounded-full inline-flex items-center font-medium text-white hover:bg-red-500 xl:block">
                     {{ __('Live Stream') }}
                 </a>
             </div>
