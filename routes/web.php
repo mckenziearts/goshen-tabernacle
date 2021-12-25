@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LiveController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home')->middleware('theme:default');
@@ -9,6 +10,7 @@ Route::middleware('theme:default')->group(function () {
     Route::view('/podcasts', 'podcasts')->name('podcasts');
     Route::view('/william-marrion-brahnam', 'pages.wmb.about')->name('wmb.about');
 });
+Route::get('live', [LiveController::class, 'streaming'])->name('live');
 
 // Redirect url to protect admin panel
 Route::redirectMap([
