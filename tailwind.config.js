@@ -32,6 +32,15 @@ module.exports = {
 
   theme: {
     extend: {
+      animation: {
+        fade: 'fadeOut 2s linear infinite',
+      },
+      keyframes: {
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
       colors: {
         primary: colors.purple,
         secondary: colors.blueGray,
@@ -41,19 +50,30 @@ module.exports = {
         negative: colors.red,
         danger: colors.red,
         info: colors.sky,
+        violet: colors.violet,
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-    },
+      maxWidth: {
+        '4.5xl': '60rem',
+        '8xl': '90rem',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('textColor.gray.500'),
+            a: {
+              textDecoration: 'none',
+            },
+            img: {
+              borderRadius: theme('borderRadius.lg')
+            },
+          }
+        }
+      })
+    }
   },
-
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-    },
-  },
-
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
