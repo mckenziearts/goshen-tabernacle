@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrochuresController;
 use App\Http\Controllers\LiveController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,7 @@ Route::middleware('theme:default')->group(function () {
     Route::view('/william-marrion-brahnam', 'pages.wmb.about')->name('wmb.about');
 });
 Route::get('live', [LiveController::class, 'streaming'])->name('live');
+Route::get('/brochures', [BrochuresController::class, 'index'])->name('brochures');
 
 // Redirect url to protect admin panel
 Route::redirectMap([
