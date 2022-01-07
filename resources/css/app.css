@@ -1,8 +1,8 @@
-@import 'intl-tel-input/build/css/intlTelInput.css';
+@import "intl-tel-input/build/css/intlTelInput.css";
 @import "trix/dist/trix.css";
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import "base.css";

@@ -155,7 +155,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                                <a href="{{ route('brochures') }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                                     <x-heroicon-o-book-open class="flex-shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
