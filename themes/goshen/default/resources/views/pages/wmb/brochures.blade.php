@@ -16,11 +16,11 @@
                             <span class="block text-purple-600 xl:inline">William M. Brahnam</span>
                         </h1>
                         <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            {{ __("Télécharger les prédications de Frère Branham en format PDF et audio éditer par VGR (La Voix de Dieu). Ces brochures proviennent de plusieurs sources diverses mentionnées en bas de page.") }}
+                            {{ __("Télécharger les prédications de Frère Brahnam en format PDF et audio éditer par VGR (La Voix de Dieu). Ces brochures proviennent de plusieurs sources diverses mentionnées en bas de page.") }}
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10">
+                                <a href="https://drive.google.com/file/d/1cQRzDmwrE7FzPygAJbNFwjhzqrl0HUvf/view?usp=sharing" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10">
                                     <x-heroicon-o-cloud-download class="h-5 w-5 mr-2"/>
                                     {{ __('Télécharger le Kosher') }}
                                 </a>
@@ -42,7 +42,7 @@
                 <div>
                     <button type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
                         <x-heroicon-s-filter class="flex-none w-5 h-5 mr-2 text-gray-400 group-hover:text-gray-500"/>
-                        {{ __(':count Filtres', ['count' => 2]) }}
+                        {{ __(':count Filtres', ['count' => 0]) }}
                     </button>
                 </div>
                 <div class="pl-6">
@@ -71,15 +71,11 @@
                         <div class="py-1" role="none">
 
                             <a href="#" class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
-                                Most Popular
+                                {{ __('Récente') }}
                             </a>
 
                             <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
-                                Best Rating
-                            </a>
-
-                            <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
-                                Newest
+                                {{ __('Populaire') }}
                             </a>
 
                         </div>
@@ -120,7 +116,7 @@
 
     <div class="relative max-w-3xl mx-auto py-12 sm:py-16 divide-y divide-gray-200">
         <div class="py-4">
-            
+
         </div>
     </div>
 
