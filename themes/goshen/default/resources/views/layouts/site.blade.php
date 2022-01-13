@@ -9,9 +9,10 @@
     <title>{{ __("Goshen Tabernacle l'Église des 7 Tonnerres") }}</title>
     @include('includes._favicon')
 
-<!-- Fonts -->
+    <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
+    @stack('styles')
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
 
     @include('includes._ga')
@@ -24,6 +25,7 @@
 
     @include('layouts.footer')
 
+    @stack('scripts')
     <script src="{{ mix('js/app.js') }}"></script>
 
 </body>

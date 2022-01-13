@@ -6,7 +6,7 @@
 
         <div class="w-full relative h-[575px]">
             <iframe class="w-full h-full aspect-video rounded-lg shadow-lg"
-                    src="https://www.youtube.com/embed/live_stream?channel=UCncsbq1f9MCooZXv9_Os-eA&amp;enablejsapi=1&amp;wmode=opaque"
+                    src="https://www.youtube.com/embed/live_stream?channel=UCOhyRt-xCcrmbNxu-eT9AOg"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
