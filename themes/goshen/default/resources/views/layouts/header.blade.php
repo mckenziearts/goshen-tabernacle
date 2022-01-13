@@ -6,14 +6,14 @@
                     <a href="#" class="hover:underline hover:text-purple-100">{{ __('Faire un don') }}</a>
                     <span aria-hidden="true">·</span>
                     <a href="#" class="hover:underline hover:text-purple-100">{{ __('Contact') }}</a>
-                    <div class="hidden animate-fade pl-4 sm:block">
+                    {{--<div class="hidden animate-fade pl-4 sm:block">
                         <span class="inline-flex items-center px-3 py-0.5 rounded-md text-sm font-medium bg-white text-gray-900">
                             <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-red-600" fill="currentColor" viewBox="0 0 8 8">
                                 <circle cx="4" cy="4" r="3" />
                             </svg>
                             {{ __('Nous sommes en Live') }}
                         </span>
-                    </div>
+                    </div>--}}
                 </div>
                 <div class="flex items-center space-x-5">
                     <a href="{{ route('facebook') }}" class="text-sm font-medium text-white hover:text-purple-300">
