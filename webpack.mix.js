@@ -5,7 +5,7 @@ mix.disableSuccessNotifications()
 mix.setPublicPath('./public')
 
 mix.js('resources/js/app.js', 'public/js')
-  .postCss('resources/css/app.css', 'public/css', [
+  .postCss('resources/css/site.css', 'public/css', [
     require('tailwindcss'),
     require('autoprefixer'),
   ])
