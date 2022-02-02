@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/media-library-pro.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/site.css') }}" rel="stylesheet">
     @livewireStyles
     @stack('styles')
 

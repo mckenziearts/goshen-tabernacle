@@ -17,7 +17,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/site.css') }}">
 
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
