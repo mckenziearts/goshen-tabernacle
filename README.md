@@ -32,7 +32,7 @@ Les elements suivant sont requis pour demarrer l'installation
 
 1. Clonez ce repo avec la commande `git clone git@github.com:mckenziearts/goshen-tabernacle.git ~/Sites/goshen-tabernacle`
 2. Exécuter `composer install` pour installer les dépendances PHP
-3. Configurez une base de données locale appelée `laravelcm`
+3. Configurez une base de données locale appelée `goshen`
 4. Exécutez `composer setup` pour configurer l'application
 5. Configurer un pilote de messagerie fonctionnel comme [Mailtrap](https://mailtrap.io/)
 6. Configurez les fonctionnalités (facultatives) ci-dessous
