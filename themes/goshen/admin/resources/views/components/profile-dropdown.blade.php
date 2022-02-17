@@ -15,6 +15,7 @@
          class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-secondary-200"
          role="menu" aria-orientation="vertical" aria-labelledby="user-menu" style="display: none;">
         <div class="py-1" role="none">
+            <a href="{{ env('APP_URL')  }}" target="_blank" class="flex items-center px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100 hover:text-secondary-900" role="menuitem">{{ __('Visit Site') }}</a>
             <a href="#" class="block px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100 hover:text-secondary-900" role="menuitem">{{ __('Account') }}</a>
             <a href="#" class="block px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100 hover:text-secondary-900" role="menuitem">{{ __('Settings') }}</a>
             <a href="#" class="block px-4 py-2 text-sm text-secondary-700 hover:bg-secondary-100 hover:text-secondary-900" role="menuitem">{{ __('Notifications') }}</a>
