@@ -4,15 +4,36 @@ namespace Modules\Song\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\Core\Traits\HasSlug;
 
 class Song extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
-    protected $fillable = [];
-    
-    protected static function newFactory()
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'author_id',
+        'book_id',
+        'type',
+        'audio_link',
+        'video_link',
+    ];
+
+    public function author(): BelongsTo
     {
-        return \Modules\Song\Database\factories\SongFactory::new();
+        return $this->belongsTo(Author::class);
+    }
+
+    public function book(): BelongsTo
+    {
+        return $this->belongsTo(Book::class);
     }
 }
