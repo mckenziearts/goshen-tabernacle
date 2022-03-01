@@ -12,6 +12,10 @@
             <x-heroicon-o-users class="{{ active(['cp.users', 'cp.users*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
             {{ __('Users') }}
         </x-sidebar-link>
+        <x-sidebar-link :href="route('cp.cantiques')" :active="active(['cp.cantiques', 'cp.cantiques*'])">
+            <x-heroicon-o-music-note class="{{ active(['cp.cantiques', 'cp.cantiques*']) ? 'text-primary-500': 'text-secondary-400 group-hover:text-secondary-500' }} mr-3 flex-shrink-0 h-6 w-6" />
+            {{ __('Cantiques & Chants') }}
+        </x-sidebar-link>
     </div>
 
     <div>

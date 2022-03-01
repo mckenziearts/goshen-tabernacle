@@ -10,12 +10,12 @@ class RouteServiceProvider extends RoutingServiceProvider
 
     protected function getWebRoute(): ?string
         {
-            return null;
+            return module_path('Song', '/Routes/web.php');
         }
 
         protected function getCPanelRoute(): ?string
         {
-            return null;
+            return module_path('Song', '/Routes/cpanel.php');
         }
 
         protected function getApiRoute(): ?string
