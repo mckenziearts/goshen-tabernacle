@@ -24,14 +24,14 @@
                     <x-heroicon-s-x class="h-6 w-6 text-white"/>
                 </button>
             </div>
-            <div class="flex-shrink-0 flex items-center px-4">
+            <div class="shrink-0 flex items-center px-4">
                 <x-application-logo-large />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
                 @include('includes.navigation')
             </div>
         </div>
-        <div class="flex-shrink-0 w-14" aria-hidden="true">
+        <div class="shrink-0 w-14" aria-hidden="true">
             <!-- Dummy element to force sidebar to shrink to fit close icon -->
         </div>
     </div>

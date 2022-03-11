@@ -1,6 +1,6 @@
 <footer class="bg-white border-t border-gray-200">
     <div class="max-w-8xl mx-auto py-12 px-4 overflow-hidden sm:px-6">
-        <div class="flex-shrink-0 mx-auto max-w-xs flex justify-center">
+        <div class="shrink-0 mx-auto max-w-xs flex justify-center">
             <x-application-logo class="text-purple-600 h-10 w-10" />
         </div>
         <nav class="mt-6 -mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">

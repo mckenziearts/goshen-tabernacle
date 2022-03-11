@@ -46,7 +46,7 @@
     <div class="bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div class="relative max-w-2xl mx-auto">
             <div class="flex flex-col items-center space-y-8 sm:items-start sm:space-y-0 sm:flex-row sm:space-x-8">
-                <a class="flex-shrink-0" href="/">
+                <a class="shrink-0" href="/">
                     <span class="sr-only">{{ __('Accueil') }}</span>
                     <img class="h-28 w-28 sm:h-36 sm:w-36 rounded-lg object-cover" src="{{ asset('images/profile.png') }}" alt="">
                 </a>

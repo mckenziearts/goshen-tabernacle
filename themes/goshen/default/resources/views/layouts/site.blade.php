@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
     @stack('styles')
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/site.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
 
     @include('includes._ga')
 </head>
