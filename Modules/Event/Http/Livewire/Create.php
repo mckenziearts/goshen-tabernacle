@@ -5,11 +5,10 @@ namespace Modules\Event\Http\Livewire;
 use Livewire\Component;
 use Modules\Event\Entities\Event;
 use Modules\Event\Traits\WithAttributes;
-use Spatie\MediaLibraryPro\Http\Livewire\Concerns\WithMedia;
 
 class Create extends Component
 {
-    use WithMedia, WithAttributes;
+    use WithAttributes;
 
     protected $rules = [
         'title' => 'required|min:6|unique:events,title',
@@ -42,10 +41,10 @@ class Create extends Component
             'is_visible' => $this->is_visible,
         ]);
 
-        $event->addFromMediaLibraryRequest($this->cover)
+        /*$event->addFromMediaLibraryRequest($this->cover)
             ->toMediaCollection('cover');
 
-        $this->clearMedia('cover');
+        $this->clearMedia('cover');*/
 
         session()->flash('success', __('Event successfully added!'));
 

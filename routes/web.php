@@ -26,4 +26,4 @@ Route::redirectMap([
 ]);
 
 // Package routes
-Route::mediaLibrary();
+// Route::mediaLibrary();
