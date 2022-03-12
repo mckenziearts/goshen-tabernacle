@@ -74,6 +74,10 @@
         </div>
     </div>
 
+    <x-notifications z-index="z-50" />
+
+    @livewire('livewire-ui-modal')
+
     @stack('scripts')
 </body>
 </html>

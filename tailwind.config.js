@@ -26,6 +26,14 @@ module.exports = {
   ],
   safelist: [
     'sm:max-w-2xl',
+    'sm:max-w-2xl',
+    'sm:max-w-md',
+    'sm:max-w-3xl',
+    'sm:max-w-4xl',
+    'md:max-w-xl',
+    'lg:max-w-2xl',
+    'lg:max-w-3xl',
+    'lg:max-w-4xl',
     { pattern: /^media-library/ }
   ],
   theme: {

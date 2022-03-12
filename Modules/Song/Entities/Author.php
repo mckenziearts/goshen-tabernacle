@@ -13,7 +13,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Author extends Model implements HasMedia
 {
     use HasFactory,
-        HasProfilePhoto,
         HasSlug,
         InteractsWithMedia;
 
@@ -24,6 +23,20 @@ class Author extends Model implements HasMedia
      */
     protected $fillable = ['name', 'slug'];
 
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['media'];
+
+    /**
+     * The relationship counts that should be eager loaded on every query.
+     *
+     * @var array
+     */
+    protected $withCount = ['songs'];
+
     public function songs(): HasMany
     {
         return $this->hasMany(Song::class);
@@ -32,12 +45,8 @@ class Author extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('avatar')
+            ->useFallbackUrl(asset('/images/song.jpg'))
             ->singleFile()
             ->acceptsMimeTypes(['image/jpg', 'image/jpeg', 'image/png']);
-    }
-
-    public function getFullNameAttribute(): string
-    {
-        return $this->name;
     }
 }
