@@ -26,6 +26,8 @@ class Form extends ModalComponent
     protected $rules = [
         'title' => 'required|max:255',
         'content' => 'required',
+        'audio_link' => 'nullable|url',
+        'video_link' => 'nullable|url',
     ];
 
     public function mount(int $id = null)
@@ -51,7 +53,25 @@ class Form extends ModalComponent
     {
         $this->validate();
 
-
+        if ($this->songId) {
+            Song::find($this->songId)->update([
+                'title' => $this->title,
+                'slug' => $this->title,
+                'content' => $this->content,
+                'type' => $this->type,
+                'audio_link' => $this->audio_link,
+                'video_link' => $this->video_link,
+            ]);
+        } else {
+            Song::create([
+                'title' => $this->title,
+                'slug' => $this->title,
+                'content' => $this->content,
+                'type' => $this->type,
+                'audio_link' => $this->audio_link,
+                'video_link' => $this->video_link,
+            ]);
+        }
 
         $this->closeModal();
 
@@ -85,8 +105,6 @@ class Form extends ModalComponent
 
     public function render()
     {
-        return view('song::livewire.cantiques.form', [
-            'authors' => Author::select('id', 'name')->get(),
-        ]);
+        return view('song::livewire.cantiques.form');
     }
 }

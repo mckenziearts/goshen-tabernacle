@@ -27,6 +27,15 @@ class Song extends Model
         'video_link',
     ];
 
+    public function getTypeFormattedAttribute(): string
+    {
+        return match ($this->type) {
+            'cantique' => __('Cantique'),
+            'inspiration' => __('Chant d\'inspiration'),
+            'victory' => __('Chant de victoire'),
+        };
+    }
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class);
