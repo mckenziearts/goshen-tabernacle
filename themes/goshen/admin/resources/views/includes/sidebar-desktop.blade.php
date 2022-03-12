@@ -29,12 +29,13 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-secondary-50 ring-1 ring-black ring-opacity-5 divide-y divide-secondary-200" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" style="display: none;">
                     <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-700" role="menuitem">{{ __('Account') }}</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-700" role="menuitem">{{ __('Settings') }}</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-700" role="menuitem">{{ __('Notifications') }}</a>
+                        <a href="{{ env('APP_URL') }}" target="_blank" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-900" role="menuitem">{{ __('Visit Site') }}</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-900" role="menuitem">{{ __('Account') }}</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-900" role="menuitem">{{ __('Settings') }}</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-900" role="menuitem">{{ __('Notifications') }}</a>
                     </div>
                     <div class="py-1">
-                        <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-700" role="menuitem"
+                        <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-secondary-500 hover:text-secondary-900" role="menuitem"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Log out') }}
                         </a>
