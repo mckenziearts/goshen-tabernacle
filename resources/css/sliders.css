@@ -1,0 +1,3 @@
+.swiper-scrollbar-drag {
+  background: theme('colors.primary.600') !important;
+}
