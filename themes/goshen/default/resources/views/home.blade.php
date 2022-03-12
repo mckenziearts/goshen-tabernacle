@@ -16,6 +16,9 @@
             <div class="swiper-slide">
                 <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-3.jpg') }}" alt="">
             </div>
+            <div class="swiper-slide">
+                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-4.jpg') }}" alt="">
+            </div>
         </div>
         <div class="swiper-pagination"></div>
     </div>

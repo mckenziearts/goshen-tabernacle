@@ -2,6 +2,7 @@
 
 namespace Modules\Event\Entities;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Core\Traits\HasSlug;
@@ -67,5 +68,21 @@ class Event extends Model implements HasMedia
         $this->addMediaCollection('cover')
             ->singleFile()
             ->acceptsMimeTypes(['image/jpg', 'image/jpeg', 'image/png']);
+    }
+
+    public function scopeVisible(Builder $query): Builder
+    {
+        return $query->where('is_visible', true);
+    }
+
+    public function scopePublic(Builder $query): Builder
+    {
+        return $query->where('privacy', 'public');
+    }
+
+    public function scopeForEveryone(Builder $query): Builder
+    {
+        return $query->visible()
+            ->public();
     }
 }
