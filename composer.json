@@ -44,7 +44,11 @@
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "hexadog/laravel-theme-installer": true,
+      "composer/installers": true
+    }
   },
   "extra": {
     "laravel": {
@@ -84,6 +88,13 @@
     ],
     "sniff": [
       "./vendor/bin/php-cs-fixer fix -vvv --dry-run --show-progress=dots"
+    ],
+    "setup": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "php artisan key:generate",
+      "php artisan migrate --seed",
+      "php artisan module:seed Core",
+      "php artisan starterkit:create-admin"
     ],
     "lint": [
       "./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
