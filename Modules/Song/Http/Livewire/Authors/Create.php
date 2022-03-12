@@ -2,7 +2,6 @@
 
 namespace Modules\Song\Http\Livewire\Authors;
 
-use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 use Modules\Song\Entities\Author;
@@ -54,8 +53,8 @@ class Create extends ModalComponent
         $this->closeModal();
 
         $this->notification()->success(
-            $this->authorId ? 'Mis a jour' : 'Nouveau chant',
-            $this->authorId ? 'Le chant/cantique a été modifié avec succès!' : 'Le chant/cantique a été ajouté avec succès!'
+            $this->authorId ? 'Mis a jour' : 'Nouvel auteur',
+            $this->authorId ? 'L\'auteur a été modifié avec succès!' : 'L\'auteur a été ajouté avec succès!'
         );
 
         $this->emit('author-added');
@@ -67,7 +66,7 @@ class Create extends ModalComponent
 
         $this->closeModal();
 
-        $this->notification()->success('Suppression', 'Le chant a été supprimé avec succès!');
+        $this->notification()->success('Suppression', 'L\'auteur a été supprimé avec succès!');
 
         $this->emit('author-added');
     }
