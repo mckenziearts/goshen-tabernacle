@@ -50,7 +50,7 @@
                     <span class="sr-only">{{ __('Open sidebar') }}</span>
                     <x-heroicon-o-menu-alt-1 class="h-6 w-6" />
                 </button>
-                <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+                <div class="flex-1 flex justify-between px-4 sm:px-6">
                     <div class="flex-1 flex">
                         <form class="w-full flex md:ml-0" action="#" method="GET">
                             <label for="search_field" class="sr-only">{{ __('Search') }}</label>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1 relative z-0 max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+            <main class="flex-1 relative z-0 max-w-7xl px-4 sm:px-6 pt-6">
                 @yield('content')
             </main>
         </div>

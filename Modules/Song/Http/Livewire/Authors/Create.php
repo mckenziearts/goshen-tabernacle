@@ -16,6 +16,11 @@ class Create extends ModalComponent
     public ?string $previewImage = null;
     public $avatar;
 
+    protected $rules = [
+        'name' => 'required',
+        'avatar' => 'nullable|image|max:1024', // 1MB Max
+    ];
+
     public function mount(int $id = null)
     {
         if ($id) {
@@ -26,11 +31,6 @@ class Create extends ModalComponent
             $this->previewImage = $author->getFirstMediaUrl('avatar');
         }
     }
-
-    protected $rules = [
-        'name' => 'required',
-        'avatar' => 'nullable|image|max:1024', // 1MB Max
-    ];
 
     public function save()
     {
