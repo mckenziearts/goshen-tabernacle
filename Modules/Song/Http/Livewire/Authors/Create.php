@@ -38,7 +38,8 @@ class Create extends ModalComponent
 
         if ($this->authorId) {
             /** @var Author $author */
-            $author = Author::find($this->authorId)->update(['name' => $this->name, 'slug' => $this->name]);
+            $author = Author::find($this->authorId);
+            $author->update(['name' => $this->name, 'slug' => $this->name]);
         } else {
             /** @var Author $author */
             $author = Author::create(['name' => $this->name, 'slug' => $this->name]);

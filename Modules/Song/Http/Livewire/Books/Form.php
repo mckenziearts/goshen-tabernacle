@@ -38,7 +38,8 @@ class Form extends ModalComponent
     {
         if ($this->bookId) {
             /** @var Book $book */
-            $book = Book::find($this->bookId)->update(['name' => $this->name, 'slug' => $this->name]);
+            $book = Book::find($this->bookId);
+            $book->update(['name' => $this->name, 'slug' => $this->name]);
         } else {
             /** @var Book $book */
             $book = Book::create(['name' => $this->name, 'slug' => $this->name]);
