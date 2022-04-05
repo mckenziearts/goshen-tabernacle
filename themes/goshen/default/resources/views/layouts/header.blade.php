@@ -229,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="font-medium text-gray-600 hover:text-gray-900">{{ __('Actualités') }}</a>
+                <a href="{{ route('chants.index') }}" class="font-medium {{ active(['chants*'], 'text-purple-600 hover:text-purple-800', 'text-gray-600 hover:text-gray-900') }}">{{ __('Chants') }}</a>
                 <a href="{{ route('live') }}" class="hidden bg-red-600 px-3 py-1.5 text-sm leading-5 rounded-full inline-flex items-center font-medium text-white hover:bg-red-500 xl:block">
                     {{ __('Live Stream') }}
                 </a>

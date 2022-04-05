@@ -3,7 +3,6 @@
 namespace Modules\Song\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class SongServiceProvider extends ServiceProvider
 {
