@@ -28,25 +28,27 @@
     </div>
 
     <div class="max-w-7xl relative mx-auto py-8 px-4 sm:py-10 sm:px-6 lg:px-8 lg:pb-16">
-        <div class="space-y-10 sm:space-y-14">
+        <div class="space-y-12 sm:space-y-16">
             <div>
                 <h3 class="text-lg leading-6 font-medium text-gray-900 sm:text-xl">{{ __('Par ordre alphabétique') }}</h3>
                 <div class="mt-4 text-base flex flex-wrap items-center space-x-4 sm:space-x-8">
-                    @for($i = 1; $i <= 26; $i++)
-                        <a href="#" class="block py-1.5 uppercase font-medium hover:underline text-purple-600 hover:text-purple-700">A</a>
-                    @endfor
+                    @foreach(range('A', 'Z') as $alpha)
+                        <a href="?letter={{ $alpha }}" class="block py-1.5 uppercase font-medium hover:underline text-purple-600 hover:text-purple-700">{{ $alpha }}</a>
+                    @endforeach
                 </div>
             </div>
 
             <div>
                 <h3 class="text-lg leading-6 font-medium text-gray-900 sm:text-xl">{{ __('Par recueil') }}</h3>
                 <ul role="list" class="mt-5 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-                    <li class="flow-root">
-                        <a href="#" class="-m-3 p-3 inline-flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150">
-                            <img class="h-6 w-auto" src="https://s.topchretien.com/media/uploads/jem1.jpg" alt=""/>
-                            <span class="ml-4">Axe 21 musique - Repousse mes limites</span>
-                        </a>
-                    </li>
+                    @foreach($books as $book)
+                        <li class="flow-root">
+                            <a href="{{ route('chants.book', $book) }}" class="-m-3 p-3 inline-flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150">
+                                <img class="w-10 h-10 object-cover rounded" src="{{ $book->getFirstMediaUrl('avatar') }}" alt=""/>
+                                <span class="ml-4">{{ $book->name }}</span>
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -59,7 +61,7 @@
                                 {{ __('Cantique') }}
                             </p>
                             <p class="mt-1 text-sm text-gray-500">
-                                Learn about tips, product updates and company culture.
+                                {{ __('Chant religieux en langue vernaculaire et destiné à être chanté dans les sanctuaires.') }}
                             </p>
                         </a>
                     </li>
@@ -69,7 +71,7 @@
                                 {{ __('Chants de victoire') }}
                             </p>
                             <p class="mt-1 text-sm text-gray-500">
-                                Learn about tips, product updates and company culture.
+                                {{ __('Meilleurs Chants de victoire répertorier dans tous les livres recueils.') }}
                             </p>
                         </a>
                     </li>
@@ -79,7 +81,7 @@
                                 {{ __('Chants de l\'inspiration') }}
                             </p>
                             <p class="mt-1 text-sm text-gray-500">
-                                Learn about tips, product updates and company culture.
+                                {{ __('Tous les chants de l\'inspiration du Message du temps de la fin.') }}
                             </p>
                         </a>
                     </li>
@@ -89,7 +91,7 @@
                                 {{ __('Adoration') }}
                             </p>
                             <p class="mt-1 text-sm text-gray-500">
-                                Learn about tips, product updates and company culture.
+                                {{ __('Tous les plus grand chants d\'Adoration et Louange Chrétienne🙏') }}
                             </p>
                         </a>
                     </li>
@@ -99,21 +101,26 @@
             <div>
                 <h3 class="text-lg leading-6 font-medium text-gray-900 sm:text-xl">{{ __('Par Chantre / Auteur') }}</h3>
                 <ul role="list" class="mt-5 grid gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5 lg:gap-8">
-                    @for($i = 1; $i <= 10; $i++)
+                    @foreach($authors as $author)
                         <div class="relative flex items-center space-x-3">
                             <div class="flex-shrink-0">
-                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1501031170107-cfd33f0cbdcc?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                                <img class="h-10 w-10 rounded-full" src="{{ $author->getFirstMediaUrl('avatar') }}" alt="">
                             </div>
                             <div class="flex-1 min-w-0">
-                                <a href="#" class="focus:outline-none">
+                                <a href="{{ route('chants.author', $author) }}" class="focus:outline-none">
                                     <span class="absolute inset-0" aria-hidden="true"></span>
-                                    <p class="text-sm font-medium text-gray-900 truncate">Angela Beaver</p>
-                                    <p class="text-sm text-gray-500 truncate">4 chants</p>
+                                    <p class="text-sm font-medium text-gray-900 truncate">{{ $author->name }}</p>
+                                    <p class="text-sm text-gray-500 truncate">{{ $author->songs_count . ' ' . \Illuminate\Support\Str::plural('chant', $author->songs_count) }}</p>
                                 </a>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 sm:text-xl">{{ __('Par chants les plus visités') }}</h3>
+                <x-songs.grid-list :songs="$songs" class="mt-5" />
             </div>
         </div>
     </div>

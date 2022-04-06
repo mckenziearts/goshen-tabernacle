@@ -18,10 +18,11 @@ module.exports = {
 
     './resources/views/**/*.blade.php',
     './storage/framework/views/*.php',
-
     './vendor/wireui/wireui/resources/**/*.blade.php',
+
     './vendor/wireui/wireui/ts/**/*.ts',
     './vendor/wireui/wireui/src/View/**/*.php',
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
   ],
   safelist: [

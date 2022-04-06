@@ -18,6 +18,8 @@ Route::get('/brochures', [BrochuresController::class, 'index'])->name('brochures
 // Chants
 Route::prefix('chants')->as('chants.')->group(function() {
     Route::get('/', [ChantController::class, 'index'])->name('index');
+    Route::get('/recueil/{book:slug}', [ChantController::class, 'book'])->name('book');
+    Route::get('/auteur/{author:slug}', [ChantController::class, 'author'])->name('author');
     Route::get('/{song:slug}', [ChantController::class, 'show'])->name('show');
 });
 

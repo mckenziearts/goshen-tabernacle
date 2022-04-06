@@ -2,14 +2,17 @@
 
 namespace Modules\Song\Entities;
 
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 use Modules\Core\Traits\HasSlug;
 
-class Song extends Model
+class Song extends Model implements Viewable
 {
-    use HasFactory, HasSlug;
+    use HasFactory, HasSlug, InteractsWithViews;
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +37,11 @@ class Song extends Model
             'inspiration' => __('Chant d\'inspiration'),
             'victory' => __('Chant de victoire'),
         };
+    }
+
+    public function excerpt(int $limit = 110): string
+    {
+        return Str::limit(strip_tags($this->content), $limit);
     }
 
     public function author(): BelongsTo
