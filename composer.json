@@ -13,6 +13,7 @@
     "blade-ui-kit/blade-heroicons": "^1.3",
     "blade-ui-kit/blade-ui-kit": "^0.3.3",
     "codeat3/blade-line-awesome-icons": "^1.2",
+    "cyrildewit/eloquent-viewable": "^6.1",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "hexadog/laravel-themes-manager": "^1.8",
