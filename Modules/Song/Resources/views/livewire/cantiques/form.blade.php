@@ -11,14 +11,22 @@
                 <x-forms.group class="sm:col-span-2" label="Titre" for="title" :error="$errors->first('title')" isRequired>
                     <x-forms.input wire:model.defer="title" type="text" id="title" placeholder="Titre du chant/cantique" autocomplete="off" />
                 </x-forms.group>
+                <x-forms.group class="sm:col-span-1" label="Auteur" for="type">
+                    <x-select placeholder="Sélectionner un auteur" wire:model.defer="author_id">
+                        @foreach($authors as $author)
+                            <x-select.user-option img="{{ $author->getFirstMediaUrl('avatar') }}" label="{{ $author->name }}" value="{{ $author->id }}" />
+                        @endforeach
+                    </x-select>
+                </x-forms.group>
+                <x-forms.group class="sm:col-span-1" label="Livre" for="type">
+                    <x-select placeholder="Sélectionner un livre" wire:model.defer="book_id">
+                        @foreach($books as $book)
+                            <x-select.option label="{{ $book->name }}" value="{{ $book->id }}" />
+                        @endforeach
+                    </x-select>
+                </x-forms.group>
                 <x-forms.group class="sm:col-span-2" label="Contenu / Paroles" for="content" :error="$errors->first('content')">
                     <livewire:dashboard::forms.trix :value="$content" />
-                </x-forms.group>
-                <x-forms.group class="sm:col-span-1" label="Lien audio" for="audio_link" :error="$errors->first('audio_link')">
-                    <x-forms.input wire:model.defer="audio_link" type="url" id="audio_link" autocomplete="off" />
-                </x-forms.group>
-                <x-forms.group class="sm:col-span-1" label="Lien video" for="video_link" :error="$errors->first('video_link')">
-                    <x-forms.input wire:model.defer="video_link" type="url" id="video_link" autocomplete="off" />
                 </x-forms.group>
                 <x-forms.group class="sm:col-span-1" label="Type" for="type">
                     <x-forms.select wire:model.defer="type">
@@ -26,6 +34,12 @@
                         <option value="victory">{{ __('Chant de victoire') }}</option>
                         <option value="inspiration">{{ __('Chant de l\'inspiration') }}</option>
                     </x-forms.select>
+                </x-forms.group>
+                <x-forms.group class="sm:col-span-1" label="Lien audio" for="audio_link" :error="$errors->first('audio_link')">
+                    <x-forms.input wire:model.defer="audio_link" type="url" id="audio_link" autocomplete="off" />
+                </x-forms.group>
+                <x-forms.group class="sm:col-span-1" label="Lien video" for="video_link" :error="$errors->first('video_link')">
+                    <x-forms.input wire:model.defer="video_link" type="url" id="video_link" autocomplete="off" />
                 </x-forms.group>
             </div>
         </div>

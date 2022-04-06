@@ -4,6 +4,7 @@ namespace Modules\Song\Http\Livewire\Cantiques;
 
 use LivewireUI\Modal\ModalComponent;
 use Modules\Song\Entities\Author;
+use Modules\Song\Entities\Book;
 use Modules\Song\Entities\Song;
 use WireUi\Traits\Actions;
 
@@ -15,6 +16,7 @@ class Form extends ModalComponent
     public string $title = '';
     public ?string $content = null;
     public ?int $author_id = null;
+    public ?int $book_id = null;
     public string $type = 'cantique';
     public ?string $audio_link = null;
     public ?string $video_link = null;
@@ -39,6 +41,7 @@ class Form extends ModalComponent
             $this->content = $song->content;
             $this->type = $song->type;
             $this->author_id = $song->author_id;
+            $this->book_id = $song->book_id;
             $this->audio_link = $song->audio_link;
             $this->video_link = $song->video_link;
         }
@@ -59,6 +62,8 @@ class Form extends ModalComponent
                 'slug' => $this->title,
                 'content' => $this->content,
                 'type' => $this->type,
+                'author_id' => $this->author_id,
+                'book_id' => $this->book_id,
                 'audio_link' => $this->audio_link,
                 'video_link' => $this->video_link,
             ]);
@@ -68,6 +73,8 @@ class Form extends ModalComponent
                 'slug' => $this->title,
                 'content' => $this->content,
                 'type' => $this->type,
+                'author_id' => $this->author_id,
+                'book_id' => $this->book_id,
                 'audio_link' => $this->audio_link,
                 'video_link' => $this->video_link,
             ]);
@@ -105,6 +112,9 @@ class Form extends ModalComponent
 
     public function render()
     {
-        return view('song::livewire.cantiques.form');
+        return view('song::livewire.cantiques.form', [
+            'authors' => Author::all(),
+            'books' => Book::all(),
+        ]);
     }
 }
