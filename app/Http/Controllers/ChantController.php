@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Support\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Modules\Song\Entities\Author;
 use Modules\Song\Entities\Book;
 use Modules\Song\Entities\Song;
@@ -14,7 +13,6 @@ class ChantController extends Controller
     public function index(Request $request)
     {
         if ($request->query('letter') && strlen($request->query('letter')) === 1) {
-
             $songsCollection = Song::with('book')->orderBy('title')->get();
 
             $songs = (new Collection(
@@ -29,7 +27,7 @@ class ChantController extends Controller
         return view('pages.chants.index', [
             'books' => Book::all(),
             'authors' => Author::withCount('songs')->get(),
-            'songs' => Song::orderByViews()->limit(15)->get()
+            'songs' => Song::orderByViews()->limit(15)->get(),
         ]);
     }
 
@@ -44,7 +42,7 @@ class ChantController extends Controller
     {
         return view('pages.chants.book', [
             'book' => $book->load('songs'),
-            'songs' => $book->songs()->paginate(27)
+            'songs' => $book->songs()->paginate(27),
         ]);
     }
 
@@ -58,7 +56,7 @@ class ChantController extends Controller
             ->withUrl();
 
         return view('pages.chants.show', [
-            'song' => $song->load(['author', 'book'])
+            'song' => $song->load(['author', 'book']),
         ]);
     }
 }
