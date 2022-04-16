@@ -169,7 +169,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:px-6 sm:py-10">
+            {{--<div class="p-4 sm:px-6 sm:py-10">
                 <div class="flex">
                     <div class="flex-shrink-0">
                         <svg class="h-8 w-8 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
 
             <div class="py-6 sm:py-10">
                 <div class="flex justify-end">

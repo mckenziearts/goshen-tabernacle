@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/media-library-pro.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/site.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @livewireStyles
     @stack('styles')
 
@@ -45,12 +45,12 @@
         <!-- Main column -->
         <div class="flex flex-col w-0 flex-1 overflow-hidden overflow-y-scroll">
             <!-- Search header -->
-            <div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-secondary-200 lg:hidden">
+            <div class="relative z-10 shrink-0 flex h-16 bg-white border-b border-secondary-200 lg:hidden">
                 <button @click.stop="sidebarOpen = true" class="px-4 border-r border-secondary-200 text-secondary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden">
                     <span class="sr-only">{{ __('Open sidebar') }}</span>
                     <x-heroicon-o-menu-alt-1 class="h-6 w-6" />
                 </button>
-                <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+                <div class="flex-1 flex justify-between px-4 sm:px-6">
                     <div class="flex-1 flex">
                         <form class="w-full flex md:ml-0" action="#" method="GET">
                             <label for="search_field" class="sr-only">{{ __('Search') }}</label>
@@ -68,11 +68,15 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1 relative z-0 max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+            <main class="flex-1 relative z-0 max-w-7xl px-4 sm:px-6 pt-6">
                 @yield('content')
             </main>
         </div>
     </div>
+
+    <x-notifications z-index="z-50" />
+
+    @livewire('livewire-ui-modal')
 
     @stack('scripts')
 </body>

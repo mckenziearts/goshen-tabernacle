@@ -54,7 +54,7 @@
                     <div class="flex">
                         <button type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" id="menu-button" x-ref="button" @click="open = !open" aria-expanded="false" aria-haspopup="true" x-bind:aria-expanded="open.toString()">
                             {{ __('Ranger') }}
-                            <x-heroicon-s-chevron-down class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"/>
+                            <x-heroicon-s-chevron-down class="shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"/>
                         </button>
                     </div>
 
@@ -100,7 +100,7 @@
                             <div class="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
                                 @for($y = 1; $y <= 4; $y++)
                                     <div class="flex items-center text-base sm:text-sm">
-                                        <input id="price-0" name="price[]" value="0" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-purple-600 focus:ring-purple-500">
+                                        <input id="price-0" name="price[]" value="0" type="checkbox" class="shrink-0 h-4 w-4 border-gray-300 rounded text-purple-600 focus:ring-purple-500">
                                         <label for="price-0" class="ml-3 min-w-0 flex-1 text-gray-600">
                                             1957
                                         </label>

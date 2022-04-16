@@ -75,7 +75,7 @@
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-6">
 
                                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-document-text class="flex-shrink-0 h-6 w-6 text-purple-600"/>
+                                    <x-heroicon-o-document-text class="shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('A propos') }}
@@ -87,7 +87,7 @@
                                 </a>
 
                                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-office-building class="flex-shrink-0 h-6 w-6 text-purple-600"/>
+                                    <x-heroicon-o-office-building class="shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Construction') }}
@@ -99,7 +99,7 @@
                                 </a>
 
                                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-calendar class="flex-shrink-0 h-6 w-6 text-purple-600" />
+                                    <x-heroicon-o-calendar class="shrink-0 h-6 w-6 text-purple-600" />
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Événements') }}
@@ -144,7 +144,7 @@
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-6">
 
                                 <a href="{{ route('wmb.about') }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <img class="flex-shrink-0 h-6 w-6 rounded-md" src="{{ asset('images/william-branham.jpeg') }}" alt="William Marrion Brahnam picture">
+                                    <img class="shrink-0 h-6 w-6 rounded-md" src="{{ asset('images/william-branham.jpeg') }}" alt="William Marrion Brahnam picture">
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Qui est William Marrion Brahnam ?') }}
@@ -156,7 +156,7 @@
                                 </a>
 
                                 <a href="{{ route('brochures') }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-book-open class="flex-shrink-0 h-6 w-6 text-purple-600"/>
+                                    <x-heroicon-o-book-open class="shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Brochures') }}
@@ -202,7 +202,7 @@
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-6">
 
                                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-video-camera class="flex-shrink-0 h-6 w-6 text-purple-600"/>
+                                    <x-heroicon-o-video-camera class="shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Cultes') }}
@@ -214,7 +214,7 @@
                                 </a>
 
                                 <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <x-heroicon-o-microphone class="flex-shrink-0 h-6 w-6 text-purple-600"/>
+                                    <x-heroicon-o-microphone class="shrink-0 h-6 w-6 text-purple-600"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Podcasts') }}
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="font-medium text-gray-600 hover:text-gray-900">{{ __('Actualités') }}</a>
+                <a href="{{ route('chants.index') }}" class="font-medium {{ active(['chants*'], 'text-purple-600 hover:text-purple-800', 'text-gray-600 hover:text-gray-900') }}">{{ __('Chants') }}</a>
                 <a href="{{ route('live') }}" class="hidden bg-red-600 px-3 py-1.5 text-sm leading-5 rounded-full inline-flex items-center font-medium text-white hover:bg-red-500 xl:block">
                     {{ __('Live Stream') }}
                 </a>

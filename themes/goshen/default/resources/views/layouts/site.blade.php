@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @include('includes._og')
-
-    <title>{{ __("Goshen Tabernacle l'Église des 7 Tonnerres") }}</title>
     @include('includes._favicon')
+
+    <x-seo::meta />
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
     @stack('styles')
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/site.css') }}">
+    @livewireStyles
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
 
     @include('includes._ga')
 </head>
@@ -25,8 +25,9 @@
 
     @include('layouts.footer')
 
-    @stack('scripts')
+    @livewireScripts
     <script src="{{ mix('js/app.js') }}"></script>
+    @stack('scripts')
 
 </body>
 </html>

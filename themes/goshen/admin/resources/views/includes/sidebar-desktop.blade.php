@@ -1,6 +1,6 @@
-<div class="hidden lg:flex lg:flex-shrink-0">
+<div class="hidden lg:flex lg:shrink-0">
     <div class="flex flex-col w-[270px] border-r border-secondary-200 bg-white">
-        <div class="flex items-center flex-shrink-0 px-6 pt-3">
+        <div class="flex items-center shrink-0 px-6 pt-3">
             <x-application-logo-large />
         </div>
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
@@ -10,13 +10,13 @@
                     <button @click="open = !open" type="button" class="group w-full bg-transparent rounded-md px-3.5 py-2 text-sm font-medium text-secondary-700 hover:bg-secondary-50 focus:outline-none" id="options-menu" aria-haspopup="true" x-bind:aria-expanded="open">
                         <span class="flex w-full justify-between items-center">
                             <span class="flex min-w-0 items-center justify-between space-x-3">
-                                <img class="w-10 h-10 bg-secondary-300 rounded-full flex-shrink-0" src="{{ auth()->user()->profile_photo_url }}" alt="User profile" />
+                                <img class="w-10 h-10 bg-secondary-300 rounded-full shrink-0" src="{{ auth()->user()->profile_photo_url }}" alt="User profile" />
                                 <span class="flex-1 min-w-0 flex flex-col text-left truncate">
                                     <span class="inline-flex text-secondary-700 text-sm font-medium truncate">{{ auth()->user()->full_name }}</span>
                                     <span class="inline-flex text-secondary-500 text-xs leading-4 truncate">{{ auth()->user()->email }}</span>
                                 </span>
                             </span>
-                            <x-heroicon-s-selector class="flex-shrink-0 h-5 w-5 text-secondary-400 group-hover:text-secondary-500" />
+                            <x-heroicon-s-selector class="shrink-0 h-5 w-5 text-secondary-400 group-hover:text-secondary-500" />
                         </span>
                     </button>
                 </div>
