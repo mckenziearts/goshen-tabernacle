@@ -15,7 +15,7 @@ class Lists extends Component
     public function render()
     {
         return view('song::livewire.cantiques.lists', [
-            'songs' => Song::with('author', 'book')->paginate(2),
+            'songs' => Song::with('author', 'book')->paginate(10),
         ]);
     }
 }

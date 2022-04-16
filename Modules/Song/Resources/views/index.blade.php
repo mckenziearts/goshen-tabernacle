@@ -11,7 +11,7 @@
 
     <div class="flex h-full">
         <div class="flex-1 min-w-0">
-            <div class="pr-5 space-y-6 sm:space-y-10">
+            <div class="pr-5 space-y-6 sm:space-y-10 pb-20">
                 <livewire:song::books.lists />
 
                 <livewire:song::cantiques.lists />
