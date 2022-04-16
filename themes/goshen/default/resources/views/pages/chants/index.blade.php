@@ -15,15 +15,7 @@
                     {{ __('Trouvez ici les paroles de vos chants/cantiques + une vidéo/audio pour apprendre à les chanter.') }}
                 </p>
             </div>
-            <div class="mt-10 w-full max-w-xl mx-auto">
-                <form action="#" method="POST" class="mt-3 sm:flex">
-                    <label for="search" class="sr-only">Rechercher</label>
-                    <input type="search" name="search" id="search" class="block w-full py-3 text-base rounded-md sm:rounded-l-md sm:rounded-r-none placeholder-gray-500 shadow-sm focus:ring-purple-500 focus:border-purple-500 sm:flex-1 sm:py-4 sm:px-5 border-gray-300" placeholder="{{ __('Rechercher par titre ou par contenu') }}" autocomplete="song" />
-                    <button type="submit" class="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md sm:rounded-r-md sm:rounded-l-none text-white bg-purple-800 shadow-sm hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:mt-0 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
-                        {{ __('Rechercher') }}
-                    </button>
-                </form>
-            </div>
+            <livewire:search />
         </div>
     </div>
 

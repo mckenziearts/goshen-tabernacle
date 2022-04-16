@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Styles -->
     @stack('styles')
+    @livewireStyles
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
 
     @include('includes._ga')
@@ -24,6 +25,7 @@
 
     @include('layouts.footer')
 
+    @livewireScripts
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('scripts')
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Support\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Modules\Song\Entities\Author;
 use Modules\Song\Entities\Book;
 use Modules\Song\Entities\Song;
