@@ -42,4 +42,8 @@
             </tbody>
         </table>
     </div>
+
+    <div class="mt-5">
+        {{ $songs->links() }}
+    </div>
 </div>
