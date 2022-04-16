@@ -66,7 +66,7 @@ class ChantController extends Controller
             ->tag('keywords', '7 tonnerres, goshen-tabernacle, Eglise du message, William Marrion Brahnam, Joseph Coleman, Goshen, Jesus Christ, cantiques, louanges, adoration, chants de victoire')
             ->tag('twitter:creator', '@monneyarthur')
             ->image(asset('/images/chantre-albert.jpg'))
-            ->twitterImage( asset('/images/chantre-albert.jpg'))
+            ->twitterImage(asset('/images/chantre-albert.jpg'))
             ->twitterSite('monneyarthur')
             ->withUrl();
 
