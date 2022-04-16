@@ -33,7 +33,7 @@
     @if($books->count())
         <div class="swiper mt-4 mySwiper">
             <div class="swiper-wrapper space-x-3 pt-2">
-                @foreach($books->chunk(2) as $book_lists)
+                @foreach($books->chunk(5) as $book_lists)
                     <div class="swiper-slide grid grid-cols-2 gap-4 sm:grid-cols-4 md:px-0 md:grid-cols-5">
                         @foreach($book_lists as $book)
                             <div class="relative">
