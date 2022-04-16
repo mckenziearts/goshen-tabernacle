@@ -1,4 +1,4 @@
-<header class="relative bg-white backdrop-filter backdrop-blur z-20">
+<header x-data="{open: false}" class="relative bg-white backdrop-filter backdrop-blur z-20">
     <div class="h-10 bg-gradient-to-r from-violet-500 via-purple-600 to-purple-800">
         <div class="max-w-7xl relative mx-auto px-4 sm:px-6">
             <div class="flex items-center justify-between h-10">
@@ -37,12 +37,19 @@
         </div>
     </div>
     <nav class="max-w-7xl relative mx-auto px-4 sm:px-6">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between py-4">
             <div>
                 <a href="{{ route('home') }}" class="flex">
                     <span class="sr-only">Goshen Tabernacle</span>
-                    <x-application-logo-large class="w-auto h-20 text-purple-600" />
+                    <x-application-logo class="w-auto h-10 text-purple-600 sm:h-12 lg:hidden" />
+                    <x-application-logo-large class="hidden w-auto h-16 text-purple-600 lg:block" />
                 </a>
+            </div>
+            <div class="-mr-2 -my-2 lg:hidden">
+                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500" @click="open = !open" @mousedown="if (open) $event.preventDefault()" aria-expanded="false" :aria-expanded="open.toString()">
+                    <span class="sr-only">Open menu</span>
+                    <x-heroicon-o-menu-alt-3 class="h-6 w-6" />
+                </button>
             </div>
             <div class="hidden space-x-5 lg:flex lg:items-center lg:flex-end lg:ml-10">
                 <div class="relative" x-data="{ open: false }" @keydown.escape="open = false">
@@ -80,9 +87,6 @@
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('A propos') }}
                                         </p>
-                                        <p class="mt-1 text-sm text-gray-500">
-                                            {{ __('Get a better understanding of where your traffic is coming from.') }}
-                                        </p>
                                     </div>
                                 </a>
 
@@ -92,9 +96,6 @@
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Construction') }}
                                         </p>
-                                        <p class="mt-1 text-sm text-gray-500">
-                                            {{ __('Speak directly to your customers in a more meaningful way.') }}
-                                        </p>
                                     </div>
                                 </a>
 
@@ -103,9 +104,6 @@
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Événements') }}
-                                        </p>
-                                        <p class="mt-1 text-sm text-gray-500">
-                                            {{ __("Your customers' data will be safe and secure.") }}
                                         </p>
                                     </div>
                                 </a>
@@ -144,7 +142,7 @@
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-6">
 
                                 <a href="{{ route('wmb.about') }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                    <img class="shrink-0 h-6 w-6 rounded-md" src="{{ asset('images/william-branham.jpeg') }}" alt="William Marrion Brahnam picture">
+                                    <img class="shrink-0 h-6 w-6 rounded-md" src="{{ asset('images/william-branham.jpeg') }}" alt="William Marrion Brahnam"/>
                                     <div class="ml-4">
                                         <p class="text-base font-medium text-gray-900">
                                             {{ __('Qui est William Marrion Brahnam ?') }}
@@ -236,4 +234,92 @@
             </div>
         </div>
     </nav>
+    <div x-show="open"
+         x-transition:enter="duration-200 ease-out"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="duration-100 ease-in"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+         x-ref="panel"
+         @click.away="open = false"
+         style="display: none;"
+    >
+        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+            <div class="pt-5 pb-6 px-5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <x-application-logo class="h-12 w-auto text-purple-600" />
+                    </div>
+                    <div class="-mr-2">
+                        <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500" @click="open = false">
+                            <span class="sr-only">Close menu</span>
+                            <x-heroicon-o-x class="h-6 w-6"/>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <nav class="grid gap-y-8">
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <x-heroicon-o-document-text class="shrink-0 h-6 w-6 text-purple-600"/>
+                            <span class="ml-3 text-base font-medium text-gray-900">
+                                {{ __('A propos de l\'église') }}
+                            </span>
+                        </a>
+
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <x-heroicon-o-office-building class="shrink-0 h-6 w-6 text-purple-600"/>
+                            <span class="ml-3 text-base font-medium text-gray-900">
+                                {{ __('Construction') }}
+                            </span>
+                        </a>
+
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <svg class="flex-shrink-0 h-6 w-6 text-purple-600" x-description="Heroicon name: outline/shield-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <span class="ml-3 text-base font-medium text-gray-900">
+                                {{ __('Événements') }}
+                            </span>
+                        </a>
+
+                        <a href="{{ route('wmb.about') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <img class="shrink-0 h-6 w-6 rounded-md" src="{{ asset('images/william-branham.jpeg') }}" alt="William Marrion Brahnam"/>
+                            <span class="ml-3 text-base font-medium text-gray-900">
+                                {{ __('William Marrion Brahnam') }}
+                            </span>
+                        </a>
+
+                        <a href="{{ route('brochures') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <x-heroicon-o-book-open class="shrink-0 h-6 w-6 text-purple-600"/>
+                            <span class="ml-3 text-base font-medium text-gray-900">
+                                {{ __('Brochures') }}
+                            </span>
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+            <div class="py-6 px-5 space-y-6">
+                <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                    <a href="{{ route('live') }}" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                        Live Streaming
+                    </a>
+
+                    <a href="{{ route('chants.index') }}" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                        {{ __('Chants') }}
+                    </a>
+
+                    <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                        {{ __('Conventions') }}
+                    </a>
+
+                    <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+                        {{ __('Galerie') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>

@@ -70,11 +70,11 @@
         </div>
         <div class="mt-5 lg:grid lg:grid-cols-3 lg:gap-8">
             <div class="lg:col-span-2">
-                <div class="mt-5 prose prose-purple text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
+                <div class="mt-5 prose prose-purple text-gray-500 lg:row-start-1 lg:col-start-1">
                     {!! $song->content !!}
                 </div>
             </div>
-            <aside class="hidden lg:block lg:col-span-1">
+            <aside class="mt-10 lg:mt-0 lg:col-span-1">
                 <div class="sticky top-6 space-y-10">
                     @if($song->video_link)
                         <div>
