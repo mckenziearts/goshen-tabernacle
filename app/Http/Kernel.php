@@ -25,7 +25,7 @@ final class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Modules\Core\Http\Middleware\LocaleMiddleware::class,
+            Middleware\LocaleMiddleware::class,
         ],
 
         'api' => [

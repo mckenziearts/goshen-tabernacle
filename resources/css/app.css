@@ -1,9 +1,15 @@
 @import "~intl-tel-input/build/css/intlTelInput.css";
-@import "~trix/dist/trix.css";
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-@import "base.css";
-@import "sliders.css";
+[x-cloak] { display: none !important; }
+
+.iti { display: block; }
+.iti__selected-flag { padding: 0 10px; }
+
+.swiper-scrollbar-drag {
+  background: theme('colors.primary.600') !important;
+}
+
+@tailwind utilities;

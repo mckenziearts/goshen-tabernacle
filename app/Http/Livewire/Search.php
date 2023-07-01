@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Song;
 use Livewire\Component;
-use Modules\Song\Entities\Song;
 
 class Search extends Component
 {

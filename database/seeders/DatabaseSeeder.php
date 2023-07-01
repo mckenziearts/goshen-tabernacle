@@ -3,16 +3,29 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+final class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        app()['cache']->forget('spatie.permission.cache');
+
+        foreach([
+            config('permission.table_names.model_has_permissions'),
+            config('permission.table_names.model_has_roles'),
+            config('permission.table_names.role_has_permissions'),
+            config('permission.table_names.permissions'),
+            config('permission.table_names.roles'),
+            'users',
+        ] as $table) {
+            DB::table($table)->truncate();
+        }
+
+        $this->call([
+            RoleTableSeeder::class,
+            PermissionTableSeeder::class,
+            PermissionRoleTableSeeder::class,
+        ]);
     }
 }
