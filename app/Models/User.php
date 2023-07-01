@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\User\Entities;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,17 +13,12 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasFactory,
-        HasProfilePhoto,
-        HasRoles,
-        InteractsWithMedia,
-        Notifiable;
+    use HasFactory;
+    use HasProfilePhoto;
+    use HasRoles;
+    use InteractsWithMedia;
+    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'first_name',
         'last_name',
@@ -46,11 +41,6 @@ class User extends Authenticatable implements HasMedia
         'joined_at',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -58,11 +48,6 @@ class User extends Authenticatable implements HasMedia
         'last_login_ip',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
@@ -70,11 +55,6 @@ class User extends Authenticatable implements HasMedia
         'joined_at' => 'datetime',
     ];
 
-    /**
-     * The dynamic attributes from mutators that should be returned with the user object.
-     *
-     * @var array
-     */
     protected $appends = [
         'full_name',
         'profile_photo_url',
@@ -83,12 +63,7 @@ class User extends Authenticatable implements HasMedia
         'formatted_gender',
     ];
 
-    /**
-     * Bootstrap the model and its traits.
-     *
-     * @return void
-     */
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
@@ -99,7 +74,7 @@ class User extends Authenticatable implements HasMedia
 
     public function isAdmin(): bool
     {
-        return $this->hasRole(config('starterkit.core.config.users.admin_role'));
+        return $this->hasRole(config('goshen.users.admin_role'));
     }
 
     public function isManager(): bool
@@ -109,7 +84,7 @@ class User extends Authenticatable implements HasMedia
 
     public function isUser(): bool
     {
-        return $this->hasRole(config('starterkit.core.config.users.default_role'));
+        return $this->hasRole(config('goshen.users.default_role'));
     }
 
     public function isVerified(): bool

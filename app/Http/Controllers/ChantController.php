@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Support\Collection;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Modules\Song\Entities\Author;
 use Modules\Song\Entities\Book;
 use Modules\Song\Entities\Song;
 
-class ChantController extends Controller
+final class ChantController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         seo()
             ->site('Goshen Tabernacle L\'église des 7 Tonnerres')
@@ -41,14 +42,14 @@ class ChantController extends Controller
         ]);
     }
 
-    public function author(Author $author)
+    public function author(Author $author): View
     {
         return view('pages.chants.author', [
             'author' => $author->load('songs'),
         ]);
     }
 
-    public function book(Book $book)
+    public function book(Book $book): View
     {
         return view('pages.chants.book', [
             'book' => $book->load('songs'),
@@ -56,18 +57,18 @@ class ChantController extends Controller
         ]);
     }
 
-    public function show(Song $song)
+    public function show(Song $song): View
     {
         views($song)->record();
 
         seo()
             ->title($song->title . ' | Goshen Tabernacle')
             ->description($song->excerpt(100))
-            ->tag('keywords', '7 tonnerres, goshen-tabernacle, Eglise du message, William Marrion Brahnam, Joseph Coleman, Goshen, Jesus Christ, cantiques, louanges, adoration, chants de victoire')
-            ->tag('twitter:creator', '@monneyarthur')
+            ->tag('keywords', '7 tonnerres, goshen-tabernacle, Eglise du message, William Marrion Branham, Joseph Coleman, Goshen, Jesus Christ, cantiques, louanges, adoration, chants de victoire')
+            ->tag('twitter:creator', '@lechretiendev')
             ->image(asset('/images/chantre-albert.jpg'))
             ->twitterImage(asset('/images/chantre-albert.jpg'))
-            ->twitterSite('monneyarthur')
+            ->twitterSite('lechretiendev')
             ->withUrl();
 
         return view('pages.chants.show', [

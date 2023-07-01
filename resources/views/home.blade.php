@@ -1,32 +1,10 @@
-@extends('layouts.site')
-@push('styles')
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-@endpush
-
-@section('body')
-
-    <div class="h-[300px] md:h-[705px] w-full swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-1.png') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-2.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-3.jpg') }}" alt="">
-            </div>
-            <div class="swiper-slide">
-                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-4.jpg') }}" alt="">
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-    </div>
-
+<x-guest-layout :title="__('Assemblée Goshen Tabernacle')">
     <div class="py-12 overflow-hidden sm:py-16 lg:py-24">
         <div class="max-w-7xl mx-auto px-4 space-y-8 sm:px-6">
             <div class="text-base max-w-prose mx-auto lg:max-w-none">
-                <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{ __('Bienvenue à Goshen Tabernacle') }}</h1>
+                <h1 class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    {{ __('Bienvenue à Goshen Tabernacle') }}
+                </h1>
             </div>
             <div class="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
                 <p class="text-lg text-gray-500 selection:bg-purple-400 selection:text-white">
@@ -72,7 +50,35 @@
             </div>
         </div>
     </div>
+</x-guest-layout>
 
+
+{{--
+@extends('layouts.site')
+@push('styles')
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+@endpush
+--}}
+
+{{--@section('body')
+
+    <div class="h-[300px] md:h-[705px] w-full swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-1.png') }}" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-2.jpg') }}" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-3.jpg') }}" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img class="h-full w-full object-cover" src="{{ asset('/images/slides/slide-4.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
 
     <div class="relative max-w-7xl mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
 
@@ -100,4 +106,4 @@
             },
         });
     </script>
-@endpush
+@endpush--}}

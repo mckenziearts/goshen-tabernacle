@@ -4,27 +4,44 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | App subdomain
+    | Configurations for the user
     |--------------------------------------------------------------------------
     |
-    | This option controls the default subdomain  for your application.
-    | You may change these defaults as required, but they're a perfect start
-    | for this applications.
+    | User configuration to manage user access using http://github.com/spatie/laravel-permission.
     |
     */
 
-    'sub_domain' => 'app.' . env('APP_DOMAIN'),
+    'users' => [
+        'admin_role' => 'administrator',
+        'default_role' => 'user',
+    ],
 
     /*
     |--------------------------------------------------------------------------
-    | Route Prefix
+    | Available languages
     |--------------------------------------------------------------------------
     |
-    | This prefix method can be used for the prefix of each
-    | route in the administration panel. For example, you can change to 'admin'.
+    | Add your language code to this array.
+    | The code must have the same name as the language folder.
+    | Be sure to add the new language in an alphabetical order.
     |
+    | The language picker will not be available if there is only one language option
+    | Commenting out languages will make them unavailable to the user
+    |
+    | @var array
     */
 
-    'prefix' => env('GOSHEN_DASHBOARD_PREFIX', 'cp'),
+    'languages' => [
+
+        /*
+        | Key is the Laravel locale code
+        | Index 0 of sub-array is the Carbon locale code
+        | Index 1 of sub-array is the PHP locale code for setLocale()
+        | Index 2 of sub-array is whether or not to use RTL (right-to-left) html direction for this language
+        */
+
+        'en' => ['en', 'en_US', false],
+        'fr' => ['fr', 'fr_FR', false],
+    ],
 
 ];

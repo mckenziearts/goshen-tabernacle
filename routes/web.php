@@ -5,7 +5,7 @@ use App\Http\Controllers\ChantController;
 use App\Http\Controllers\LiveController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home')->middleware('theme:default');
+Route::view('/', 'home')->name('home');
 
 // Pages
 Route::middleware('theme:default')->group(function () {
@@ -23,16 +23,12 @@ Route::prefix('chants')->as('chants.')->group(function () {
     Route::get('/{song:slug}', [ChantController::class, 'show'])->name('show');
 });
 
-// Redirect url to protect admin panel
 Route::redirectMap([
     '.env' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
     'wp-login' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
     'wp-admin' => 'https://www.youtube.com/watch?v=M8ogFbLP9XQ',
-    'youtube' => 'https://www.youtube.com/channel/UCOhyRt-xCcrmbNxu-eT9AOg',
+    'youtube' => 'https://www.youtube.com/@GoshenTabernacleDouala',
     'facebook' => 'https://www.facebook.com/goshentabernacleofficiel',
     'instagram' => 'https://www.instagram.com/goshentabernacleofficiel',
     'pinterest' => 'https://www.pinterest.com/goshentabernacle',
 ]);
-
-// Package routes
-// Route::mediaLibrary();

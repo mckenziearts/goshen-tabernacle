@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class LiveController extends Controller
+use Illuminate\Contracts\View\View;
+
+final class LiveController extends Controller
 {
-    public function streaming()
+    public function __invoke(): View
     {
         return view('pages.live');
     }
