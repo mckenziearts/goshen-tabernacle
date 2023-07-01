@@ -21,9 +21,9 @@ class CreateNewAdmin extends Command
 
     protected function createUser(): void
     {
-        $email = $this->ask('Email Address', 'admin@laravel-starterkit.dev');
+        $email = $this->ask('Email Address', 'admin@goshen.dev');
         $first_name      = $this->ask('First Name', 'Admin');
-        $last_name       = $this->ask('Last Name', 'Boilerplate');
+        $last_name       = $this->ask('Last Name', 'Goshen');
         $password = $this->secret('Password');
         $confirmPassword = $this->secret('Confirm Password');
 

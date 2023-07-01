@@ -66,18 +66,11 @@
       "@php artisan ide-helper:generate",
       "@php artisan ide-helper:meta"
     ],
-    "sniff": [
-      "./vendor/bin/php-cs-fixer fix -vvv --dry-run --show-progress=dots"
-    ],
     "setup": [
       "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
       "php artisan key:generate",
       "php artisan migrate --seed",
-      "php artisan module:seed Core",
-      "php artisan starterkit:create-admin"
-    ],
-    "lint": [
-      "./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
+      "php artisan goshen:create-admin"
     ]
   },
   "config": {
