@@ -15,20 +15,19 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "laravel-mix": "^6.0.6",
     "lodash": "^4.17.19",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.24",
     "postcss-import": "^12.0.1",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.3.2"
   },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.3.1",
-    "@tailwindcss/typography": "^0.5.2",
-    "alpinejs": "^3.4.2",
-    "autoprefixer": "^10.4.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "alpinejs": "^3.12.3",
+    "autoprefixer": "^10.4.14",
     "intl-tel-input": "^17.0.15",
     "mapbox-gl": "^2.6.1",
-    "scriptjs": "^2.5.9",
-    "trix": "^2.0.0-beta.0"
+    "scriptjs": "^2.5.9"
   }
 }
