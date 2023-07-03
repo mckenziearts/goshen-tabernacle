@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -11,6 +13,9 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @mixin IdeHelperUser
+ */
 final class User extends Authenticatable implements HasMedia
 {
     use HasFactory;
@@ -67,14 +72,14 @@ final class User extends Authenticatable implements HasMedia
     {
         parent::boot();
 
-        static::deleting(function ($model) {
+        static::deleting(function ($model): void {
             $model->roles()->detach();
         });
     }
 
     public function isAdmin(): bool
     {
-        return $this->hasRole(config('goshen.users.admin_role'));
+        return $this->hasRole((string) config('goshen.users.admin_role'));
     }
 
     public function isManager(): bool
@@ -84,12 +89,12 @@ final class User extends Authenticatable implements HasMedia
 
     public function isUser(): bool
     {
-        return $this->hasRole(config('goshen.users.default_role'));
+        return $this->hasRole((string) config('goshen.users.default_role'));
     }
 
     public function isVerified(): bool
     {
-        return $this->email_verified_at !== null;
+        return null !== $this->email_verified_at;
     }
 
     public function joinedAt(): ?Carbon
@@ -105,14 +110,14 @@ final class User extends Authenticatable implements HasMedia
     public function getFullNameAttribute(): string
     {
         return $this->last_name
-            ? $this->first_name . ' ' . $this->last_name
+            ? $this->first_name.' '.$this->last_name
             : $this->first_name;
     }
 
     public function getBirthDateFormattedAttribute(): string
     {
         if ($this->birth_date) {
-            return $this->birth_date->formatLocalized('%d, %B %Y');
+            return $this->birth_date->isoFormat('%d, %B %Y');
         }
 
         return __('Not defined');
@@ -126,7 +131,7 @@ final class User extends Authenticatable implements HasMedia
         };
     }
 
-    public function getAge(): ?string
+    public function getAge(): ?int
     {
         if ($this->birth_date) {
             return Carbon::parse($this->birth_date)->age;
@@ -140,9 +145,7 @@ final class User extends Authenticatable implements HasMedia
         $roles = $this->roles()->pluck('display_name')->toArray();
 
         if (count($roles)) {
-            return implode(', ', array_map(function ($item) {
-                return ucwords($item);
-            }, $roles));
+            return implode(', ', array_map(fn ($item) => ucwords((string) $item), $roles));
         }
 
         return 'N/A';

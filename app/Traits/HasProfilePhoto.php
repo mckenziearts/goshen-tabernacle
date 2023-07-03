@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 trait HasProfilePhoto
 {
     public function getProfilePhotoUrlAttribute(): string
     {
-        if ($this->avatar_type === 'storage') {
+        if ('storage' === $this->avatar_type) {
             return $this->getFirstMediaUrl('avatar');
         }
 
@@ -15,6 +17,6 @@ trait HasProfilePhoto
 
     protected function defaultProfilePhotoUrl(): string
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode($this->full_name) . '&color=065F46&background=D1FAE5';
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->full_name).'&color=065F46&background=D1FAE5';
     }
 }

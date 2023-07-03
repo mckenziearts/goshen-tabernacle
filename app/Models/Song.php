@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Traits\HasSlug;
@@ -10,6 +12,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
+/**
+ * @mixin IdeHelperSong
+ */
 final class Song extends Model implements Viewable
 {
     use HasFactory;
@@ -29,6 +34,7 @@ final class Song extends Model implements Viewable
 
     public function getTypeFormattedAttribute(): string
     {
+        // @phpstan-ignore-next-line
         return match ($this->type) {
             'cantique' => __('Cantique'),
             'inspiration' => __('Chant d\'inspiration'),

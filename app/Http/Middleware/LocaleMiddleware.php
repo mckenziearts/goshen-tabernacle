@@ -1,15 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Carbon\Carbon;
 use Closure;
+use Illuminate\Http\Request;
 
 final class LocaleMiddleware
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        if (session()->has('locale') && array_key_exists(session()->get('locale'), config('goshen.languages'))) {
+        if (session()->has('locale') && array_key_exists((string) session()->get('locale'), (array) config('goshen.languages'))) {
 
             app()->setLocale(session()->get('locale'));
 

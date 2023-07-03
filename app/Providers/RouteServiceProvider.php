@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -16,7 +18,7 @@ final class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
-        $this->routes(function () {
+        $this->routes(function (): void {
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
@@ -27,7 +29,7 @@ final class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-        Route::macro('redirectMap', function ($map, $status = 302) {
+        Route::macro('redirectMap', function (array $map, int $status = 302): void {
             foreach ($map as $old => $new) {
                 Route::redirect($old, $new, $status)->name($old);
             }
@@ -39,7 +41,7 @@ final class RouteServiceProvider extends ServiceProvider
         RateLimiter::for(
             name: 'api',
             callback: fn (Request $request): Limit => Limit::perMinute(60)->by(
-                key: optional($request->user())->id ?: $request->ip()
+                key: optional($request->user())->id ?: $request->ip() // @phpstan-ignore-line
             )
         );
     }

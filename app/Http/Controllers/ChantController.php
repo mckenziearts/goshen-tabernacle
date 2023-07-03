@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Author;
@@ -23,12 +25,13 @@ final class ChantController extends Controller
             ->tag('twitter:creator', '@lechretiendev')
             ->twitterSite('lechretiendev');
 
-        if ($request->query('letter') && strlen($request->query('letter')) === 1) {
+        // @phpstan-ignore-next-line
+        if ($request->query('letter') && 1 === mb_strlen($request->query('letter'))) {
             $songsCollection = Song::with('book')->orderBy('title')->get();
 
             $songs = (new Collection(
                 items: $songsCollection->filter(
-                    fn ($item, $key) => substr($item->title, 0, 1) === $request->query('letter')
+                    fn (Song $item, string $key) => mb_substr($item->title, 0, 1) === $request->query('letter') // @phpstan-ignore-line
                 )
             ))->paginate(27);
 
@@ -62,7 +65,7 @@ final class ChantController extends Controller
         views($song)->record();
 
         seo()
-            ->title($song->title . ' | Goshen Tabernacle')
+            ->title($song->title.' | Goshen Tabernacle')
             ->description($song->excerpt(100))
             ->tag('keywords', '7 tonnerres, goshen-tabernacle, Eglise du message, William Marrion Branham, Joseph Coleman, Goshen, Jesus Christ, cantiques, louanges, adoration, chants de victoire')
             ->tag('twitter:creator', '@lechretiendev')

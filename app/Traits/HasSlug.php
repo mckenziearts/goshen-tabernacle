@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits;
 
 use Illuminate\Support\Str;
@@ -28,7 +30,7 @@ trait HasSlug
 
         while ($this->slugExists($slug, $this->exists ? $this->id : null)) {
             $counter++;
-            $slug = $originalSlug . '-' . $counter;
+            $slug = $originalSlug.'-'.$counter;
         }
 
         return $slug;

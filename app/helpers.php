@@ -1,24 +1,26 @@
 <?php
 
-if (! function_exists('active')) {
-    function active($routes, string $activeClass = 'active', string $defaultClass = '', bool $condition = true): string
+declare(strict_types=1);
+
+if ( ! function_exists('active')) {
+    function active(array $routes, string $activeClass = 'active', string $defaultClass = '', bool $condition = true): string
     {
-        return call_user_func_array([app('router'), 'is'], (array) $routes) && $condition ? $activeClass : $defaultClass;
+        return call_user_func_array([app('router'), 'is'], $routes) && $condition ? $activeClass : $defaultClass;
     }
 }
 
-if (! function_exists('is_active')) {
-    function is_active($routes): bool
+if ( ! function_exists('is_active')) {
+    function is_active(array $routes): bool
     {
-        return (bool) call_user_func_array([app('router'), 'is'], (array) $routes);
+        return (bool) call_user_func_array([app('router'), 'is'], $routes);
     }
 }
 
-if (! function_exists('canonical')) {
+if ( ! function_exists('canonical')) {
     function canonical(string $route, array $params = []): string
     {
         $page = app('request')->get('page');
-        $params = array_merge($params, ['page' => $page != 1 ? $page : null]);
+        $params = array_merge($params, ['page' => 1 !== $page ? $page : null]);
 
         ksort($params);
 
@@ -26,16 +28,16 @@ if (! function_exists('canonical')) {
     }
 }
 
-if (! function_exists('getFilter')) {
+if ( ! function_exists('getFilter')) {
     function getFilter(string $key, array $filters = [], string $default = 'recent'): string
     {
-        $filter = (string) request($key);
+        $filter = (string) request($key); // @phpstan-ignore-line
 
         return in_array($filter, $filters) ? $filter : $default;
     }
 }
 
-if (! function_exists('setEnvironmentValue')) {
+if ( ! function_exists('setEnvironmentValue')) {
     function setEnvironmentValue(array $values): bool
     {
         $envFile = app()->environmentFilePath();
@@ -44,23 +46,23 @@ if (! function_exists('setEnvironmentValue')) {
         if (count($values) > 0) {
             $str .= "\n"; // In case the searched variable is in the last line without \n
             foreach ($values as $envKey => $envValue) {
-                if ($envValue === true) {
+                if (true === $envValue) {
                     $value = 'true';
-                } elseif ($envValue === false) {
+                } elseif (false === $envValue) {
                     $value = 'false';
                 } else {
                     $value = $envValue;
                 }
 
-                $envKey = strtoupper($envKey);
-                $keyPosition = strpos($str, "{$envKey}=");
-                $endOfLinePosition = strpos($str, "\n", $keyPosition);
-                $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
-                $space = strpos($value, ' ');
-                $envValue = ($space === false) ? $value : '"' . $value . '"';
+                $envKey = mb_strtoupper($envKey);
+                $keyPosition = mb_strpos($str, "{$envKey}=");
+                $endOfLinePosition = mb_strpos($str, "\n", $keyPosition);
+                $oldLine = mb_substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
+                $space = mb_strpos($value, ' ');
+                $envValue = (false === $space) ? $value : '"'.$value.'"';
 
                 // If key does not exist, add it
-                if (!$keyPosition || !$endOfLinePosition || !$oldLine) {
+                if ( ! $keyPosition || ! $endOfLinePosition || ! $oldLine) {
                     $str .= "{$envKey}={$envValue}\n";
                 } else {
                     $str = str_replace($oldLine, "{$envKey}={$envValue}", $str);
@@ -70,12 +72,8 @@ if (! function_exists('setEnvironmentValue')) {
             }
         }
 
-        $str = substr($str, 0, -1);
+        $str = mb_substr($str, 0, -1);
 
-        if (! file_put_contents($envFile, $str)) {
-            return false;
-        }
-
-        return true;
+        return ! ( ! file_put_contents($envFile, $str));
     }
 }

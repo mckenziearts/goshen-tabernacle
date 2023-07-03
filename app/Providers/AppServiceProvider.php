@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
@@ -11,8 +13,8 @@ final class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        date_default_timezone_set(config('app.timezone'));
-        Carbon::setLocale(config('app.locale'));
+        date_default_timezone_set(config('app.timezone')); // @phpstan-ignore-line
+        Carbon::setLocale(config('app.locale')); // @phpstan-ignore-line
     }
 
     public function register(): void
@@ -28,12 +30,12 @@ final class AppServiceProvider extends ServiceProvider
     {
         Blade::directive(
             name: 'title',
-            handler:  fn ($expression) => "<?php \$title = $expression ?>"
+            handler:  fn ($expression) => "<?php \$title = {$expression} ?>"
         );
 
         Blade::directive(
             name: 'canonical',
-            handler: fn ($expression) => "<?php \$canonical = $expression ?>"
+            handler: fn ($expression) => "<?php \$canonical = {$expression} ?>"
         );
     }
 }

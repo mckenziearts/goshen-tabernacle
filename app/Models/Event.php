@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Traits\HasSlug;
@@ -9,6 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+/**
+ * @mixin IdeHelperEvent
+ */
 final class Event extends Model implements HasMedia
 {
     use HasFactory;
@@ -33,21 +38,22 @@ final class Event extends Model implements HasMedia
 
     public function isPublic(): bool
     {
-        return $this->privacy === 'public';
+        return 'public' === $this->privacy;
     }
 
     public function isInvitation(): bool
     {
-        return $this->privacy === 'invitation';
+        return 'invitation' === $this->privacy;
     }
 
     public function isPrivate(): bool
     {
-        return $this->privacy === 'private';
+        return 'private' === $this->privacy;
     }
 
     public function getPrivacyFormattedAttribute(): string
     {
+        // @phpstan-ignore-next-line
         return match ($this->privacy) {
             'public' => __('Public'),
             'private' => __('Membres de l\'église'),
@@ -74,6 +80,6 @@ final class Event extends Model implements HasMedia
 
     public function scopeForEveryone(Builder $query): Builder
     {
-        return $query->visible()->public();
+        return $query->visible()->public(); // @phpstan-ignore-line
     }
 }

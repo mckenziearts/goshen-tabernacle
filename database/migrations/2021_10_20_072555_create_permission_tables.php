@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\PermissionRegistrar;
 
-class CreatePermissionTables extends Migration
-{
+return new class () extends Migration {
     public function up(): void
     {
         $tableNames = config('permission.table_names');
@@ -21,7 +22,7 @@ class CreatePermissionTables extends Migration
             throw new \Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
-        Schema::create($tableNames['permissions'], static function (Blueprint $table) {
+        Schema::create($tableNames['permissions'], static function (Blueprint $table): void {
             $table->bigIncrements('id');
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name'); // For MySQL 8.0 use string('guard_name', 125);
@@ -34,7 +35,7 @@ class CreatePermissionTables extends Migration
             $table->unique(['name', 'guard_name']);
         });
 
-        Schema::create($tableNames['roles'], static function (Blueprint $table) use ($teams, $columnNames) {
+        Schema::create($tableNames['roles'], static function (Blueprint $table) use ($teams, $columnNames): void {
             $table->bigIncrements('id');
             if ($teams || config('permission.testing')) { // permission.testing is a fix for sqlite testing
                 $table->unsignedBigInteger($columnNames['team_foreign_key'])->nullable();
@@ -54,7 +55,7 @@ class CreatePermissionTables extends Migration
             }
         });
 
-        Schema::create($tableNames['model_has_permissions'], static function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::create($tableNames['model_has_permissions'], static function (Blueprint $table) use ($tableNames, $columnNames, $teams): void {
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
 
             $table->string('model_type');
@@ -81,7 +82,7 @@ class CreatePermissionTables extends Migration
             }
         });
 
-        Schema::create($tableNames['model_has_roles'], static function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+        Schema::create($tableNames['model_has_roles'], static function (Blueprint $table) use ($tableNames, $columnNames, $teams): void {
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
             $table->string('model_type');
@@ -108,7 +109,7 @@ class CreatePermissionTables extends Migration
             }
         });
 
-        Schema::create($tableNames['role_has_permissions'], static function (Blueprint $table) use ($tableNames) {
+        Schema::create($tableNames['role_has_permissions'], static function (Blueprint $table) use ($tableNames): void {
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
@@ -126,7 +127,7 @@ class CreatePermissionTables extends Migration
         });
 
         app('cache')
-            ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
+            ->store('default' !== config('permission.cache.store') ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
     }
 
@@ -144,4 +145,4 @@ class CreatePermissionTables extends Migration
         Schema::drop($tableNames['roles']);
         Schema::drop($tableNames['permissions']);
     }
-}
+};

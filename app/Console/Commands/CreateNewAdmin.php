@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
+use Exception;
 
-class CreateNewAdmin extends Command
+final class CreateNewAdmin extends Command
 {
     protected $signature = 'goshen:create-admin';
 
@@ -22,9 +25,9 @@ class CreateNewAdmin extends Command
     protected function createUser(): void
     {
         $email = $this->ask('Email Address', 'admin@goshen.dev');
-        $first_name      = $this->ask('First Name', 'Admin');
-        $last_name       = $this->ask('Last Name', 'Goshen');
-        $password = $this->secret('Password');
+        $first_name = $this->ask('First Name', 'Admin');
+        $last_name = $this->ask('Last Name', 'Goshen');
+        $password = (string) $this->secret('Password');
         $confirmPassword = $this->secret('Confirm Password');
 
         // Passwords don't match
@@ -46,10 +49,10 @@ class CreateNewAdmin extends Command
         $model = config('auth.providers.users.model');
 
         try {
-            $user = tap((new $model)->forceFill($userData))->save();
+            $user = tap((new $model())->forceFill($userData))->save(); // @phpstan-ignore-line
 
             $user->assignRole(config('goshen.users.admin_role'));
-        } catch (\Exception | QueryException $e) {
+        } catch (Exception | QueryException $e) {
             $this->error($e->getMessage());
         }
     }
