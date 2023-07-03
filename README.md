@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://goshen-tabernacle.cm"><img src="/art/social-card.png" alt="Goshen Tabernacle Screenshoot"></a>
+    <a href="https://goshen-tabernacle.cm"><img src="/.art/social-card.png" alt="Goshen Tabernacle Screenshot"></a>
 </p>
 
 <p align="center">
@@ -10,8 +10,8 @@
 
 ## Goshen Tabernacle
 
-Ce dépôt contient le code source du site de [goshen-tabernacle.com](https://goshen-tabernacle.com). Goshen Tabernacle est l'assemblee locale Camerounaise des croyants qui ont cru au 
-messager (prophete) du temps de la fin William Marrion Branham.
+Ce dépôt contient le code source du site de [goshen-tabernacle.com](https://goshen-tabernacle.com). Goshen Tabernacle est l'assemblée locale camerounaise des croyants du message
+du temps de la fin apporté par le prophète de Dieu William Marrion Branham.
 
 Site web : https://goshen-tabernacle.com <br />
 Facebook: https://www.facebook.com/goshentabernacle <br />
@@ -19,9 +19,9 @@ Instagram: https://instagram.com/goshentabernacleofficiel <br />
 
 ## Caractéristiques du Serveur
 
-Les elements suivant sont requis pour demarrer l'installation
+Les éléments suivants sont requis pour démarrer l'installation
 
-- PHP >=8.0
+- PHP >=8.2
 - [Composer](https://getcomposer.org/download/)
 - [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [Valet](https://laravel.com/docs/valet#installation)
@@ -41,16 +41,14 @@ Vous pouvez maintenant visiter l'application dans votre navigateur en visitant [
 
 ## Commands
 
-Command | Description
---- | ---
-**`php artisan test --parallel`** | Exécuter les tests
-`php artisan migrate:fresh --seed` | Reset la base de données
-`npx mix --watch` | Surveillez les changements dans les fichiers CSS et JS
+| Command                            | Description                                            |
+|------------------------------------|--------------------------------------------------------|
+| **`php artisan test --parallel`**  | Exécuter les tests                                     |
+| `php artisan migrate:fresh --seed` | Reset la base de données                               |
+| `npx mix --watch`                  | Surveillez les changements dans les fichiers CSS et JS |
 
 ## Maintainers
-
 Le site Laravel.cm est actuellement maintenu par [Arthur Monney](https://github.com/mckenziearts). Si vous avez des questions, n'hésitez pas à créer une issue sur ce dépôt.
 
 ## Vulnérabilités de sécurité
-
-Si vous découvrez une faille de sécurité dans Laravel.cm, veuillez envoyer un e-mail immédiatement à [contact@arthurmonney.me](mailto:contact@arthurmonney.me). **Ne créez pas de problème pour la vulnérabilité.**
+Si vous découvrez une faille de sécurité sur goshen-tabernacle.com, veuillez envoyer un e-mail immédiatement à [contact@arthurmonney.me](mailto:contact@arthurmonney.me). **Ne créez pas de problème pour la vulnérabilité.**

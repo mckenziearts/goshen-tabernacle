@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use BladeUIKit\Components;
 
 return [
@@ -55,7 +57,7 @@ return [
     */
 
     'livewire' => [
-        //
+
     ],
 
     /*

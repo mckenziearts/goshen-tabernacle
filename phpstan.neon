@@ -1,0 +1,24 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app/
+
+    level: 9
+
+    ignoreErrors:
+        - "#^Cannot call method site\\(\\) on ArchTech\\\\SEO\\\\SEOManager\\|array\\|string\\|null\\.$#"
+        - "#^Cannot call method title\\(\\) on ArchTech\\\\SEO\\\\SEOManager\\|array\\|string\\|null\\.$#"
+        - "#Cannot cast mixed to string.#"
+    excludePaths:
+        - app/Http/Middleware/
+        - app/helpers.php
+
+    scanDirectories:
+        - ./helpers
+
+    checkMissingIterableValueType: false
+
+    checkGenericClassInNonGenericObjectType: false

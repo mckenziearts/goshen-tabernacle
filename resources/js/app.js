@@ -2,7 +2,6 @@ import Alpine from 'alpinejs'
 
 import internationalNumber from './plugins/internationalNumber'
 import mapBox from './plugins/mapBox'
-import './helpers/string'
 
 window.Alpine = Alpine
 
