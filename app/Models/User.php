@@ -97,7 +97,7 @@ final class User extends Authenticatable implements HasMedia, FilamentUser, HasA
 
     public function canAccessFilament(): bool
     {
-        return str_ends_with($this->email, '@goshen-tabernacle.com') || $this->isAdmin() || $this->isManager();
+        return str_ends_with($this->email, '@goshen-tabernacle.com') || $this->isAdmin() || $this->isManager() || $this->hasRole('super_admin');
     }
 
     public function getFilamentAvatarUrl(): ?string
