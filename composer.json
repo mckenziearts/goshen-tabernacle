@@ -11,11 +11,12 @@
     "php": "^8.2",
     "ext-json": "*",
     "archtechx/laravel-seo": "^0.9.0",
+    "bezhansalleh/filament-shield": "^2.4",
     "blade-ui-kit/blade-heroicons": "^1.4",
     "blade-ui-kit/blade-ui-kit": "^0.4",
     "cyrildewit/eloquent-viewable": "^7.0.1",
+    "filament/filament": "^2.0",
     "guzzlehttp/guzzle": "^7.7",
-    "juststeveking/launchpad": "dev-main",
     "laravel/framework": "^10.14.1",
     "laravel/tinker": "^2.8.1",
     "livewire/livewire": "^2.12.3",
@@ -28,12 +29,15 @@
     "barryvdh/laravel-ide-helper": "^2.13",
     "doctrine/dbal": "^3.6.4",
     "fakerphp/faker": "^1.23",
+    "juststeveking/launchpad": "dev-main",
     "laravel/breeze": "^1.21.1",
     "laravel/pint": "^1.10",
     "laravel/sail": "^1.23",
     "mockery/mockery": "^1.6.2",
     "nunomaduro/collision": "^7.7",
     "nunomaduro/larastan": "^2.6",
+    "pestphp/pest": "^2.8",
+    "pestphp/pest-plugin-laravel": "^2.0",
     "phpunit/phpunit": "^10.2.3",
     "spatie/laravel-ignition": "^2.2"
   },
@@ -66,7 +70,8 @@
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
       "@php artisan ide-helper:generate",
-      "@php artisan ide-helper:meta"
+      "@php artisan ide-helper:meta",
+      "@php artisan filament:upgrade"
     ],
     "setup": [
       "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
@@ -95,7 +100,8 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "allow-plugins": {
-      "php-http/discovery": false
+      "php-http/discovery": false,
+      "pestphp/pest-plugin": false
     }
   },
   "extra": {

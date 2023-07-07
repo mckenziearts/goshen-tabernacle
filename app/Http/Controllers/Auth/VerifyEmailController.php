@@ -12,24 +12,20 @@ use Illuminate\Http\RedirectResponse;
 
 final class VerifyEmailController extends Controller
 {
-    /**
-     * Mark the authenticated user's email address as verified.
-     *
-     * @param  \Illuminate\Foundation\Auth\EmailVerificationRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function __invoke(EmailVerificationRequest $request): RedirectResponse
     {
-        // @phpstan-ignore-next-line
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        if ($request->user()->hasVerifiedEmail()) { // @phpstan-ignore-line
+            return redirect()->intended(
+                config('app.frontend_url').RouteServiceProvider::HOME.'?verified=1'
+            );
         }
 
-        // @phpstan-ignore-next-line
-        if ($request->user()->markEmailAsVerified()) {
+        if ($request->user()->markEmailAsVerified()) { // @phpstan-ignore-line
             event(new Verified($request->user())); // @phpstan-ignore-line
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        return redirect()->intended(
+            config('app.frontend_url').RouteServiceProvider::HOME.'?verified=1'
+        );
     }
 }
