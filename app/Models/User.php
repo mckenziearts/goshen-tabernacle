@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Models\Contracts\HasName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +19,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @mixin IdeHelperUser
  */
-final class User extends Authenticatable implements HasMedia
+final class User extends Authenticatable implements HasMedia, FilamentUser, HasAvatar, HasName
 {
     use HasFactory;
     use HasProfilePhoto;
@@ -92,6 +95,16 @@ final class User extends Authenticatable implements HasMedia
         return $this->hasRole((string) config('goshen.users.default_role'));
     }
 
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@goshen-tabernacle.com') || $this->isAdmin() || $this->isManager();
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->profile_photo_url;
+    }
+
     public function isVerified(): bool
     {
         return null !== $this->email_verified_at;
@@ -114,6 +127,11 @@ final class User extends Authenticatable implements HasMedia
             : $this->first_name;
     }
 
+    public function getFilamentName(): string
+    {
+        return $this->full_name;
+    }
+
     public function getBirthDateFormattedAttribute(): string
     {
         if ($this->birth_date) {
@@ -126,8 +144,8 @@ final class User extends Authenticatable implements HasMedia
     public function getFormattedGenderAttribute(): string
     {
         return match ($this->gender) {
-            'male' => __('Male'),
-            'female' => __('Female'),
+            'male' => __('Homme'),
+            'female' => __('Femme'),
         };
     }
 

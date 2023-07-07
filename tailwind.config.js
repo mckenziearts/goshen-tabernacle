@@ -6,7 +6,9 @@ module.exports = {
   content: [
     './resources/views/**/*.blade.php',
     './storage/framework/views/*.php',
+    './vendor/filament/**/*.blade.php',
     './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    './vendor/wire-elements/modal/resources/views/*.blade.php',
   ],
   safelist: [
     {
@@ -26,13 +28,12 @@ module.exports = {
         },
       },
       colors: {
-        primary: colors.purple,
-        secondary: colors.slate,
-        positive: colors.emerald,
-        success: colors.emerald,
-        warning: colors.amber,
         danger: colors.red,
         info: colors.sky,
+        primary: colors.purple,
+        secondary: colors.slate,
+        success: colors.emerald,
+        warning: colors.amber,
       },
       fontFamily: {
         sans: ['Inter var', ...fontFamily.sans],
