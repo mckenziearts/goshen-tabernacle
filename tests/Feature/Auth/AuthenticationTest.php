@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 use App\Models\User;
+
 use function Pest\Laravel\postJson;
 
-it('users can authenticate using the login', function () {
+it('users can authenticate using the login', function (): void {
     $user = User::factory()->create();
 
     postJson('/login', [
@@ -16,7 +17,7 @@ it('users can authenticate using the login', function () {
     expect(auth()->user()->id)->toBe($user->id);
 })->group('auth');
 
-it('users can not authenticate with invalid password', function () {
+it('users can not authenticate with invalid password', function (): void {
     $user = User::factory()->create();
 
     postJson('/login', [
