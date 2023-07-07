@@ -2,38 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
-
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use function Pest\Laravel\postJson;
 
-final class AuthenticationTest extends TestCase
-{
-    use RefreshDatabase;
+it('users can authenticate using the login', function () {
+    $user = User::factory()->create();
 
-    public function test_users_can_authenticate_using_the_login_screen(): void
-    {
-        $user = User::factory()->create();
+    postJson('/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ])->assertNoContent();
 
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
+    expect(auth()->user()->id)->toBe($user->id);
+})->group('auth');
 
-        $this->assertAuthenticated();
-        $response->assertNoContent();
-    }
+it('users can not authenticate with invalid password', function () {
+    $user = User::factory()->create();
 
-    public function test_users_can_not_authenticate_with_invalid_password(): void
-    {
-        $user = User::factory()->create();
+    postJson('/login', [
+        'email' => $user->email,
+        'password' => 'wrong-password',
+    ]);
 
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'wrong-password',
-        ]);
-
-        $this->assertGuest();
-    }
-}
+    expect(auth()->user())->toBeNull();
+})->group('auth');

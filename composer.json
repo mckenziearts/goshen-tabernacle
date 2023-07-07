@@ -36,6 +36,8 @@
     "mockery/mockery": "^1.6.2",
     "nunomaduro/collision": "^7.7",
     "nunomaduro/larastan": "^2.6",
+    "pestphp/pest": "^2.8",
+    "pestphp/pest-plugin-laravel": "^2.0",
     "phpunit/phpunit": "^10.2.3",
     "spatie/laravel-ignition": "^2.2"
   },
@@ -98,7 +100,8 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "allow-plugins": {
-      "php-http/discovery": false
+      "php-http/discovery": false,
+      "pestphp/pest-plugin": false
     }
   },
   "extra": {
