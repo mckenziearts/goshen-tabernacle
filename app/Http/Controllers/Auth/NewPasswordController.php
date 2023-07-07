@@ -32,7 +32,7 @@ final class NewPasswordController extends Controller
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user) use ($request): void {
                 $user->forceFill([
-                    'password' => Hash::make($request->password),
+                    'password' => Hash::make((string) $request->password),
                     'remember_token' => Str::random(60),
                 ])->save();
 
@@ -42,7 +42,7 @@ final class NewPasswordController extends Controller
 
         if (Password::PASSWORD_RESET !== $status) {
             throw ValidationException::withMessages([
-                'email' => [__($status)],
+                'email' => [__($status)], // @phpstan-ignore-line
             ]);
         }
 
