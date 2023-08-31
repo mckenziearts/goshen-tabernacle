@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -95,7 +96,7 @@ final class User extends Authenticatable implements HasMedia, FilamentUser, HasA
         return $this->hasRole((string) config('goshen.users.default_role'));
     }
 
-    public function canAccessFilament(): bool
+    public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with((string) $this->email, '@goshen-tabernacle.com') || $this->isAdmin() || $this->isManager() || $this->hasRole('super_admin');
     }
