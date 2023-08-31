@@ -1,8 +1,12 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
+import aspect from '@tailwindcss/aspect-ratio'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import colors from 'tailwindcss/colors'
+import { fontFamily }  from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './resources/views/**/*.blade.php',
     './storage/framework/views/*.php',
@@ -62,9 +66,5 @@ module.exports = {
       })
     }
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [aspect, forms, typography],
 };

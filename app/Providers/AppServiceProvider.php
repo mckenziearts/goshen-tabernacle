@@ -6,7 +6,6 @@ namespace App\Providers;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Carbon\Carbon;
-use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -18,8 +17,6 @@ final class AppServiceProvider extends ServiceProvider
         setlocale(LC_TIME, 'fr_FR', 'fr', 'FR', 'French', 'fr_FR.UTF-8');
         setlocale(LC_ALL, 'fr_FR', 'fr', 'FR', 'French', 'fr_FR.UTF-8');
         Carbon::setLocale('fr');
-
-        $this->bootFilament();
     }
 
     public function register(): void
@@ -41,20 +38,6 @@ final class AppServiceProvider extends ServiceProvider
         Blade::directive(
             name: 'canonical',
             handler: fn ($expression) => "<?php \$canonical = {$expression} ?>"
-        );
-    }
-
-    public function bootFilament(): void
-    {
-        Filament::serving(function (): void {
-            Filament::registerTheme(
-                mix('css/filament.css'),
-            );
-        });
-
-        Filament::registerRenderHook(
-            'body.start',
-            fn (): string => Blade::render('@livewire(\'livewire-ui-modal\')'),
         );
     }
 }
