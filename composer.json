@@ -70,6 +70,7 @@
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
       "@php artisan ide-helper:generate",
+      "@php artisan ide-helper:models -F helpers/ModelHelper.php -M",
       "@php artisan ide-helper:meta",
       "@php artisan filament:upgrade"
     ],

@@ -6,53 +6,29 @@ yarn-error.log
 yarn.lock
 package-lock.json
 
-# Composer
-#
 /vendor
 composer.phar
 
-# Laravel
-#
-/public/media
-/public/storage
-/public/themes
-/storage/*.key
-.env
-.env.backup
-_ide_helper.php
-.phpstorm.meta.php
-error.log
-output.txt
-.php_cs.cache
-coverage.xml
-/coverage
-.phpunit.result.cache
-.php-cs-fixer.cache
-
-# IntelliJ/PhpStorm
-#
 /.idea
-
-# Visual Studio Code
-#
 /.vscode
 
-# Netbeans
+# Laravel Exclude
 #
-/nbproject
-.project
-
-/.vagrant
-
-Homestead.json
-Homestead.yaml
+.phpunit.result.cache
+/public/build
+/public/hot
+/public/storage
+/public/media
+/public/sitemap.xml
+/storage/*.key
+/storage/framework/cache
+.env
+.env.backup
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
 
 # OSX
 #
 .DS_Store
 Thumbs.db
-
-# SublimeText
-#
-*.sublime-project
-*.sublime-workspace
