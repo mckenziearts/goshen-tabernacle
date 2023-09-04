@@ -40,7 +40,8 @@ module.exports = {
         warning: colors.amber,
       },
       fontFamily: {
-        sans: ['Inter var', ...fontFamily.sans],
+        sans: ['Didact Gothic', ...fontFamily.sans],
+        heading: ['Inter var', ...fontFamily.sans],
       },
       maxHeight: {
         xs: '20rem',

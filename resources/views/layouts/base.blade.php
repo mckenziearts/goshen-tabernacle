@@ -11,13 +11,15 @@
     @include('includes._favicon')
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 
     @stack('styles')
-    @livewireStyles
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    @livewireScripts
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('includes._ga')
 </head>
 <body class="font-sans text-slate-500 antialiased">
