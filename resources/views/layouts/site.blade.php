@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@props(['title' => null])
 
-    @include('includes._favicon')
-
-    <x-seo::meta />
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <!-- Styles -->
-    @stack('styles')
-    @livewireStyles
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
-
-    @include('includes._ga')
-</head>
-<body class="font-sans antialiased">
+<x-base-layout :title="$title">
 
     @include('layouts.header')
 
-    @yield('body')
+    {{ $slot }}
 
     @include('layouts.footer')
 
-    @livewireScripts
-    <script src="{{ mix('js/app.js') }}"></script>
-    @stack('scripts')
-
-</body>
-</html>
+</x-base-layout>

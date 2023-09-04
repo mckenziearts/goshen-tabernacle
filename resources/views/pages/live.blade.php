@@ -3,7 +3,6 @@
 @section('body')
 
     <x-container>
-
         <div class="w-full relative h-[575px]">
             <iframe class="w-full h-full aspect-video rounded-lg shadow-lg"
                     src="https://www.youtube.com/embed/live_stream?channel=UCOhyRt-xCcrmbNxu-eT9AOg"
@@ -12,7 +11,6 @@
                     allowfullscreen
             ></iframe>
         </div>
-
     </x-container>
 
     <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pb-24 lg:max-w-7xl">
